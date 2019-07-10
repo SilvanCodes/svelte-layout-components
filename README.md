@@ -7,7 +7,7 @@ Also I like to try and play with [ColorSupply](https://colorsupplyyy.com/app).
 
 Feel free to play around with these layout components! Feedback and bug reports welcome. :)
 
-Also this is very much WIP.
+Also this is very much WIP. You can see it [here](https://silvancodes.github.io/svelte-layout-components/) on github pages .
 
 ## Get started
 
