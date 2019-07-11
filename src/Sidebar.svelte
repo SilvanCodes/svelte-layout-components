@@ -11,9 +11,9 @@
 </script>
 
 <style>
-    [class^="with-sidebar"] {
+    /* [class^="with-sidebar"] {
         overflow: hidden;
-    }
+    } */
 
     [class^="with-sidebar"] > * {
         display: flex;
@@ -28,6 +28,7 @@
         /* ↓ grow from nothing */
         flex-basis: 0;
         flex-grow: 999;
+        overflow: initial;
     }
 </style>
 
