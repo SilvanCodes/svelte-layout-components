@@ -17,7 +17,7 @@
 		</Bracket>
 	</div>
 	<div slot="center">
-		<Sidebar scale="--zero">
+		<Sidebar>
 			<div slot="sidebar">
 				<Bracket padding="--s-1">
 					<p slot="center">Sidebar Title</p>
