@@ -8,7 +8,7 @@
 
 	/* spacebar press */
 	document.body.onkeyup = function(e){
-		if(e.keyCode == 32){
+		if(e.keyCode === 32){
 			configuration = (configuration + 1) % 3;
 		}
 	}
@@ -16,7 +16,7 @@
 	function unify(e) { return e.changedTouches ? e.changedTouches[0] : e };
 
 	function lock(e) {
-		x0 = e.clientX;
+		x0 = unify(e).clientX;
 	}
 
 	function move(e) {
@@ -51,10 +51,10 @@
 
 </script>
 
-{#if configuration == 0}
+{#if configuration === 0}
 	<SampleConfiguration_001></SampleConfiguration_001>
-{:else if configuration == 1}
+{:else if configuration === 1}
 	<SampleConfiguration_002></SampleConfiguration_002>
-{:else if configuration == 2}
+{:else if configuration === 2}
 	<SampleConfiguration_003></SampleConfiguration_003>
 {/if}
