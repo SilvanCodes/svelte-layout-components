@@ -79,3 +79,7 @@ p {
 	font-family: JosefinSlab;
 	font-size: var(--s1);
 }
+
+a {
+	color: var(--color-ternary);
+}
