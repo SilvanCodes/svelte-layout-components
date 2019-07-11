@@ -11,11 +11,11 @@
             {#each statements as statement, i}
                 {#if i%2 == 0}
                     <Bracket padding="--zero">
-                        <p slot="left">{statement}</p>
+                        <p slot="left">{@html statement}</p>
                     </Bracket>
                 {:else}
                     <Bracket padding="--zero">
-                        <p slot="right">{statement}</p>
+                        <p slot="right">{@html statement}</p>
                     </Bracket>
                 {/if}
             {/each}
