@@ -28,7 +28,7 @@
         /* ↓ grow from nothing */
         flex-basis: 0;
         flex-grow: 999;
-        min-width: 50%;
+        min-width: 70%;
     }
 </style>
 
