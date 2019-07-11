@@ -32,7 +32,7 @@
 <style>
     [class^="button"] {
         padding: var(--s-3);
-        border-radius: 10%;
+        border-radius: var(--s-3);
         font-family: JosefinSlab;
     }
 </style>

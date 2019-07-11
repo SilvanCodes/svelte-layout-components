@@ -4,6 +4,7 @@
     export let padding = '--s0';
     export let margin = '--s0';
     export let maxOut = false;
+    export let style = '';
 
     $: id = padding + margin + maxOut;
 
@@ -27,17 +28,14 @@
 
     [class^="bracket"] > .left {
         margin-left: 0;
-        /* background: var(--color-secondary);
-        color: white; */
     }
 
     [class^="bracket"] > .right {
         margin-right: 0;
-        /* background: var(--color-ternary); */
     }
 </style>
 
-<div class={`bracket${id}`}>
+<div class={`bracket${id}`} {style}>
     <div class="left">
         <slot name="left"></slot>
     </div>

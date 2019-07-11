@@ -4,7 +4,9 @@
 	import Bracket from './Bracket.svelte';
     import Alternate from './Alternate.svelte';
     import Button from './Button.svelte';
-    import Stack from './Stack.svelte';
+	import Stack from './Stack.svelte';
+	
+	import { statements } from './staticContent.js'
 </script>
 
 
@@ -32,7 +34,7 @@
 				
 			</div>
 			<div slot="not-sidebar">
-				<Alternate statements={["This website is an experiment to learn webdesign.", "It is layouted according to the ideas of https://every-layout.dev/", "The color schema comes from https://colorsupplyyy.com/app", "More content to come."]}></Alternate>
+				<Alternate {statements}></Alternate>
 			</div>
 		</Sidebar>
 	</div>

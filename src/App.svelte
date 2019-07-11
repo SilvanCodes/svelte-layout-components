@@ -1,22 +1,60 @@
 <script>
-	import Stack from './Stack.svelte';
-	import Sidebar from './Sidebar.svelte';
-	import Cover from './Cover.svelte';
-	import Bracket from './Bracket.svelte';
-	import Alternate from './Alternate.svelte';
 	import SampleConfiguration_001 from './SampleConfiguration_001.svelte';
+	import SampleConfiguration_002 from './SampleConfiguration_002.svelte';
+	import SampleConfiguration_003 from './SampleConfiguration_003.svelte';
+
+	let configuration = 0;
+	let x0 = null;
+
+	/* spacebar press */
+	document.body.onkeyup = function(e){
+		if(e.keyCode == 32){
+			configuration = (configuration + 1) % 3;
+		}
+	}
+
+	function unify(e) { return e.changedTouches ? e.changedTouches[0] : e };
+
+	function lock(e) {
+		x0 = e.clientX;
+	}
+
+	function move(e) {
+		if(x0 || x0 === 0) {
+			let dx = e.clientX - x0, s = Math.sign(dx);
+
+			/* trigger only if more the 20 percent of screen are swiped */
+			let threshold = Math.abs(dx) > document.body.getBoundingClientRect().width * 0.2;
+
+			if (!threshold) return;
+
+			if (s > 0) {
+				configuration = (configuration + 1) % 3;
+			} else {
+				configuration = (configuration + 2) % 3;
+			}
+			
+			x0 = null;
+		}
+	}
+
+	/* swipe with touch */
+	document.body.addEventListener('touchstart', lock, false);
+	document.body.addEventListener('touchend', move, false);
+
+	/* swipe with mouse */
+	document.body.addEventListener('mousedown', lock, false);
+	document.body.addEventListener('mouseup', move, false);
+
+	/* prevent default action */
+	document.body.addEventListener('touchmove', e => { e.preventDefault() }, false);
 
 </script>
 
-
-<!-- <Cover padding="--zero" margin="--zero" maxOut={false}>
-	<div slot="center" style="background: blue;">
-		<Sidebar>
-			<div slot="sidebar" style="background: red;">A</div>
-			<div slot="not-sidebar" style="background: green;">B</div>
-		</Sidebar>
-	</div>
-</Cover> -->
-
-
-<SampleConfiguration_001></SampleConfiguration_001>
+{#if configuration == 0}
+	<SampleConfiguration_001></SampleConfiguration_001>
+{:else if configuration == 1}
+	<SampleConfiguration_002></SampleConfiguration_002>
+{:else if configuration == 2}
+	<SampleConfiguration_003></SampleConfiguration_003>
+{/if}
