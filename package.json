@@ -19,6 +19,7 @@
     "autobuild": "rollup -c -w",
     "dev": "run-p start:dev autobuild",
     "start": "sirv docs --single",
-    "start:dev": "sirv docs --single --dev"
+    "start:dev": "sirv docs --single --dev",
+    "deploy": "npm run build && git add docs/ && git commit -m 'Update build' && git push"
   }
 }
