@@ -21,7 +21,7 @@
 
 	function move(e) {
 		if(x0 || x0 === 0) {
-			let dx = e.clientX - x0, s = Math.sign(dx);
+			let dx = unify(e).clientX - x0, s = Math.sign(dx);
 
 			/* trigger only if more the 20 percent of screen are swiped */
 			let threshold = Math.abs(dx) > document.body.getBoundingClientRect().width * 0.2;
