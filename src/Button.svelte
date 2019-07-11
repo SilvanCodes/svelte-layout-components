@@ -22,7 +22,7 @@
             case 'ternary':
                 document.querySelectorAll(`.button${id}`).forEach(e => {
                     e.style.background = `var(--color-ternary)`;
-                    e.style.color = `black`;
+                    e.style.color = `white`;
                 });
                 break;
         }
@@ -31,9 +31,10 @@
 
 <style>
     [class^="button"] {
-        padding: var(--s-3);
+        padding: var(--s-2);
         border-radius: var(--s-3);
         font-family: JosefinSlab;
+        font-size: var(--s1);
     }
 </style>
 
