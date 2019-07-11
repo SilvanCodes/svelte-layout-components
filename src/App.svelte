@@ -4,28 +4,19 @@
 	import Cover from './Cover.svelte';
 	import Bracket from './Bracket.svelte';
 	import Alternate from './Alternate.svelte';
+	import SampleConfiguration_001 from './SampleConfiguration_001.svelte';
+
 </script>
 
 
-<Cover padding="--zero" margin="--zero" maxOut={true}>
-	<div slot="above">
-		<Bracket>
-			<p slot="center">Welcome!</p>
-		</Bracket>
-	</div>
-	<div slot="center">
-		<Sidebar scale="--zero">
-			<div slot="sidebar">
-				<Bracket padding="--s-1">
-					<p slot="center">Sidebar Title</p>
-				</Bracket>
-				<Bracket>
-					<p slot="left">Option 1</p>
-				</Bracket>
-			</div>
-			<div slot="not-sidebar">
-				<Alternate statements={["This website is an experiment to learn webdesign.", "It is layouted according to the ideas of https://every-layout.dev/", "The color schema comes from https://colorsupplyyy.com/app"]}></Alternate>
-			</div>
+<!-- <Cover padding="--zero" margin="--zero" maxOut={false}>
+	<div slot="center" style="background: blue;">
+		<Sidebar>
+			<div slot="sidebar" style="background: red;">A</div>
+			<div slot="not-sidebar" style="background: green;">B</div>
 		</Sidebar>
 	</div>
-</Cover>
+</Cover> -->
+
+
+<SampleConfiguration_001></SampleConfiguration_001>

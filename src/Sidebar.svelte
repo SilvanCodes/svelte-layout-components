@@ -13,22 +13,39 @@
 <style>
     [class^="with-sidebar"] {
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
     }
 
     [class^="with-sidebar"] > * {
+        flex-grow: 1;
         display: flex;
         flex-wrap: wrap;
     }
 
     .sidebar {
         flex-grow: 1;
+        height: 100%;
+        background: var(--color-secondary);
+        color: white;
     }
 
     [class^="not-sidebar"] {
         /* ↓ grow from nothing */
+        height: 100%;
         flex-basis: 0;
         flex-grow: 999;
     }
+
+    /* for spreading sidebar to full viewport */
+    :global(.sidebar > *) {
+        height: 100%;
+    }
+
+    /* :global([class^="not-sidebar"] > *) {
+        height: 100%;
+    } */
 </style>
 
 <div class={`with-sidebar${scale}`}>

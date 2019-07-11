@@ -18,8 +18,6 @@
 <style>
     [class^="bracket"] {
         display: flex;
-        flex-direction: row;
-        min-width: 100%;
     }
 
     [class^="bracket"] > .center {
@@ -29,21 +27,24 @@
 
     [class^="bracket"] > .left {
         margin-left: 0;
+        /* background: var(--color-secondary);
+        color: white; */
     }
 
     [class^="bracket"] > .right {
         margin-right: 0;
+        /* background: var(--color-ternary); */
     }
 </style>
 
 <div class={`bracket${id}`}>
-    <div class="left" style="background: var(--color-secondary); color: white;">
+    <div class="left">
         <slot name="left"></slot>
     </div>
     <div class="center">
         <slot name="center"></slot>
     </div>
-    <div class="right" style="background: var(--color-ternary);">
+    <div class="right" style="">
         <slot name="right"></slot>
     </div>
 </div>
