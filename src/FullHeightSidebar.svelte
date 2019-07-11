@@ -1,9 +1,5 @@
 <script>
 	import Sidebar from './Sidebar.svelte';
-	import Cover from './Cover.svelte';
-	import Bracket from './Bracket.svelte';
-    import Alternate from './Alternate.svelte';
-    import Button from './Button.svelte';
     import Stack from './Stack.svelte';
 </script>
 
@@ -25,7 +21,7 @@
 	.full-height > :global([class^="stack"] > [class^="with-sidebar"] > *) {
 		height: 100%;
 	}
-
+	
 	.full-height > :global([class^="stack"] > [class^="with-sidebar"] > * > [class^="sidebar"] > *) {
 		height: 100%;
 	}
@@ -38,7 +34,7 @@
 <div class="full-height">
 	<Stack scale="--zero">
 		<slot name="header"></slot>
-		<Sidebar scale="--zero">
+		<Sidebar>
 			<div slot="sidebar">
 				<slot name="sidebar"></slot>
 			</div>
