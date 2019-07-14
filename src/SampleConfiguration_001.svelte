@@ -2,8 +2,8 @@
 	import Sidebar from './Sidebar.svelte';
 	import Cover from './Cover.svelte';
 	import Bracket from './Bracket.svelte';
-    import Alternate from './Alternate.svelte';
-    import Button from './Button.svelte';
+	import Alternate from './Alternate.svelte';
+	import Button from './Button.svelte';
 	import Stack from './Stack.svelte';
 	
 	import { statements } from './staticContent.js'
@@ -20,27 +20,24 @@
 		<Sidebar>
 			<div slot="sidebar">
 				<Bracket padding="--s-1">
-					<p slot="center">Sidebar Title</p>
-				</Bracket>
-                <Bracket padding="--s-1">
 					<div slot="center">
-                        <Stack>
-                            <Button priority="ternary">Option 1</Button>
-                            <Button priority="ternary">Option 2</Button>
-                            <Button priority="ternary">Option 3</Button>
-                        </Stack>
-                    </div>
+						<Stack>
+							<p>Sidebar Title</p>
+							<Button>Option 1</Button>
+							<Button>Option 2</Button>
+							<Button>Option 3</Button>
+						</Stack>
+					</div>
 				</Bracket>
-				
 			</div>
 			<div slot="not-sidebar">
 				<Alternate {statements}></Alternate>
 			</div>
 		</Sidebar>
 	</div>
-    <div slot="below">
-        <Bracket>
-            <p slot="center">Footer</p>
-        </Bracket>
-    </div>
+	<div slot="below">
+		<Bracket>
+			<p slot="center">Footer</p>
+		</Bracket>
+	</div>
 </Cover>
