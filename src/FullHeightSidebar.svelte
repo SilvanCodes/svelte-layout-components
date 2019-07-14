@@ -21,7 +21,7 @@
 
 	.full-height > :global([class^="stack"] > [class^="with-sidebar"] > *) {
 		flex-grow: 1;
-		height: 100%;
+		/* height: 100%; */
 	}
 	
 	.full-height > :global([class^="stack"] > [class^="with-sidebar"] > * > [class^="sidebar"] > *) {
