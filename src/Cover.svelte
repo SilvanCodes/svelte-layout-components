@@ -3,9 +3,8 @@
 
     export let padding = '--s0';
     export let margin = '--s0';
-    export let maxOut = false;
 
-    $: id = padding + margin + maxOut;
+    $: id = padding + margin;
 
 	onMount(() => {
         document.querySelectorAll(`.cover${id}`).forEach(e => e.style.padding = `var(${padding})`);
