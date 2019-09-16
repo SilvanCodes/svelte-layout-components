@@ -11,7 +11,7 @@
 <FullHeightSidebar>
 
 	<div slot="header">
-		<Bracket style="background: var(--color-primary);">
+		<Bracket>
 			<h1 slot="center">Welcome!</h1>
 		</Bracket>
 	</div>
@@ -36,7 +36,7 @@
 	</div>
 
 	<div slot="footer">
-		<Bracket style="background: var(--color-primary);">
+		<Bracket>
 			<p slot="center">Footer</p>
 		</Bracket>
 	</div>

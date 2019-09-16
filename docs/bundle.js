@@ -692,17 +692,16 @@ var app = (function () {
 
     			if (right_slot) right_slot.c();
 
-    			attr(div0, "class", "left svelte-1h4xusl");
-    			add_location(div0, file$2, 38, 4, 1026);
+    			attr(div0, "class", "left svelte-1mln3ll");
+    			add_location(div0, file$2, 50, 4, 1442);
 
-    			attr(div1, "class", "center svelte-1h4xusl");
-    			add_location(div1, file$2, 41, 4, 1094);
+    			attr(div1, "class", "center svelte-1mln3ll");
+    			add_location(div1, file$2, 53, 4, 1510);
 
-    			attr(div2, "class", "right svelte-1h4xusl");
-    			add_location(div2, file$2, 44, 4, 1166);
-    			attr(div3, "class", div3_class_value = "" + (`bracket${ctx.id}`) + " svelte-1h4xusl");
-    			attr(div3, "style", ctx.style);
-    			add_location(div3, file$2, 37, 0, 985);
+    			attr(div2, "class", "right svelte-1mln3ll");
+    			add_location(div2, file$2, 56, 4, 1582);
+    			attr(div3, "class", div3_class_value = "" + (`bracket${ctx.id}`) + " svelte-1mln3ll");
+    			add_location(div3, file$2, 49, 0, 1409);
     		},
 
     		l: function claim(nodes) {
@@ -751,14 +750,6 @@ var app = (function () {
     			if (right_slot && right_slot.p && changed.$$scope) {
     				right_slot.p(get_slot_changes(right_slot_1, ctx, changed, get_right_slot_changes), get_slot_context(right_slot_1, ctx, get_right_slot_context));
     			}
-
-    			if ((!current || changed.id) && div3_class_value !== (div3_class_value = "" + (`bracket${ctx.id}`) + " svelte-1h4xusl")) {
-    				attr(div3, "class", div3_class_value);
-    			}
-
-    			if (!current || changed.style) {
-    				attr(div3, "style", ctx.style);
-    			}
     		},
 
     		i: function intro(local) {
@@ -791,16 +782,27 @@ var app = (function () {
     }
 
     function instance$2($$self, $$props, $$invalidate) {
-    	let { padding = '--s0', margin = '--s0', maxOut = false, style = '' } = $$props;
+    	let { maxWidth = '--measure', andText = false, gutters = '--s0', padding = '--s0', intrinsic = false } = $$props;
+
+        const id = maxWidth + andText + gutters + padding + intrinsic;
 
     	onMount(() => {
             document.querySelectorAll(`.bracket${id}`).forEach(e => e.style.padding = `var(${padding})`);
-            document.querySelectorAll(`.bracket${id} > .left`).forEach(e => e.style.marginRight = `var(${margin})`);
-            maxOut ? document.querySelectorAll(`.bracket${id} > .center`).forEach(e => e.style.flexGrow = 1) : null;
-            document.querySelectorAll(`.bracket${id} > .right`).forEach(e => e.style.marginLeft = `var(${margin})`);
+            document.querySelectorAll(`.bracket${id} > .left`).forEach(e => e.style.marginRight = `var(${gutters})`);
+            document.querySelectorAll(`.bracket${id} > .right`).forEach(e => e.style.marginLeft = `var(${gutters})`);
+
+            document.querySelectorAll(`.bracket${id} > .center`).forEach(e => e.style.maxWidth = `var(${maxWidth})`);
+
+            if (intrinsic) {
+                document.querySelectorAll(`.bracket${id} > .center`).forEach(e => e.style.alignItems = 'center');
+            }
+
+            if (andText) {
+                document.querySelectorAll(`.bracket${id} > .center`).forEach(e => e.style.textAlign = 'center');
+            }
     	});
 
-    	const writable_props = ['padding', 'margin', 'maxOut', 'style'];
+    	const writable_props = ['maxWidth', 'andText', 'gutters', 'padding', 'intrinsic'];
     	Object.keys($$props).forEach(key => {
     		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Bracket> was created with unknown prop '${key}'`);
     	});
@@ -808,24 +810,20 @@ var app = (function () {
     	let { $$slots = {}, $$scope } = $$props;
 
     	$$self.$set = $$props => {
+    		if ('maxWidth' in $$props) $$invalidate('maxWidth', maxWidth = $$props.maxWidth);
+    		if ('andText' in $$props) $$invalidate('andText', andText = $$props.andText);
+    		if ('gutters' in $$props) $$invalidate('gutters', gutters = $$props.gutters);
     		if ('padding' in $$props) $$invalidate('padding', padding = $$props.padding);
-    		if ('margin' in $$props) $$invalidate('margin', margin = $$props.margin);
-    		if ('maxOut' in $$props) $$invalidate('maxOut', maxOut = $$props.maxOut);
-    		if ('style' in $$props) $$invalidate('style', style = $$props.style);
+    		if ('intrinsic' in $$props) $$invalidate('intrinsic', intrinsic = $$props.intrinsic);
     		if ('$$scope' in $$props) $$invalidate('$$scope', $$scope = $$props.$$scope);
     	};
 
-    	let id;
-
-    	$$self.$$.update = ($$dirty = { padding: 1, margin: 1, maxOut: 1 }) => {
-    		if ($$dirty.padding || $$dirty.margin || $$dirty.maxOut) { $$invalidate('id', id = padding + margin + maxOut); }
-    	};
-
     	return {
+    		maxWidth,
+    		andText,
+    		gutters,
     		padding,
-    		margin,
-    		maxOut,
-    		style,
+    		intrinsic,
     		id,
     		$$slots,
     		$$scope
@@ -835,7 +833,31 @@ var app = (function () {
     class Bracket extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$2, create_fragment$2, safe_not_equal, ["padding", "margin", "maxOut", "style"]);
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, ["maxWidth", "andText", "gutters", "padding", "intrinsic"]);
+    	}
+
+    	get maxWidth() {
+    		throw new Error("<Bracket>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set maxWidth(value) {
+    		throw new Error("<Bracket>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get andText() {
+    		throw new Error("<Bracket>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set andText(value) {
+    		throw new Error("<Bracket>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get gutters() {
+    		throw new Error("<Bracket>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set gutters(value) {
+    		throw new Error("<Bracket>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	get padding() {
@@ -846,27 +868,11 @@ var app = (function () {
     		throw new Error("<Bracket>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	get margin() {
+    	get intrinsic() {
     		throw new Error("<Bracket>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	set margin(value) {
-    		throw new Error("<Bracket>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	get maxOut() {
-    		throw new Error("<Bracket>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set maxOut(value) {
-    		throw new Error("<Bracket>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	get style() {
-    		throw new Error("<Bracket>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set style(value) {
+    	set intrinsic(value) {
     		throw new Error("<Bracket>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -2722,7 +2728,7 @@ var app = (function () {
     			h1 = element("h1");
     			h1.textContent = "Welcome!";
     			attr(h1, "slot", "center");
-    			add_location(h1, file$8, 14, 3, 412);
+    			add_location(h1, file$8, 14, 3, 370);
     		},
 
     		m: function mount(target, anchor) {
@@ -2737,7 +2743,7 @@ var app = (function () {
     	};
     }
 
-    // (14:2) <Bracket style="background: var(--color-primary);">
+    // (14:2) <Bracket>
     function create_default_slot_8$1(ctx) {
     	return {
     		c: noop,
@@ -2753,7 +2759,6 @@ var app = (function () {
 
     	var bracket = new Bracket({
     		props: {
-    		style: "background: var(--color-primary);",
     		$$slots: {
     		default: [create_default_slot_8$1],
     		center: [create_center_slot_3$1]
@@ -2814,7 +2819,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Sidebar Title";
     			attr(p, "slot", "center");
-    			add_location(p, file$8, 20, 3, 577);
+    			add_location(p, file$8, 20, 3, 535);
     		},
 
     		m: function mount(target, anchor) {
@@ -3018,7 +3023,7 @@ var app = (function () {
     			div = element("div");
     			stack.$$.fragment.c();
     			attr(div, "slot", "center");
-    			add_location(div, file$8, 23, 3, 656);
+    			add_location(div, file$8, 23, 3, 614);
     		},
 
     		m: function mount(target, anchor) {
@@ -3105,7 +3110,7 @@ var app = (function () {
     			attr(div, "slot", "sidebar");
     			set_style(div, "background", "var(--color-secondary)");
     			set_style(div, "color", "white");
-    			add_location(div, file$8, 18, 1, 467);
+    			add_location(div, file$8, 18, 1, 425);
     		},
 
     		m: function mount(target, anchor) {
@@ -3167,7 +3172,7 @@ var app = (function () {
     			div = element("div");
     			alternate.$$.fragment.c();
     			attr(div, "slot", "not-sidebar");
-    			add_location(div, file$8, 33, 1, 884);
+    			add_location(div, file$8, 33, 1, 842);
     		},
 
     		m: function mount(target, anchor) {
@@ -3213,7 +3218,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Footer";
     			attr(p, "slot", "center");
-    			add_location(p, file$8, 39, 3, 1035);
+    			add_location(p, file$8, 39, 3, 951);
     		},
 
     		m: function mount(target, anchor) {
@@ -3228,7 +3233,7 @@ var app = (function () {
     	};
     }
 
-    // (39:2) <Bracket style="background: var(--color-primary);">
+    // (39:2) <Bracket>
     function create_default_slot_1$3(ctx) {
     	return {
     		c: noop,
@@ -3244,7 +3249,6 @@ var app = (function () {
 
     	var bracket = new Bracket({
     		props: {
-    		style: "background: var(--color-primary);",
     		$$slots: {
     		default: [create_default_slot_1$3],
     		center: [create_center_slot$2]
@@ -3259,7 +3263,7 @@ var app = (function () {
     			div = element("div");
     			bracket.$$.fragment.c();
     			attr(div, "slot", "footer");
-    			add_location(div, file$8, 37, 1, 958);
+    			add_location(div, file$8, 37, 1, 916);
     		},
 
     		m: function mount(target, anchor) {
@@ -3750,7 +3754,7 @@ var app = (function () {
     			h1 = element("h1");
     			h1.textContent = "Welcome!";
     			attr(h1, "slot", "center");
-    			add_location(h1, file$9, 32, 5, 931);
+    			add_location(h1, file$9, 32, 5, 889);
     		},
 
     		m: function mount(target, anchor) {
@@ -3765,7 +3769,7 @@ var app = (function () {
     	};
     }
 
-    // (32:4) <Bracket style="background: var(--color-primary);">
+    // (32:4) <Bracket>
     function create_default_slot_3$3(ctx) {
     	return {
     		c: noop,
@@ -3781,7 +3785,6 @@ var app = (function () {
 
     	var bracket = new Bracket({
     		props: {
-    		style: "background: var(--color-primary);",
     		$$slots: {
     		default: [create_default_slot_3$3],
     		center: [create_center_slot_2$2]
@@ -3847,7 +3850,7 @@ var app = (function () {
     			div = element("div");
     			alternate.$$.fragment.c();
     			attr(div, "slot", "center");
-    			add_location(div, file$9, 36, 3, 992);
+    			add_location(div, file$9, 36, 3, 950);
     		},
 
     		m: function mount(target, anchor) {
@@ -3893,7 +3896,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Footer";
     			attr(p, "slot", "center");
-    			add_location(p, file$9, 42, 5, 1147);
+    			add_location(p, file$9, 42, 5, 1063);
     		},
 
     		m: function mount(target, anchor) {
@@ -3908,7 +3911,7 @@ var app = (function () {
     	};
     }
 
-    // (42:4) <Bracket style="background: var(--color-primary);">
+    // (42:4) <Bracket>
     function create_default_slot_2$3(ctx) {
     	return {
     		c: noop,
@@ -3924,7 +3927,6 @@ var app = (function () {
 
     	var bracket = new Bracket({
     		props: {
-    		style: "background: var(--color-primary);",
     		$$slots: {
     		default: [create_default_slot_2$3],
     		center: [create_center_slot$3]
@@ -3939,7 +3941,7 @@ var app = (function () {
     			div = element("div");
     			bracket.$$.fragment.c();
     			attr(div, "slot", "below");
-    			add_location(div, file$9, 40, 3, 1067);
+    			add_location(div, file$9, 40, 3, 1025);
     		},
 
     		m: function mount(target, anchor) {
@@ -4318,15 +4320,42 @@ var app = (function () {
 
     const file$b = "src/SampleConfiguration_004.svelte";
 
-    // (10:3) <Box>
-    function create_default_slot_4$3(ctx) {
+    // (8:1) <div slot="left">
+    function create_left_slot$1(ctx) {
+    	var div, p;
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			p = element("p");
+    			p.textContent = "left";
+    			add_location(p, file$b, 8, 2, 183);
+    			attr(div, "slot", "left");
+    			add_location(div, file$b, 7, 1, 163);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			append(div, p);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+    		}
+    	};
+    }
+
+    // (16:5) <Box>
+    function create_default_slot_5$3(ctx) {
     	var li;
 
     	return {
     		c: function create() {
     			li = element("li");
     			li.textContent = "1";
-    			add_location(li, file$b, 10, 4, 184);
+    			add_location(li, file$b, 16, 6, 315);
     		},
 
     		m: function mount(target, anchor) {
@@ -4341,15 +4370,15 @@ var app = (function () {
     	};
     }
 
-    // (13:3) <Box>
-    function create_default_slot_3$4(ctx) {
+    // (19:5) <Box>
+    function create_default_slot_4$3(ctx) {
     	var li;
 
     	return {
     		c: function create() {
     			li = element("li");
     			li.textContent = "2";
-    			add_location(li, file$b, 13, 4, 221);
+    			add_location(li, file$b, 19, 6, 358);
     		},
 
     		m: function mount(target, anchor) {
@@ -4364,15 +4393,15 @@ var app = (function () {
     	};
     }
 
-    // (16:3) <Box>
-    function create_default_slot_2$4(ctx) {
+    // (22:5) <Box>
+    function create_default_slot_3$4(ctx) {
     	var li;
 
     	return {
     		c: function create() {
     			li = element("li");
     			li.textContent = "3";
-    			add_location(li, file$b, 16, 4, 255);
+    			add_location(li, file$b, 22, 6, 398);
     		},
 
     		m: function mount(target, anchor) {
@@ -4387,13 +4416,13 @@ var app = (function () {
     	};
     }
 
-    // (8:1) <Box>
-    function create_default_slot_1$5(ctx) {
+    // (14:3) <Box>
+    function create_default_slot_2$4(ctx) {
     	var ul, t0, t1, t2, li, current;
 
     	var box0 = new Box({
     		props: {
-    		$$slots: { default: [create_default_slot_4$3] },
+    		$$slots: { default: [create_default_slot_5$3] },
     		$$scope: { ctx }
     	},
     		$$inline: true
@@ -4401,7 +4430,7 @@ var app = (function () {
 
     	var box1 = new Box({
     		props: {
-    		$$slots: { default: [create_default_slot_3$4] },
+    		$$slots: { default: [create_default_slot_4$3] },
     		$$scope: { ctx }
     	},
     		$$inline: true
@@ -4409,7 +4438,7 @@ var app = (function () {
 
     	var box2 = new Box({
     		props: {
-    		$$slots: { default: [create_default_slot_2$4] },
+    		$$slots: { default: [create_default_slot_3$4] },
     		$$scope: { ctx }
     	},
     		$$inline: true
@@ -4426,8 +4455,8 @@ var app = (function () {
     			t2 = space();
     			li = element("li");
     			li.textContent = "4";
-    			add_location(li, file$b, 18, 3, 279);
-    			add_location(ul, file$b, 8, 2, 166);
+    			add_location(li, file$b, 24, 5, 426);
+    			add_location(ul, file$b, 14, 4, 293);
     		},
 
     		m: function mount(target, anchor) {
@@ -4488,13 +4517,13 @@ var app = (function () {
     	};
     }
 
-    // (6:0) <Stack splitAfter="2" recursive="true">
-    function create_default_slot$5(ctx) {
+    // (12:2) <Stack splitAfter="2" recursive="true">
+    function create_default_slot_1$5(ctx) {
     	var p0, t1, t2, p1, t4, p2, current;
 
     	var box = new Box({
     		props: {
-    		$$slots: { default: [create_default_slot_1$5] },
+    		$$slots: { default: [create_default_slot_2$4] },
     		$$scope: { ctx }
     	},
     		$$inline: true
@@ -4503,18 +4532,18 @@ var app = (function () {
     	return {
     		c: function create() {
     			p0 = element("p");
-    			p0.textContent = "eins";
+    			p0.textContent = "one";
     			t1 = space();
     			box.$$.fragment.c();
     			t2 = space();
     			p1 = element("p");
-    			p1.textContent = "zwei";
+    			p1.textContent = "two";
     			t4 = space();
     			p2 = element("p");
-    			p2.textContent = "drei";
-    			add_location(p0, file$b, 6, 1, 145);
-    			add_location(p1, file$b, 21, 1, 307);
-    			add_location(p2, file$b, 22, 1, 320);
+    			p2.textContent = "three";
+    			add_location(p0, file$b, 12, 3, 269);
+    			add_location(p1, file$b, 27, 3, 460);
+    			add_location(p2, file$b, 28, 3, 474);
     		},
 
     		m: function mount(target, anchor) {
@@ -4564,14 +4593,15 @@ var app = (function () {
     	};
     }
 
-    function create_fragment$b(ctx) {
-    	var current;
+    // (11:1) <div slot="center">
+    function create_center_slot$4(ctx) {
+    	var div, current;
 
     	var stack = new Stack({
     		props: {
     		splitAfter: "2",
     		recursive: "true",
-    		$$slots: { default: [create_default_slot$5] },
+    		$$slots: { default: [create_default_slot_1$5] },
     		$$scope: { ctx }
     	},
     		$$inline: true
@@ -4579,15 +4609,15 @@ var app = (function () {
 
     	return {
     		c: function create() {
+    			div = element("div");
     			stack.$$.fragment.c();
-    		},
-
-    		l: function claim(nodes) {
-    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    			attr(div, "slot", "center");
+    			add_location(div, file$b, 10, 1, 204);
     		},
 
     		m: function mount(target, anchor) {
-    			mount_component(stack, target, anchor);
+    			insert(target, div, anchor);
+    			mount_component(stack, div, null);
     			current = true;
     		},
 
@@ -4610,7 +4640,120 @@ var app = (function () {
     		},
 
     		d: function destroy(detaching) {
-    			destroy_component(stack, detaching);
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(stack, );
+    		}
+    	};
+    }
+
+    // (32:1) <div slot="right">
+    function create_right_slot$1(ctx) {
+    	var div, p;
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			p = element("p");
+    			p.textContent = "right";
+    			add_location(p, file$b, 32, 2, 528);
+    			attr(div, "slot", "right");
+    			add_location(div, file$b, 31, 1, 507);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			append(div, p);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+    		}
+    	};
+    }
+
+    // (7:0) <Bracket>
+    function create_default_slot$5(ctx) {
+    	var t0, t1;
+
+    	return {
+    		c: function create() {
+    			t0 = space();
+    			t1 = space();
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t0, anchor);
+    			insert(target, t1, anchor);
+    		},
+
+    		p: noop,
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t0);
+    				detach(t1);
+    			}
+    		}
+    	};
+    }
+
+    function create_fragment$b(ctx) {
+    	var current;
+
+    	var bracket = new Bracket({
+    		props: {
+    		$$slots: {
+    		default: [create_default_slot$5],
+    		right: [create_right_slot$1],
+    		center: [create_center_slot$4],
+    		left: [create_left_slot$1]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			bracket.$$.fragment.c();
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(bracket, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket_changes = {};
+    			if (changed.$$scope) bracket_changes.$$scope = { changed, ctx };
+    			bracket.$set(bracket_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(bracket, detaching);
     		}
     	};
     }
@@ -4622,11 +4765,213 @@ var app = (function () {
     	}
     }
 
+    /* src/SampleConfiguration_005.svelte generated by Svelte v3.6.5 */
+
+    const file$c = "src/SampleConfiguration_005.svelte";
+
+    // (9:3) <p slot="center">
+    function create_center_slot_1$3(ctx) {
+    	var p;
+
+    	return {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = "center";
+    			attr(p, "slot", "center");
+    			add_location(p, file$c, 8, 3, 173);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, p, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(p);
+    			}
+    		}
+    	};
+    }
+
+    // (8:2) <Bracket intrinsic={true}>
+    function create_default_slot_1$6(ctx) {
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		d: noop
+    	};
+    }
+
+    // (7:1) <div slot="center">
+    function create_center_slot$5(ctx) {
+    	var div, current;
+
+    	var bracket = new Bracket({
+    		props: {
+    		intrinsic: true,
+    		$$slots: {
+    		default: [create_default_slot_1$6],
+    		center: [create_center_slot_1$3]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			bracket.$$.fragment.c();
+    			attr(div, "slot", "center");
+    			add_location(div, file$c, 6, 1, 121);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(bracket, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket_changes = {};
+    			if (changed.$$scope) bracket_changes.$$scope = { changed, ctx };
+    			bracket.$set(bracket_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(bracket, );
+    		}
+    	};
+    }
+
+    // (6:0) <Cover>
+    function create_default_slot$6(ctx) {
+
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: noop
+    	};
+    }
+
+    function create_fragment$c(ctx) {
+    	var current;
+
+    	var cover = new Cover({
+    		props: {
+    		$$slots: {
+    		default: [create_default_slot$6],
+    		center: [create_center_slot$5]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			cover.$$.fragment.c();
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(cover, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var cover_changes = {};
+    			if (changed.$$scope) cover_changes.$$scope = { changed, ctx };
+    			cover.$set(cover_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(cover.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(cover.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(cover, detaching);
+    		}
+    	};
+    }
+
+    class SampleConfiguration_005 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, null, create_fragment$c, safe_not_equal, []);
+    	}
+    }
+
     /* src/App.svelte generated by Svelte v3.6.5 */
 
-    const file$c = "src/App.svelte";
+    const file$d = "src/App.svelte";
 
-    // (64:31) 
+    // (67:31) 
+    function create_if_block_4(ctx) {
+    	var current;
+
+    	var sampleconfiguration_005 = new SampleConfiguration_005({ $$inline: true });
+
+    	return {
+    		c: function create() {
+    			sampleconfiguration_005.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(sampleconfiguration_005, target, anchor);
+    			current = true;
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sampleconfiguration_005.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(sampleconfiguration_005.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(sampleconfiguration_005, detaching);
+    		}
+    	};
+    }
+
+    // (65:31) 
     function create_if_block_3(ctx) {
     	var current;
 
@@ -4660,7 +5005,7 @@ var app = (function () {
     	};
     }
 
-    // (62:31) 
+    // (63:31) 
     function create_if_block_2(ctx) {
     	var current;
 
@@ -4694,7 +5039,7 @@ var app = (function () {
     	};
     }
 
-    // (60:31) 
+    // (61:31) 
     function create_if_block_1(ctx) {
     	var current;
 
@@ -4728,7 +5073,7 @@ var app = (function () {
     	};
     }
 
-    // (58:1) {#if configuration === 0}
+    // (59:1) {#if configuration === 0}
     function create_if_block$1(ctx) {
     	var current;
 
@@ -4762,14 +5107,15 @@ var app = (function () {
     	};
     }
 
-    function create_fragment$c(ctx) {
+    function create_fragment$d(ctx) {
     	var main, current_block_type_index, if_block, current;
 
     	var if_block_creators = [
     		create_if_block$1,
     		create_if_block_1,
     		create_if_block_2,
-    		create_if_block_3
+    		create_if_block_3,
+    		create_if_block_4
     	];
 
     	var if_blocks = [];
@@ -4779,6 +5125,7 @@ var app = (function () {
     		if (ctx.configuration === 1) return 1;
     		if (ctx.configuration === 2) return 2;
     		if (ctx.configuration === 3) return 3;
+    		if (ctx.configuration === 4) return 4;
     		return -1;
     	}
 
@@ -4790,7 +5137,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			if (if_block) if_block.c();
-    			add_location(main, file$c, 56, 0, 1469);
+    			add_location(main, file$d, 57, 0, 1542);
     		},
 
     		l: function claim(nodes) {
@@ -4850,7 +5197,7 @@ var app = (function () {
     	};
     }
 
-    const PAGES = 4;
+    const PAGES = 5;
 
     function unify(e) { return e.changedTouches ? e.changedTouches[0] : e }
 
@@ -4907,7 +5254,7 @@ var app = (function () {
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$8, create_fragment$c, safe_not_equal, []);
+    		init(this, options, instance$8, create_fragment$d, safe_not_equal, []);
     	}
     }
 

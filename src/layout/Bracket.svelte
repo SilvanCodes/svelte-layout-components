@@ -1,18 +1,28 @@
 <script>
     import { onMount } from 'svelte';
 
+    export let maxWidth = '--measure';
+    export let andText = false;
+    export let gutters = '--s0';
     export let padding = '--s0';
-    export let margin = '--s0';
-    export let maxOut = false;
-    export let style = '';
+    export let intrinsic = false;
 
-    $: id = padding + margin + maxOut;
+    const id = maxWidth + andText + gutters + padding + intrinsic;
 
 	onMount(() => {
         document.querySelectorAll(`.bracket${id}`).forEach(e => e.style.padding = `var(${padding})`);
-        document.querySelectorAll(`.bracket${id} > .left`).forEach(e => e.style.marginRight = `var(${margin})`);
-        maxOut ? document.querySelectorAll(`.bracket${id} > .center`).forEach(e => e.style.flexGrow = 1) : null;
-        document.querySelectorAll(`.bracket${id} > .right`).forEach(e => e.style.marginLeft = `var(${margin})`);
+        document.querySelectorAll(`.bracket${id} > .left`).forEach(e => e.style.marginRight = `var(${gutters})`);
+        document.querySelectorAll(`.bracket${id} > .right`).forEach(e => e.style.marginLeft = `var(${gutters})`);
+
+        document.querySelectorAll(`.bracket${id} > .center`).forEach(e => e.style.maxWidth = `var(${maxWidth})`);
+
+        if (intrinsic) {
+            document.querySelectorAll(`.bracket${id} > .center`).forEach(e => e.style.alignItems = 'center');
+        }
+
+        if (andText) {
+            document.querySelectorAll(`.bracket${id} > .center`).forEach(e => e.style.textAlign = 'center');
+        }
 	});
 </script>
 
@@ -24,6 +34,8 @@
     [class^="bracket"] > .center {
         margin-left: auto;
         margin-right: auto;
+        display: flex;
+        flex-direction: column;
     }
 
     [class^="bracket"] > .left {
@@ -35,7 +47,7 @@
     }
 </style>
 
-<div class={`bracket${id}`} {style}>
+<div class={`bracket${id}`}>
     <div class="left">
         <slot name="left"></slot>
     </div>
