@@ -1,20 +1,35 @@
 <script>
     import { onMount } from 'svelte';
 
-    export let gap = null;
+    export let side = 'left';
+    export let sideWidth = '';
+    export let contentMin = '50%';
+    export let space = '--s0';
 
-    $: id = gap
+    $: id = side + sideWidth + contentMin + space;
 
 	onMount(() => {
-        if (gap) {
-            document.querySelectorAll(`.with-sidebar${id} > *`).forEach(e => e.style.margin = `calc(-1 * var(${gap}) / 2)`);
-            document.querySelectorAll(`.with-sidebar${id} > * > *`).forEach(e => e.style.margin = `calc(var(${gap}) / 2)`);
-            document.querySelector(`.with-sidebar${id} > * > .not-sidebar`).style.minWidth = `calc(50% - var(${gap}))`;
+        if (sideWidth) {
+            document.querySelector(`.with-sidebar${id} > * > .sidebar`).forEach(e => e.style.flexBasis = sideWidth);
+        }
+
+        if (contentMin) {
+            document.querySelectorAll(`.with-sidebar${id} > * > .not-sidebar`).forEach(e => e.style.minWidth = contentMin);
+        }
+
+        if (space) {
+            document.querySelectorAll(`.with-sidebar${id} > *`).forEach(e => e.style.margin = `calc(var(${space}) / 2 * -1)`);
+            document.querySelectorAll(`.with-sidebar${id} > * > *`).forEach(e => e.style.margin = `calc(var(${space}) / 2)`);
+            document.querySelectorAll(`.with-sidebar${id} > * > .not-sidebar`).forEach(e => e.style.minWidth = `calc(${contentMin} - var(${space}))`);
         }
 	});
 </script>
 
 <style>
+    [class^="with-sidebar"] {
+        overflow: hidden;
+    }
+
     [class^="with-sidebar"] > * {
         display: flex;
         flex-wrap: wrap;
@@ -28,17 +43,25 @@
         /* ↓ grow from nothing */
         flex-basis: 0;
         flex-grow: 999;
-        min-width: 70%;
     }
 </style>
 
 <div class={`with-sidebar${id}`}>
     <div>
-        <div class="sidebar" >
-            <slot name="sidebar"></slot>
-        </div>
-        <div class="not-sidebar">
-            <slot name="not-sidebar"></slot>
-        </div>
+        {#if side === 'left'}
+            <div class="sidebar">
+                <slot name="sidebar"></slot>
+            </div>
+            <div class="not-sidebar">
+                <slot name="not-sidebar"></slot>
+            </div>
+        {:else}
+            <div class="not-sidebar">
+                <slot name="not-sidebar"></slot>
+            </div>
+            <div class="sidebar">
+                <slot name="sidebar"></slot>
+            </div>
+        {/if}
     </div>
 </div>

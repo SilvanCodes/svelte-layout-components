@@ -21,6 +21,7 @@
     [class^="cluster"] {
         overflow: hidden;
     }
+    
     :global([class^="cluster"] > *) {
         display: flex;
         flex-wrap: wrap;

@@ -10,7 +10,7 @@
 </script>
 
 
-<Cover padding="--zero" margin="--zero" maxOut={true}>
+<Cover padding="--zero" margin="--zero">
 	<div slot="above">
 		<Bracket>
 			<h1 slot="center">Welcome!</h1>
