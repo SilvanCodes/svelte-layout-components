@@ -50,7 +50,7 @@ footer {
 	max-width: none;
 }
 
-html, body {
+html, body, main {
 	height: 100%;
 }
 

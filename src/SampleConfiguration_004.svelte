@@ -7,9 +7,14 @@
 	import { statements } from './staticContent.js'
 </script>
 
-
-		<Stack splitAfter="2">
-			<p>eins</p>
-			<p>zwei</p>
-			<p>drei</p>
-		</Stack>
+<Stack splitAfter="2" recursive="true">
+	<p>eins</p>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<p>zwei</p>
+	<p>drei</p>
+</Stack>

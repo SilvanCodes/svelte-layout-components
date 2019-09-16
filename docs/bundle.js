@@ -887,8 +887,8 @@ var app = (function () {
 
     			if (default_slot) default_slot.c();
 
-    			attr(div, "class", div_class_value = `stack${ctx.id}`);
-    			add_location(div, file$3, 17, 0, 410);
+    			attr(div, "class", div_class_value = "" + (`stack${ctx.id}`) + " svelte-wr42n8");
+    			add_location(div, file$3, 35, 0, 847);
     		},
 
     		l: function claim(nodes) {
@@ -911,7 +911,7 @@ var app = (function () {
     				default_slot.p(get_slot_changes(default_slot_1, ctx, changed, null), get_slot_context(default_slot_1, ctx, null));
     			}
 
-    			if ((!current || changed.id) && div_class_value !== (div_class_value = `stack${ctx.id}`)) {
+    			if ((!current || changed.id) && div_class_value !== (div_class_value = "" + (`stack${ctx.id}`) + " svelte-wr42n8")) {
     				attr(div, "class", div_class_value);
     			}
     		},
@@ -938,17 +938,21 @@ var app = (function () {
     }
 
     function instance$3($$self, $$props, $$invalidate) {
-    	let { space = '--s0', splitAfter = '' } = $$props;
+    	let { space = '--s0', splitAfter = '', recursive = false } = $$props;
 
     	onMount(() => {
-    		document.querySelectorAll(`.stack${id} > * + *`).forEach(e => e.style.marginTop = `var(${space})`);
+    		if (recursive) {
+    			document.querySelectorAll(`.stack${id} * + *`).forEach(e => e.style.marginTop = `var(${space})`);
+    		} else {
+    			document.querySelectorAll(`.stack${id} > * + *`).forEach(e => e.style.marginTop = `var(${space})`);
+    		}
 
     		if (splitAfter) {
     			document.querySelectorAll(`.stack${id} > :nth-child(${splitAfter})`).forEach(e => e.style.marginBottom = 'auto');
     		}
     	});
 
-    	const writable_props = ['space', 'splitAfter'];
+    	const writable_props = ['space', 'splitAfter', 'recursive'];
     	Object.keys($$props).forEach(key => {
     		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Stack> was created with unknown prop '${key}'`);
     	});
@@ -958,22 +962,30 @@ var app = (function () {
     	$$self.$set = $$props => {
     		if ('space' in $$props) $$invalidate('space', space = $$props.space);
     		if ('splitAfter' in $$props) $$invalidate('splitAfter', splitAfter = $$props.splitAfter);
+    		if ('recursive' in $$props) $$invalidate('recursive', recursive = $$props.recursive);
     		if ('$$scope' in $$props) $$invalidate('$$scope', $$scope = $$props.$$scope);
     	};
 
     	let id;
 
-    	$$self.$$.update = ($$dirty = { space: 1, splitAfter: 1 }) => {
-    		if ($$dirty.space || $$dirty.splitAfter) { $$invalidate('id', id = space + splitAfter); }
+    	$$self.$$.update = ($$dirty = { space: 1, splitAfter: 1, recursive: 1 }) => {
+    		if ($$dirty.space || $$dirty.splitAfter || $$dirty.recursive) { $$invalidate('id', id = space + splitAfter + recursive); }
     	};
 
-    	return { space, splitAfter, id, $$slots, $$scope };
+    	return {
+    		space,
+    		splitAfter,
+    		recursive,
+    		id,
+    		$$slots,
+    		$$scope
+    	};
     }
 
     class Stack extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$3, create_fragment$3, safe_not_equal, ["space", "splitAfter"]);
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, ["space", "splitAfter", "recursive"]);
     	}
 
     	get space() {
@@ -989,6 +1001,14 @@ var app = (function () {
     	}
 
     	set splitAfter(value) {
+    		throw new Error("<Stack>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get recursive() {
+    		throw new Error("<Stack>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set recursive(value) {
     		throw new Error("<Stack>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -4141,30 +4161,57 @@ var app = (function () {
 
     const file$a = "src/SampleConfiguration_004.svelte";
 
-    // (11:2) <Stack splitAfter="2">
+    // (10:0) <Stack recursive="true">
     function create_default_slot$5(ctx) {
-    	var p0, t1, p1, t3, p2;
+    	var p0, t1, ul, li0, t3, li1, t5, li2, t7, li3, t9, p1, t11, p2;
 
     	return {
     		c: function create() {
     			p0 = element("p");
     			p0.textContent = "eins";
     			t1 = space();
+    			ul = element("ul");
+    			li0 = element("li");
+    			li0.textContent = "1";
+    			t3 = space();
+    			li1 = element("li");
+    			li1.textContent = "2";
+    			t5 = space();
+    			li2 = element("li");
+    			li2.textContent = "3";
+    			t7 = space();
+    			li3 = element("li");
+    			li3.textContent = "4";
+    			t9 = space();
     			p1 = element("p");
     			p1.textContent = "zwei";
-    			t3 = space();
+    			t11 = space();
     			p2 = element("p");
     			p2.textContent = "drei";
-    			add_location(p0, file$a, 11, 3, 284);
-    			add_location(p1, file$a, 12, 3, 299);
-    			add_location(p2, file$a, 13, 3, 314);
+    			add_location(p0, file$a, 10, 1, 281);
+    			add_location(li0, file$a, 12, 2, 301);
+    			add_location(li1, file$a, 13, 2, 314);
+    			add_location(li2, file$a, 14, 2, 327);
+    			add_location(li3, file$a, 15, 2, 340);
+    			add_location(ul, file$a, 11, 1, 294);
+    			add_location(p1, file$a, 17, 1, 359);
+    			add_location(p2, file$a, 18, 1, 372);
     		},
 
     		m: function mount(target, anchor) {
     			insert(target, p0, anchor);
     			insert(target, t1, anchor);
+    			insert(target, ul, anchor);
+    			append(ul, li0);
+    			append(ul, t3);
+    			append(ul, li1);
+    			append(ul, t5);
+    			append(ul, li2);
+    			append(ul, t7);
+    			append(ul, li3);
+    			insert(target, t9, anchor);
     			insert(target, p1, anchor);
-    			insert(target, t3, anchor);
+    			insert(target, t11, anchor);
     			insert(target, p2, anchor);
     		},
 
@@ -4172,8 +4219,10 @@ var app = (function () {
     			if (detaching) {
     				detach(p0);
     				detach(t1);
+    				detach(ul);
+    				detach(t9);
     				detach(p1);
-    				detach(t3);
+    				detach(t11);
     				detach(p2);
     			}
     		}
@@ -4185,7 +4234,7 @@ var app = (function () {
 
     	var stack = new Stack({
     		props: {
-    		splitAfter: "2",
+    		recursive: "true",
     		$$slots: { default: [create_default_slot$5] },
     		$$scope: { ctx }
     	},
@@ -4239,7 +4288,9 @@ var app = (function () {
 
     /* src/App.svelte generated by Svelte v3.6.5 */
 
-    // (63:30) 
+    const file$b = "src/App.svelte";
+
+    // (64:31) 
     function create_if_block_3(ctx) {
     	var current;
 
@@ -4273,7 +4324,7 @@ var app = (function () {
     	};
     }
 
-    // (61:30) 
+    // (62:31) 
     function create_if_block_2(ctx) {
     	var current;
 
@@ -4307,7 +4358,7 @@ var app = (function () {
     	};
     }
 
-    // (59:30) 
+    // (60:31) 
     function create_if_block_1(ctx) {
     	var current;
 
@@ -4341,7 +4392,7 @@ var app = (function () {
     	};
     }
 
-    // (57:0) {#if configuration === 0}
+    // (58:1) {#if configuration === 0}
     function create_if_block$1(ctx) {
     	var current;
 
@@ -4376,7 +4427,7 @@ var app = (function () {
     }
 
     function create_fragment$b(ctx) {
-    	var current_block_type_index, if_block, if_block_anchor, current;
+    	var main, current_block_type_index, if_block, current;
 
     	var if_block_creators = [
     		create_if_block$1,
@@ -4401,8 +4452,9 @@ var app = (function () {
 
     	return {
     		c: function create() {
+    			main = element("main");
     			if (if_block) if_block.c();
-    			if_block_anchor = empty();
+    			add_location(main, file$b, 56, 0, 1469);
     		},
 
     		l: function claim(nodes) {
@@ -4410,8 +4462,8 @@ var app = (function () {
     		},
 
     		m: function mount(target, anchor) {
-    			if (~current_block_type_index) if_blocks[current_block_type_index].m(target, anchor);
-    			insert(target, if_block_anchor, anchor);
+    			insert(target, main, anchor);
+    			if (~current_block_type_index) if_blocks[current_block_type_index].m(main, null);
     			current = true;
     		},
 
@@ -4434,7 +4486,7 @@ var app = (function () {
     						if_block.c();
     					}
     					transition_in(if_block, 1);
-    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    					if_block.m(main, null);
     				} else {
     					if_block = null;
     				}
@@ -4453,11 +4505,11 @@ var app = (function () {
     		},
 
     		d: function destroy(detaching) {
-    			if (~current_block_type_index) if_blocks[current_block_type_index].d(detaching);
-
     			if (detaching) {
-    				detach(if_block_anchor);
+    				detach(main);
     			}
+
+    			if (~current_block_type_index) if_blocks[current_block_type_index].d();
     		}
     	};
     }

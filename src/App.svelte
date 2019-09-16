@@ -54,12 +54,14 @@
 
 </script>
 
-{#if configuration === 0}
-	<SampleConfiguration_001></SampleConfiguration_001>
-{:else if configuration === 1}
-	<SampleConfiguration_002></SampleConfiguration_002>
-{:else if configuration === 2}
-	<SampleConfiguration_003></SampleConfiguration_003>
-{:else if configuration === 3}
-	<SampleConfiguration_004></SampleConfiguration_004>
-{/if}
+<main>
+	{#if configuration === 0}
+		<SampleConfiguration_001></SampleConfiguration_001>
+	{:else if configuration === 1}
+		<SampleConfiguration_002></SampleConfiguration_002>
+	{:else if configuration === 2}
+		<SampleConfiguration_003></SampleConfiguration_003>
+	{:else if configuration === 3}
+		<SampleConfiguration_004></SampleConfiguration_004>
+	{/if}
+</main>
