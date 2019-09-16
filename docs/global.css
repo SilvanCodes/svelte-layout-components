@@ -22,9 +22,15 @@
 	/* spacing between sidebar and not-sidebar */
 	--sidebar-spacing: var(--s1);
 
+	/* color scheme from colorsuplyyy */
 	--color-primary: #ffc902;
 	--color-secondary: #0a008a;
 	--color-ternary: #ff4a12;
+
+	/* border widths */
+	--border-thin: var(--s-4);
+	--border-medium: var(--s-2);
+	--border-thick: var(--s-1);
 }
 
 * {

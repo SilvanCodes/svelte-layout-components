@@ -5,7 +5,7 @@
 	export let recursive = false;
 	export let splitAfter = '';
 
-	$: id = space + recursive + splitAfter;
+	const id = space + recursive + splitAfter;
 
 	onMount(() => {
 		if (recursive) {
