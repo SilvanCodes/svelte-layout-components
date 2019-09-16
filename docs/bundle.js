@@ -1,2 +1,4536 @@
-var app=function(){"use strict";function t(){}function e(t,e){for(const n in e)t[n]=e[n];return t}function n(t){return t()}function r(){return Object.create(null)}function o(t){t.forEach(n)}function c(t){return"function"==typeof t}function $(t,e){return t!=t?e==e:t!==e||t&&"object"==typeof t||"function"==typeof t}function s(t,e,n){if(t){const r=a(t,e,n);return t[0](r)}}function a(t,n,r){return t[1]?e({},e(n.$$scope.ctx,t[1](r?r(n):{}))):n.$$scope.ctx}function l(t,n,r,o){return t[1]?e({},e(n.$$scope.changed||{},t[1](o?o(r):{}))):n.$$scope.changed||{}}function i(t,e){t.appendChild(e)}function u(t,e,n){t.insertBefore(e,n||null)}function d(t){t.parentNode.removeChild(t)}function p(t){return document.createElement(t)}function f(t){return document.createTextNode(t)}function m(){return f(" ")}function g(){return f("")}function v(t,e,n){null==n?t.removeAttribute(e):t.setAttribute(e,n)}function h(t,e,n){t.style.setProperty(e,n)}let y;function x(t){y=t}function b(t){(function(){if(!y)throw new Error("Function called outside component initialization");return y})().$$.on_mount.push(t)}const w=[],k=[],_=[],E=[],O=Promise.resolve();let S=!1;function q(t){_.push(t)}function A(){const t=new Set;do{for(;w.length;){const t=w.shift();x(t),T(t.$$)}for(;k.length;)k.pop()();for(let e=0;e<_.length;e+=1){const n=_[e];t.has(n)||(n(),t.add(n))}_.length=0}while(w.length);for(;E.length;)E.pop()();S=!1}function T(t){t.fragment&&(t.update(t.dirty),o(t.before_update),t.fragment.p(t.dirty,t.ctx),t.dirty=null,t.after_update.forEach(q))}const z=new Set;let C;function L(){C={remaining:0,callbacks:[]}}function j(){C.remaining||o(C.callbacks)}function M(t,e){t&&t.i&&(z.delete(t),t.i(e))}function N(t,e,n){if(t&&t.o){if(z.has(t))return;z.add(t),C.callbacks.push(()=>{z.delete(t),n&&(t.d(1),n())}),t.o(e)}}function H(t,e,r){const{fragment:$,on_mount:s,on_destroy:a,after_update:l}=t.$$;$.m(e,r),q(()=>{const e=s.map(n).filter(c);a?a.push(...e):o(e),t.$$.on_mount=[]}),l.forEach(q)}function W(t,e){t.$$.fragment&&(o(t.$$.on_destroy),t.$$.fragment.d(e),t.$$.on_destroy=t.$$.fragment=null,t.$$.ctx={})}function B(t,e){t.$$.dirty||(w.push(t),S||(S=!0,O.then(A)),t.$$.dirty=r()),t.$$.dirty[e]=!0}function F(e,n,c,$,s,a){const l=y;x(e);const i=n.props||{},u=e.$$={fragment:null,ctx:null,props:a,update:t,not_equal:s,bound:r(),on_mount:[],on_destroy:[],before_update:[],after_update:[],context:new Map(l?l.$$.context:[]),callbacks:r(),dirty:null};let d=!1;var p;u.ctx=c?c(e,i,(t,n)=>{u.ctx&&s(u.ctx[t],u.ctx[t]=n)&&(u.bound[t]&&u.bound[t](n),d&&B(e,t))}):i,u.update(),d=!0,o(u.before_update),u.fragment=$(u.ctx),n.target&&(n.hydrate?u.fragment.l((p=n.target,Array.from(p.childNodes))):u.fragment.c(),n.intro&&M(e.$$.fragment),H(e,n.target,n.anchor),A()),x(l)}class P{$destroy(){W(this,1),this.$destroy=t}$on(t,e){const n=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return n.push(e),()=>{const t=n.indexOf(e);-1!==t&&n.splice(t,1)}}$set(){}}const R=()=>({}),X=()=>({}),D=()=>({}),G=()=>({});function I(t){var e,n,r,o,c,$,f;const g=t.$$slots.sidebar,h=s(g,t,G),y=t.$$slots["not-sidebar"],x=s(y,t,X);return{c(){e=p("div"),n=p("div"),r=p("div"),h&&h.c(),o=m(),c=p("div"),x&&x.c(),v(r,"class","sidebar svelte-1hzyy5d"),v(c,"class","not-sidebar svelte-1hzyy5d"),v(n,"class","svelte-1hzyy5d"),v(e,"class",$=`with-sidebar${t.id}`+" svelte-1hzyy5d")},l(t){h&&h.l(div0_nodes),x&&x.l(div1_nodes)},m(t,$){u(t,e,$),i(e,n),i(n,r),h&&h.m(r,null),i(n,o),i(n,c),x&&x.m(c,null),f=!0},p(t,n){h&&h.p&&t.$$scope&&h.p(l(g,n,t,D),a(g,n,G)),x&&x.p&&t.$$scope&&x.p(l(y,n,t,R),a(y,n,X)),f&&!t.id||$===($=`with-sidebar${n.id}`+" svelte-1hzyy5d")||v(e,"class",$)},i(t){f||(M(h,t),M(x,t),f=!0)},o(t){N(h,t),N(x,t),f=!1},d(t){t&&d(e),h&&h.d(t),x&&x.d(t)}}}function J(t,e,n){let{gap:r=null}=e;b(()=>{r&&(document.querySelectorAll(`.with-sidebar${o} > *`).forEach(t=>t.style.margin=`calc(-1 * var(${r}) / 2)`),document.querySelectorAll(`.with-sidebar${o} > * > *`).forEach(t=>t.style.margin=`calc(var(${r}) / 2)`),document.querySelector(`.with-sidebar${o} > * > .not-sidebar`).style.minWidth=`calc(50% - var(${r}))`)});let o,{$$slots:c={},$$scope:$}=e;return t.$set=(t=>{"gap"in t&&n("gap",r=t.gap),"$$scope"in t&&n("$$scope",$=t.$$scope)}),t.$$.update=((t={gap:1})=>{t.gap&&n("id",o=r)}),{gap:r,id:o,$$slots:c,$$scope:$}}class K extends P{constructor(t){super(),F(this,t,J,I,$,["gap"])}}const Q=()=>({}),U=()=>({}),V=()=>({}),Y=()=>({}),Z=()=>({}),tt=()=>({});function et(t){var e,n,r,o,c,$,f,g;const h=t.$$slots.above,y=s(h,t,tt),x=t.$$slots.center,b=s(x,t,Y),w=t.$$slots.below,k=s(w,t,U);return{c(){e=p("div"),n=p("div"),y&&y.c(),r=m(),o=p("div"),b&&b.c(),c=m(),$=p("div"),k&&k.c(),v(n,"class","above svelte-11jtp0a"),v(o,"class","center svelte-11jtp0a"),v($,"class","below svelte-11jtp0a"),v(e,"class",f=`cover${t.id}`+" svelte-11jtp0a")},l(t){y&&y.l(div0_nodes),b&&b.l(div1_nodes),k&&k.l(div2_nodes)},m(t,s){u(t,e,s),i(e,n),y&&y.m(n,null),i(e,r),i(e,o),b&&b.m(o,null),i(e,c),i(e,$),k&&k.m($,null),g=!0},p(t,n){y&&y.p&&t.$$scope&&y.p(l(h,n,t,Z),a(h,n,tt)),b&&b.p&&t.$$scope&&b.p(l(x,n,t,V),a(x,n,Y)),k&&k.p&&t.$$scope&&k.p(l(w,n,t,Q),a(w,n,U)),g&&!t.id||f===(f=`cover${n.id}`+" svelte-11jtp0a")||v(e,"class",f)},i(t){g||(M(y,t),M(b,t),M(k,t),g=!0)},o(t){N(y,t),N(b,t),N(k,t),g=!1},d(t){t&&d(e),y&&y.d(t),b&&b.d(t),k&&k.d(t)}}}function nt(t,e,n){let{padding:r="--s0",margin:o="--s0"}=e;b(()=>{document.querySelectorAll(`.cover${c}`).forEach(t=>t.style.padding=`var(${r})`),document.querySelectorAll(`.cover${c} > .above`).forEach(t=>t.style.marginBottom=`var(${o})`),document.querySelectorAll(`.cover${c} > .below`).forEach(t=>t.style.marginTop=`var(${o})`)});let c,{$$slots:$={},$$scope:s}=e;return t.$set=(t=>{"padding"in t&&n("padding",r=t.padding),"margin"in t&&n("margin",o=t.margin),"$$scope"in t&&n("$$scope",s=t.$$scope)}),t.$$.update=((t={padding:1,margin:1})=>{(t.padding||t.margin)&&n("id",c=r+o)}),{padding:r,margin:o,id:c,$$slots:$,$$scope:s}}class rt extends P{constructor(t){super(),F(this,t,nt,et,$,["padding","margin"])}}const ot=()=>({}),ct=()=>({}),$t=()=>({}),st=()=>({}),at=()=>({}),lt=()=>({});function it(t){var e,n,r,o,c,$,f,g;const h=t.$$slots.left,y=s(h,t,lt),x=t.$$slots.center,b=s(x,t,st),w=t.$$slots.right,k=s(w,t,ct);return{c(){e=p("div"),n=p("div"),y&&y.c(),r=m(),o=p("div"),b&&b.c(),c=m(),$=p("div"),k&&k.c(),v(n,"class","left svelte-1h4xusl"),v(o,"class","center svelte-1h4xusl"),v($,"class","right svelte-1h4xusl"),v(e,"class",f=`bracket${t.id}`+" svelte-1h4xusl"),v(e,"style",t.style)},l(t){y&&y.l(div0_nodes),b&&b.l(div1_nodes),k&&k.l(div2_nodes)},m(t,s){u(t,e,s),i(e,n),y&&y.m(n,null),i(e,r),i(e,o),b&&b.m(o,null),i(e,c),i(e,$),k&&k.m($,null),g=!0},p(t,n){y&&y.p&&t.$$scope&&y.p(l(h,n,t,at),a(h,n,lt)),b&&b.p&&t.$$scope&&b.p(l(x,n,t,$t),a(x,n,st)),k&&k.p&&t.$$scope&&k.p(l(w,n,t,ot),a(w,n,ct)),g&&!t.id||f===(f=`bracket${n.id}`+" svelte-1h4xusl")||v(e,"class",f),g&&!t.style||v(e,"style",n.style)},i(t){g||(M(y,t),M(b,t),M(k,t),g=!0)},o(t){N(y,t),N(b,t),N(k,t),g=!1},d(t){t&&d(e),y&&y.d(t),b&&b.d(t),k&&k.d(t)}}}function ut(t,e,n){let{padding:r="--s0",margin:o="--s0",maxOut:c=!1,style:$=""}=e;b(()=>{document.querySelectorAll(`.bracket${s}`).forEach(t=>t.style.padding=`var(${r})`),document.querySelectorAll(`.bracket${s} > .left`).forEach(t=>t.style.marginRight=`var(${o})`),c&&document.querySelectorAll(`.bracket${s} > .center`).forEach(t=>t.style.flexGrow=1),document.querySelectorAll(`.bracket${s} > .right`).forEach(t=>t.style.marginLeft=`var(${o})`)});let s,{$$slots:a={},$$scope:l}=e;return t.$set=(t=>{"padding"in t&&n("padding",r=t.padding),"margin"in t&&n("margin",o=t.margin),"maxOut"in t&&n("maxOut",c=t.maxOut),"style"in t&&n("style",$=t.style),"$$scope"in t&&n("$$scope",l=t.$$scope)}),t.$$.update=((t={padding:1,margin:1,maxOut:1})=>{(t.padding||t.margin||t.maxOut)&&n("id",s=r+o+c)}),{padding:r,margin:o,maxOut:c,style:$,id:s,$$slots:a,$$scope:l}}class dt extends P{constructor(t){super(),F(this,t,ut,it,$,["padding","margin","maxOut","style"])}}function pt(t){var e,n,r;const o=t.$$slots.default,c=s(o,t,null);return{c(){e=p("div"),c&&c.c(),v(e,"class",n=`stack${t.scale}`)},l(t){c&&c.l(div_nodes)},m(t,n){u(t,e,n),c&&c.m(e,null),r=!0},p(t,$){c&&c.p&&t.$$scope&&c.p(l(o,$,t,null),a(o,$,null)),r&&!t.scale||n===(n=`stack${$.scale}`)||v(e,"class",n)},i(t){r||(M(c,t),r=!0)},o(t){N(c,t),r=!1},d(t){t&&d(e),c&&c.d(t)}}}function ft(t,e,n){let{scale:r="--s0"}=e;b(()=>{document.querySelectorAll(`.stack${r} > * + *`).forEach(t=>t.style.marginTop=`var(${r})`)});let{$$slots:o={},$$scope:c}=e;return t.$set=(t=>{"scale"in t&&n("scale",r=t.scale),"$$scope"in t&&n("$$scope",c=t.$$scope)}),{scale:r,$$slots:o,$$scope:c}}class mt extends P{constructor(t){super(),F(this,t,ft,pt,$,["scale"])}}function gt(t,e,n){const r=Object.create(t);return r.statement=e[n],r.i=n,r}function vt(t){var e,n=new dt({props:{padding:"--zero",$$slots:{default:[xt],right:[yt]},$$scope:{ctx:t}}});return{c(){n.$$.fragment.c()},m(t,r){H(n,t,r),e=!0},p(t,e){var r={};(t.$$scope||t.statements)&&(r.$$scope={changed:t,ctx:e}),n.$set(r)},i(t){e||(M(n.$$.fragment,t),e=!0)},o(t){N(n.$$.fragment,t),e=!1},d(t){W(n,t)}}}function ht(t){var e,n=new dt({props:{padding:"--zero",$$slots:{default:[wt],left:[bt]},$$scope:{ctx:t}}});return{c(){n.$$.fragment.c()},m(t,r){H(n,t,r),e=!0},p(t,e){var r={};(t.$$scope||t.statements)&&(r.$$scope={changed:t,ctx:e}),n.$set(r)},i(t){e||(M(n.$$.fragment,t),e=!0)},o(t){N(n.$$.fragment,t),e=!1},d(t){W(n,t)}}}function yt(t){var e,n=t.statement;return{c(){v(e=p("p"),"slot","right")},m(t,r){u(t,e,r),e.innerHTML=n},p(t,r){t.statements&&n!==(n=r.statement)&&(e.innerHTML=n)},d(t){t&&d(e)}}}function xt(e){var n;return{c(){n=m()},m(t,e){u(t,n,e)},p:t,d(t){t&&d(n)}}}function bt(t){var e,n=t.statement;return{c(){v(e=p("p"),"slot","left")},m(t,r){u(t,e,r),e.innerHTML=n},p(t,r){t.statements&&n!==(n=r.statement)&&(e.innerHTML=n)},d(t){t&&d(e)}}}function wt(e){var n;return{c(){n=m()},m(t,e){u(t,n,e)},p:t,d(t){t&&d(n)}}}function kt(t){var e,n,r,o,c=[ht,vt],$=[];function s(t){return t.i%2==0?0:1}return e=s(t),n=$[e]=c[e](t),{c(){n.c(),r=g()},m(t,n){$[e].m(t,n),u(t,r,n),o=!0},p(t,o){var a=e;(e=s(o))===a?$[e].p(t,o):(L(),N($[a],1,()=>{$[a]=null}),j(),(n=$[e])||(n=$[e]=c[e](o)).c(),M(n,1),n.m(r.parentNode,r))},i(t){o||(M(n),o=!0)},o(t){N(n),o=!1},d(t){$[e].d(t),t&&d(r)}}}function _t(t){for(var e,n,r=t.statements,o=[],c=0;c<r.length;c+=1)o[c]=kt(gt(t,r,c));const $=t=>N(o[t],1,()=>{o[t]=null});return{c(){for(var t=0;t<o.length;t+=1)o[t].c();e=g()},m(t,r){for(var c=0;c<o.length;c+=1)o[c].m(t,r);u(t,e,r),n=!0},p(t,n){if(t.statements){r=n.statements;for(var c=0;c<r.length;c+=1){const $=gt(n,r,c);o[c]?(o[c].p(t,$),M(o[c],1)):(o[c]=kt($),o[c].c(),M(o[c],1),o[c].m(e.parentNode,e))}for(L(),c=r.length;c<o.length;c+=1)$(c);j()}},i(t){if(!n){for(var e=0;e<r.length;e+=1)M(o[e]);n=!0}},o(t){o=o.filter(Boolean);for(let t=0;t<o.length;t+=1)N(o[t]);n=!1},d(t){!function(t,e){for(let n=0;n<t.length;n+=1)t[n]&&t[n].d(e)}(o,t),t&&d(e)}}}function Et(t){var e,n,r=new mt({props:{$$slots:{default:[_t]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","center")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};(t.$$scope||t.statements)&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Ot(e){return{c:t,m:t,p:t,i:t,o:t,d:t}}function St(t){var e,n=new dt({props:{padding:"--s2",maxOut:!0,$$slots:{default:[Ot],center:[Et]},$$scope:{ctx:t}}});return{c(){n.$$.fragment.c()},m(t,r){H(n,t,r),e=!0},p(t,e){var r={};(t.$$scope||t.statements)&&(r.$$scope={changed:t,ctx:e}),n.$set(r)},i(t){e||(M(n.$$.fragment,t),e=!0)},o(t){N(n.$$.fragment,t),e=!1},d(t){W(n,t)}}}function qt(t,e,n){let{statements:r=["Hello","World!"]}=e;return t.$set=(t=>{"statements"in t&&n("statements",r=t.statements)}),{statements:r}}class At extends P{constructor(t){super(),F(this,t,qt,St,$,["statements"])}}function Tt(t){var e,n,r;const o=t.$$slots.default,c=s(o,t,null);return{c(){e=p("div"),c&&c.c(),v(e,"class",n=`button${t.id}`+" svelte-vp67cq")},l(t){c&&c.l(div_nodes)},m(t,n){u(t,e,n),c&&c.m(e,null),r=!0},p(t,$){c&&c.p&&t.$$scope&&c.p(l(o,$,t,null),a(o,$,null)),r&&!t.id||n===(n=`button${$.id}`+" svelte-vp67cq")||v(e,"class",n)},i(t){r||(M(c,t),r=!0)},o(t){N(c,t),r=!1},d(t){t&&d(e),c&&c.d(t)}}}function zt(t,e,n){let{priority:r="primary"}=e;b(()=>{switch(r){case"primary":document.querySelectorAll(`.button${o}`).forEach(t=>{t.style.background="var(--color-primary)",t.style.color="black"});break;case"secondary":document.querySelectorAll(`.button${o}`).forEach(t=>{t.style.background="var(--color-secondary)",t.style.color="white"});break;case"ternary":document.querySelectorAll(`.button${o}`).forEach(t=>{t.style.background="var(--color-ternary)",t.style.color="white"})}});let o,{$$slots:c={},$$scope:$}=e;return t.$set=(t=>{"priority"in t&&n("priority",r=t.priority),"$$scope"in t&&n("$$scope",$=t.$$scope)}),t.$$.update=((t={priority:1})=>{t.priority&&n("id",o=r)}),{priority:r,id:o,$$slots:c,$$scope:$}}class Ct extends P{constructor(t){super(),F(this,t,zt,Tt,$,["priority"])}}const Lt=["This website is an experiment to learn webdesign.",'It is layouted according to the ideas of <a href="https://every-layout.dev/" target="blank">https://every-layout.dev/</a>.','The color schema comes from <a href="https://colorsupplyyy.com/app" target="blank">https://colorsupplyyy.com/app</a>.',"Press spacebar or swipe to cycle some layouts.","More content to come."];function jt(t){var e;return{c(){(e=p("h1")).textContent="Welcome!",v(e,"slot","center")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function Mt(e){return{c:t,m:t,p:t,d:t}}function Nt(t){var e,n,r=new dt({props:{$$slots:{default:[Mt],center:[jt]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","above")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Ht(t){var e;return{c(){e=f("Option 1")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function Wt(t){var e;return{c(){e=f("Option 2")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function Bt(t){var e;return{c(){e=f("Option 3")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function Ft(t){var e,n,r,o,c,$=new Ct({props:{$$slots:{default:[Ht]},$$scope:{ctx:t}}}),s=new Ct({props:{$$slots:{default:[Wt]},$$scope:{ctx:t}}}),a=new Ct({props:{$$slots:{default:[Bt]},$$scope:{ctx:t}}});return{c(){(e=p("p")).textContent="Sidebar Title",n=m(),$.$$.fragment.c(),r=m(),s.$$.fragment.c(),o=m(),a.$$.fragment.c()},m(t,l){u(t,e,l),u(t,n,l),H($,t,l),u(t,r,l),H(s,t,l),u(t,o,l),H(a,t,l),c=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),$.$set(n);var r={};t.$$scope&&(r.$$scope={changed:t,ctx:e}),s.$set(r);var o={};t.$$scope&&(o.$$scope={changed:t,ctx:e}),a.$set(o)},i(t){c||(M($.$$.fragment,t),M(s.$$.fragment,t),M(a.$$.fragment,t),c=!0)},o(t){N($.$$.fragment,t),N(s.$$.fragment,t),N(a.$$.fragment,t),c=!1},d(t){t&&(d(e),d(n)),W($,t),t&&d(r),W(s,t),t&&d(o),W(a,t)}}}function Pt(t){var e,n,r=new mt({props:{$$slots:{default:[Ft]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","center")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Rt(e){return{c:t,m:t,p:t,i:t,o:t,d:t}}function Xt(t){var e,n,r=new dt({props:{padding:"--s-1",$$slots:{default:[Rt],center:[Pt]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","sidebar")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Dt(t){var e,n,r=new At({props:{statements:Lt}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","not-sidebar")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.statements&&(n.statements=Lt),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Gt(e){var n;return{c(){n=m()},m(t,e){u(t,n,e)},p:t,i:t,o:t,d(t){t&&d(n)}}}function It(t){var e,n,r=new K({props:{$$slots:{default:[Gt],"not-sidebar":[Dt],sidebar:[Xt]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","center")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Jt(t){var e;return{c(){(e=p("p")).textContent="Footer",v(e,"slot","center")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function Kt(e){return{c:t,m:t,p:t,d:t}}function Qt(t){var e,n,r=new dt({props:{$$slots:{default:[Kt],center:[Jt]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","below")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Ut(e){var n,r;return{c(){n=m(),r=m()},m(t,e){u(t,n,e),u(t,r,e)},p:t,i:t,o:t,d(t){t&&(d(n),d(r))}}}function Vt(t){var e,n=new rt({props:{padding:"--zero",margin:"--zero",maxOut:!0,$$slots:{default:[Ut],below:[Qt],center:[It],above:[Nt]},$$scope:{ctx:t}}});return{c(){n.$$.fragment.c()},m(t,r){H(n,t,r),e=!0},p(t,e){var r={};t.$$scope&&(r.$$scope={changed:t,ctx:e}),n.$set(r)},i(t){e||(M(n.$$.fragment,t),e=!0)},o(t){N(n.$$.fragment,t),e=!1},d(t){W(n,t)}}}class Yt extends P{constructor(t){super(),F(this,t,null,Vt,$,[])}}const Zt=()=>({}),te=()=>({}),ee=()=>({}),ne=()=>({}),re=()=>({}),oe=()=>({}),ce=()=>({}),$e=()=>({});function se(t){var e,n;const r=t.$$slots.sidebar,o=s(r,t,oe);return{c(){e=p("div"),o&&o.c(),v(e,"slot","sidebar")},l(t){o&&o.l(div_nodes)},m(t,r){u(t,e,r),o&&o.m(e,null),n=!0},p(t,e){o&&o.p&&t.$$scope&&o.p(l(r,e,t,re),a(r,e,oe))},i(t){n||(M(o,t),n=!0)},o(t){N(o,t),n=!1},d(t){t&&d(e),o&&o.d(t)}}}function ae(t){var e,n;const r=t.$$slots["not-sidebar"],o=s(r,t,ne);return{c(){e=p("div"),o&&o.c(),v(e,"slot","not-sidebar")},l(t){o&&o.l(div_nodes)},m(t,r){u(t,e,r),o&&o.m(e,null),n=!0},p(t,e){o&&o.p&&t.$$scope&&o.p(l(r,e,t,ee),a(r,e,ne))},i(t){n||(M(o,t),n=!0)},o(t){N(o,t),n=!1},d(t){t&&d(e),o&&o.d(t)}}}function le(e){var n;return{c(){n=m()},m(t,e){u(t,n,e)},p:t,i:t,o:t,d(t){t&&d(n)}}}function ie(t){var e,n,r;const o=t.$$slots.header,c=s(o,t,$e);var $=new K({props:{$$slots:{default:[le],"not-sidebar":[ae],sidebar:[se]},$$scope:{ctx:t}}});const i=t.$$slots.footer,p=s(i,t,te);return{c(){c&&c.c(),e=m(),$.$$.fragment.c(),n=m(),p&&p.c()},l(t){c&&c.l(t),p&&p.l(t)},m(t,o){c&&c.m(t,o),u(t,e,o),H($,t,o),u(t,n,o),p&&p.m(t,o),r=!0},p(t,e){c&&c.p&&t.$$scope&&c.p(l(o,e,t,ce),a(o,e,$e));var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),$.$set(n),p&&p.p&&t.$$scope&&p.p(l(i,e,t,Zt),a(i,e,te))},i(t){r||(M(c,t),M($.$$.fragment,t),M(p,t),r=!0)},o(t){N(c,t),N($.$$.fragment,t),N(p,t),r=!1},d(t){c&&c.d(t),t&&d(e),W($,t),t&&d(n),p&&p.d(t)}}}function ue(t){var e,n,r=new mt({props:{scale:"--zero",$$slots:{default:[ie]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"class","full-height svelte-1mvbzb9")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function de(t,e,n){let{$$slots:r={},$$scope:o}=e;return t.$set=(t=>{"$$scope"in t&&n("$$scope",o=t.$$scope)}),{$$slots:r,$$scope:o}}class pe extends P{constructor(t){super(),F(this,t,de,ue,$,[])}}function fe(t){var e;return{c(){(e=p("h1")).textContent="Welcome!",v(e,"slot","center")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function me(e){return{c:t,m:t,p:t,d:t}}function ge(t){var e,n,r=new dt({props:{style:"background: var(--color-primary);",$$slots:{default:[me],center:[fe]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","header")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function ve(t){var e;return{c(){(e=p("p")).textContent="Sidebar Title",v(e,"slot","center")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function he(e){return{c:t,m:t,p:t,d:t}}function ye(t){var e;return{c(){e=f("Option 1")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function xe(t){var e;return{c(){e=f("Option 2")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function be(t){var e;return{c(){e=f("Option 3")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function we(t){var e,n,r,o=new Ct({props:{priority:"ternary",$$slots:{default:[ye]},$$scope:{ctx:t}}}),c=new Ct({props:{priority:"ternary",$$slots:{default:[xe]},$$scope:{ctx:t}}}),$=new Ct({props:{priority:"ternary",$$slots:{default:[be]},$$scope:{ctx:t}}});return{c(){o.$$.fragment.c(),e=m(),c.$$.fragment.c(),n=m(),$.$$.fragment.c()},m(t,s){H(o,t,s),u(t,e,s),H(c,t,s),u(t,n,s),H($,t,s),r=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),o.$set(n);var r={};t.$$scope&&(r.$$scope={changed:t,ctx:e}),c.$set(r);var s={};t.$$scope&&(s.$$scope={changed:t,ctx:e}),$.$set(s)},i(t){r||(M(o.$$.fragment,t),M(c.$$.fragment,t),M($.$$.fragment,t),r=!0)},o(t){N(o.$$.fragment,t),N(c.$$.fragment,t),N($.$$.fragment,t),r=!1},d(t){W(o,t),t&&d(e),W(c,t),t&&d(n),W($,t)}}}function ke(t){var e,n,r=new mt({props:{$$slots:{default:[we]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","center")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function _e(e){return{c:t,m:t,p:t,i:t,o:t,d:t}}function Ee(t){var e,n,r,o=new dt({props:{padding:"--s-1",$$slots:{default:[he],center:[ve]},$$scope:{ctx:t}}}),c=new dt({props:{padding:"--s-1",$$slots:{default:[_e],center:[ke]},$$scope:{ctx:t}}});return{c(){e=p("div"),o.$$.fragment.c(),n=m(),c.$$.fragment.c(),v(e,"slot","sidebar"),h(e,"background","var(--color-secondary)"),h(e,"color","white")},m(t,$){u(t,e,$),H(o,e,null),i(e,n),H(c,e,null),r=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),o.$set(n);var r={};t.$$scope&&(r.$$scope={changed:t,ctx:e}),c.$set(r)},i(t){r||(M(o.$$.fragment,t),M(c.$$.fragment,t),r=!0)},o(t){N(o.$$.fragment,t),N(c.$$.fragment,t),r=!1},d(t){t&&d(e),W(o),W(c)}}}function Oe(t){var e,n,r=new At({props:{statements:Lt}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","not-sidebar")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.statements&&(n.statements=Lt),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Se(t){var e;return{c(){(e=p("p")).textContent="Footer",v(e,"slot","center")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function qe(e){return{c:t,m:t,p:t,d:t}}function Ae(t){var e,n,r=new dt({props:{style:"background: var(--color-primary);",$$slots:{default:[qe],center:[Se]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","footer")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Te(e){var n,r,o;return{c(){n=m(),r=m(),o=m()},m(t,e){u(t,n,e),u(t,r,e),u(t,o,e)},p:t,i:t,o:t,d(t){t&&(d(n),d(r),d(o))}}}function ze(t){var e,n=new pe({props:{$$slots:{default:[Te],footer:[Ae],"not-sidebar":[Oe],sidebar:[Ee],header:[ge]},$$scope:{ctx:t}}});return{c(){n.$$.fragment.c()},m(t,r){H(n,t,r),e=!0},p(t,e){var r={};t.$$scope&&(r.$$scope={changed:t,ctx:e}),n.$set(r)},i(t){e||(M(n.$$.fragment,t),e=!0)},o(t){N(n.$$.fragment,t),e=!1},d(t){W(n,t)}}}class Ce extends P{constructor(t){super(),F(this,t,null,ze,$,[])}}function Le(t){var e;return{c(){(e=p("p")).textContent="Sidebar Title",v(e,"slot","center")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function je(e){return{c:t,m:t,p:t,d:t}}function Me(t){var e;return{c(){e=f("Option 1")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function Ne(t){var e;return{c(){e=f("Option 2")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function He(t){var e;return{c(){e=f("Option 3")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function We(t){var e,n,r,o=new Ct({props:{priority:"ternary",$$slots:{default:[Me]},$$scope:{ctx:t}}}),c=new Ct({props:{priority:"ternary",$$slots:{default:[Ne]},$$scope:{ctx:t}}}),$=new Ct({props:{priority:"ternary",$$slots:{default:[He]},$$scope:{ctx:t}}});return{c(){o.$$.fragment.c(),e=m(),c.$$.fragment.c(),n=m(),$.$$.fragment.c()},m(t,s){H(o,t,s),u(t,e,s),H(c,t,s),u(t,n,s),H($,t,s),r=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),o.$set(n);var r={};t.$$scope&&(r.$$scope={changed:t,ctx:e}),c.$set(r);var s={};t.$$scope&&(s.$$scope={changed:t,ctx:e}),$.$set(s)},i(t){r||(M(o.$$.fragment,t),M(c.$$.fragment,t),M($.$$.fragment,t),r=!0)},o(t){N(o.$$.fragment,t),N(c.$$.fragment,t),N($.$$.fragment,t),r=!1},d(t){W(o,t),t&&d(e),W(c,t),t&&d(n),W($,t)}}}function Be(t){var e,n,r=new mt({props:{$$slots:{default:[We]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","center")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Fe(e){return{c:t,m:t,p:t,i:t,o:t,d:t}}function Pe(t){var e,n,r,o=new dt({props:{padding:"--s-1",$$slots:{default:[je],center:[Le]},$$scope:{ctx:t}}}),c=new dt({props:{padding:"--s-1",$$slots:{default:[Fe],center:[Be]},$$scope:{ctx:t}}});return{c(){e=p("div"),o.$$.fragment.c(),n=m(),c.$$.fragment.c(),v(e,"slot","sidebar"),h(e,"background","var(--color-secondary)"),h(e,"color","white")},m(t,$){u(t,e,$),H(o,e,null),i(e,n),H(c,e,null),r=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),o.$set(n);var r={};t.$$scope&&(r.$$scope={changed:t,ctx:e}),c.$set(r)},i(t){r||(M(o.$$.fragment,t),M(c.$$.fragment,t),r=!0)},o(t){N(o.$$.fragment,t),N(c.$$.fragment,t),r=!1},d(t){t&&d(e),W(o),W(c)}}}function Re(t){var e;return{c(){(e=p("h1")).textContent="Welcome!",v(e,"slot","center")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function Xe(e){return{c:t,m:t,p:t,d:t}}function De(t){var e,n,r=new dt({props:{style:"background: var(--color-primary);",$$slots:{default:[Xe],center:[Re]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","above")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Ge(t){var e,n,r=new At({props:{statements:Lt}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","center")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.statements&&(n.statements=Lt),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Ie(t){var e;return{c(){(e=p("p")).textContent="Footer",v(e,"slot","center")},m(t,n){u(t,e,n)},d(t){t&&d(e)}}}function Je(e){return{c:t,m:t,p:t,d:t}}function Ke(t){var e,n,r=new dt({props:{style:"background: var(--color-primary);",$$slots:{default:[Je],center:[Ie]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","below")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Qe(e){var n,r;return{c(){n=m(),r=m()},m(t,e){u(t,n,e),u(t,r,e)},p:t,i:t,o:t,d(t){t&&(d(n),d(r))}}}function Ue(t){var e,n,r=new rt({props:{padding:"--zero",$$slots:{default:[Qe],below:[Ke],center:[Ge],above:[De]},$$scope:{ctx:t}}});return{c(){e=p("div"),r.$$.fragment.c(),v(e,"slot","not-sidebar")},m(t,o){u(t,e,o),H(r,e,null),n=!0},p(t,e){var n={};t.$$scope&&(n.$$scope={changed:t,ctx:e}),r.$set(n)},i(t){n||(M(r.$$.fragment,t),n=!0)},o(t){N(r.$$.fragment,t),n=!1},d(t){t&&d(e),W(r)}}}function Ve(e){var n;return{c(){n=m()},m(t,e){u(t,n,e)},p:t,i:t,o:t,d(t){t&&d(n)}}}function Ye(t){var e,n=new pe({props:{$$slots:{default:[Ve],"not-sidebar":[Ue],sidebar:[Pe]},$$scope:{ctx:t}}});return{c(){n.$$.fragment.c()},m(t,r){H(n,t,r),e=!0},p(t,e){var r={};t.$$scope&&(r.$$scope={changed:t,ctx:e}),n.$set(r)},i(t){e||(M(n.$$.fragment,t),e=!0)},o(t){N(n.$$.fragment,t),e=!1},d(t){W(n,t)}}}class Ze extends P{constructor(t){super(),F(this,t,null,Ye,$,[])}}function tn(t){var e,n=new Ze({});return{c(){n.$$.fragment.c()},m(t,r){H(n,t,r),e=!0},i(t){e||(M(n.$$.fragment,t),e=!0)},o(t){N(n.$$.fragment,t),e=!1},d(t){W(n,t)}}}function en(t){var e,n=new Ce({});return{c(){n.$$.fragment.c()},m(t,r){H(n,t,r),e=!0},i(t){e||(M(n.$$.fragment,t),e=!0)},o(t){N(n.$$.fragment,t),e=!1},d(t){W(n,t)}}}function nn(t){var e,n=new Yt({});return{c(){n.$$.fragment.c()},m(t,r){H(n,t,r),e=!0},i(t){e||(M(n.$$.fragment,t),e=!0)},o(t){N(n.$$.fragment,t),e=!1},d(t){W(n,t)}}}function rn(t){var e,n,r,o,c=[nn,en,tn],$=[];function s(t){return 0===t.configuration?0:1===t.configuration?1:2===t.configuration?2:-1}return~(e=s(t))&&(n=$[e]=c[e](t)),{c(){n&&n.c(),r=g()},m(t,n){~e&&$[e].m(t,n),u(t,r,n),o=!0},p(t,o){var a=e;(e=s(o))!==a&&(n&&(L(),N($[a],1,()=>{$[a]=null}),j()),~e?((n=$[e])||(n=$[e]=c[e](o)).c(),M(n,1),n.m(r.parentNode,r)):n=null)},i(t){o||(M(n),o=!0)},o(t){N(n),o=!1},d(t){~e&&$[e].d(t),t&&d(r)}}}function on(t){return t.changedTouches?t.changedTouches[0]:t}function cn(t,e,n){let r=0,o=null;function c(t){o=on(t).clientX}function $(t){if(o||0===o){let e=on(t).clientX-o,c=Math.sign(e);if(!(Math.abs(e)>.2*document.body.getBoundingClientRect().width))return;n("configuration",r=c>0?(r+1)%3:(r+2)%3),o=null}}return document.body.onkeyup=function(t){32===t.keyCode&&n("configuration",r=(r+1)%3)},document.body.addEventListener("touchstart",c,!1),document.body.addEventListener("touchend",$,!1),document.body.addEventListener("mousedown",c,!1),document.body.addEventListener("mouseup",$,!1),document.body.addEventListener("touchmove",t=>{t.preventDefault()},!1),{configuration:r}}return new class extends P{constructor(t){super(),F(this,t,cn,rn,$,[])}}({target:document.body,props:{name:"world"}})}();
+
+(function(l, i, v, e) { v = l.createElement(i); v.async = 1; v.src = '//' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; e = l.getElementsByTagName(i)[0]; e.parentNode.insertBefore(v, e)})(document, 'script');
+var app = (function () {
+    'use strict';
+
+    function noop() { }
+    function assign(tar, src) {
+        // @ts-ignore
+        for (const k in src)
+            tar[k] = src[k];
+        return tar;
+    }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function create_slot(definition, ctx, fn) {
+        if (definition) {
+            const slot_ctx = get_slot_context(definition, ctx, fn);
+            return definition[0](slot_ctx);
+        }
+    }
+    function get_slot_context(definition, ctx, fn) {
+        return definition[1]
+            ? assign({}, assign(ctx.$$scope.ctx, definition[1](fn ? fn(ctx) : {})))
+            : ctx.$$scope.ctx;
+    }
+    function get_slot_changes(definition, ctx, changed, fn) {
+        return definition[1]
+            ? assign({}, assign(ctx.$$scope.changed || {}, definition[1](fn ? fn(changed) : {})))
+            : ctx.$$scope.changed || {};
+    }
+
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function empty() {
+        return text('');
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else
+            node.setAttribute(attribute, value);
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function set_style(node, key, value) {
+        node.style.setProperty(key, value);
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error(`Function called outside component initialization`);
+        return current_component;
+    }
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    function flush() {
+        const seen_callbacks = new Set();
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            while (dirty_components.length) {
+                const component = dirty_components.shift();
+                set_current_component(component);
+                update(component.$$);
+            }
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    callback();
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+    }
+    function update($$) {
+        if ($$.fragment) {
+            $$.update($$.dirty);
+            run_all($$.before_update);
+            $$.fragment.p($$.dirty, $$.ctx);
+            $$.dirty = null;
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    const outroing = new Set();
+    let outros;
+    function group_outros() {
+        outros = {
+            remaining: 0,
+            callbacks: []
+        };
+    }
+    function check_outros() {
+        if (!outros.remaining) {
+            run_all(outros.callbacks);
+        }
+    }
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.callbacks.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+    }
+    function mount_component(component, target, anchor) {
+        const { fragment, on_mount, on_destroy, after_update } = component.$$;
+        fragment.m(target, anchor);
+        // onMount happens before the initial afterUpdate
+        add_render_callback(() => {
+            const new_on_destroy = on_mount.map(run).filter(is_function);
+            if (on_destroy) {
+                on_destroy.push(...new_on_destroy);
+            }
+            else {
+                // Edge case - component was destroyed immediately,
+                // most likely as a result of a binding initialising
+                run_all(new_on_destroy);
+            }
+            component.$$.on_mount = [];
+        });
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        if (component.$$.fragment) {
+            run_all(component.$$.on_destroy);
+            component.$$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            component.$$.on_destroy = component.$$.fragment = null;
+            component.$$.ctx = {};
+        }
+    }
+    function make_dirty(component, key) {
+        if (!component.$$.dirty) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty = blank_object();
+        }
+        component.$$.dirty[key] = true;
+    }
+    function init(component, options, instance, create_fragment, not_equal, prop_names) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const props = options.props || {};
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: null,
+            // state
+            props: prop_names,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(parent_component ? parent_component.$$.context : []),
+            // everything else
+            callbacks: blank_object(),
+            dirty: null
+        };
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, props, (key, value) => {
+                if ($$.ctx && not_equal($$.ctx[key], $$.ctx[key] = value)) {
+                    if ($$.bound[key])
+                        $$.bound[key](value);
+                    if (ready)
+                        make_dirty(component, key);
+                }
+            })
+            : props;
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        $$.fragment = create_fragment($$.ctx);
+        if (options.target) {
+            if (options.hydrate) {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment.l(children(options.target));
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set() {
+            // overridden by instance, if it has props
+        }
+    }
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error(`'target' is a required option`);
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn(`Component was already destroyed`); // eslint-disable-line no-console
+            };
+        }
+    }
+
+    /* src/layout/Sidebar.svelte generated by Svelte v3.6.5 */
+
+    const file = "src/layout/Sidebar.svelte";
+
+    const get_not_sidebar_slot_changes = () => ({});
+    const get_not_sidebar_slot_context = () => ({});
+
+    const get_sidebar_slot_changes = () => ({});
+    const get_sidebar_slot_context = () => ({});
+
+    function create_fragment(ctx) {
+    	var div3, div2, div0, t, div1, div3_class_value, current;
+
+    	const sidebar_slot_1 = ctx.$$slots.sidebar;
+    	const sidebar_slot = create_slot(sidebar_slot_1, ctx, get_sidebar_slot_context);
+
+    	const not_sidebar_slot_1 = ctx.$$slots["not-sidebar"];
+    	const not_sidebar_slot = create_slot(not_sidebar_slot_1, ctx, get_not_sidebar_slot_context);
+
+    	return {
+    		c: function create() {
+    			div3 = element("div");
+    			div2 = element("div");
+    			div0 = element("div");
+
+    			if (sidebar_slot) sidebar_slot.c();
+    			t = space();
+    			div1 = element("div");
+
+    			if (not_sidebar_slot) not_sidebar_slot.c();
+
+    			attr(div0, "class", "sidebar svelte-1hzyy5d");
+    			add_location(div0, file, 36, 8, 867);
+
+    			attr(div1, "class", "not-sidebar svelte-1hzyy5d");
+    			add_location(div1, file, 39, 8, 954);
+    			attr(div2, "class", "svelte-1hzyy5d");
+    			add_location(div2, file, 35, 4, 853);
+    			attr(div3, "class", div3_class_value = "" + (`with-sidebar${ctx.id}`) + " svelte-1hzyy5d");
+    			add_location(div3, file, 34, 0, 815);
+    		},
+
+    		l: function claim(nodes) {
+    			if (sidebar_slot) sidebar_slot.l(div0_nodes);
+
+    			if (not_sidebar_slot) not_sidebar_slot.l(div1_nodes);
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div3, anchor);
+    			append(div3, div2);
+    			append(div2, div0);
+
+    			if (sidebar_slot) {
+    				sidebar_slot.m(div0, null);
+    			}
+
+    			append(div2, t);
+    			append(div2, div1);
+
+    			if (not_sidebar_slot) {
+    				not_sidebar_slot.m(div1, null);
+    			}
+
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (sidebar_slot && sidebar_slot.p && changed.$$scope) {
+    				sidebar_slot.p(get_slot_changes(sidebar_slot_1, ctx, changed, get_sidebar_slot_changes), get_slot_context(sidebar_slot_1, ctx, get_sidebar_slot_context));
+    			}
+
+    			if (not_sidebar_slot && not_sidebar_slot.p && changed.$$scope) {
+    				not_sidebar_slot.p(get_slot_changes(not_sidebar_slot_1, ctx, changed, get_not_sidebar_slot_changes), get_slot_context(not_sidebar_slot_1, ctx, get_not_sidebar_slot_context));
+    			}
+
+    			if ((!current || changed.id) && div3_class_value !== (div3_class_value = "" + (`with-sidebar${ctx.id}`) + " svelte-1hzyy5d")) {
+    				attr(div3, "class", div3_class_value);
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sidebar_slot, local);
+    			transition_in(not_sidebar_slot, local);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(sidebar_slot, local);
+    			transition_out(not_sidebar_slot, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div3);
+    			}
+
+    			if (sidebar_slot) sidebar_slot.d(detaching);
+
+    			if (not_sidebar_slot) not_sidebar_slot.d(detaching);
+    		}
+    	};
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let { gap = null } = $$props;
+
+    	onMount(() => {
+            if (gap) {
+                document.querySelectorAll(`.with-sidebar${id} > *`).forEach(e => e.style.margin = `calc(-1 * var(${gap}) / 2)`);
+                document.querySelectorAll(`.with-sidebar${id} > * > *`).forEach(e => e.style.margin = `calc(var(${gap}) / 2)`);
+                document.querySelector(`.with-sidebar${id} > * > .not-sidebar`).style.minWidth = `calc(50% - var(${gap}))`;
+            }
+    	});
+
+    	const writable_props = ['gap'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Sidebar> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+
+    	$$self.$set = $$props => {
+    		if ('gap' in $$props) $$invalidate('gap', gap = $$props.gap);
+    		if ('$$scope' in $$props) $$invalidate('$$scope', $$scope = $$props.$$scope);
+    	};
+
+    	let id;
+
+    	$$self.$$.update = ($$dirty = { gap: 1 }) => {
+    		if ($$dirty.gap) { $$invalidate('id', id = gap); }
+    	};
+
+    	return { gap, id, $$slots, $$scope };
+    }
+
+    class Sidebar extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, ["gap"]);
+    	}
+
+    	get gap() {
+    		throw new Error("<Sidebar>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set gap(value) {
+    		throw new Error("<Sidebar>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src/layout/Cover.svelte generated by Svelte v3.6.5 */
+
+    const file$1 = "src/layout/Cover.svelte";
+
+    const get_below_slot_changes = () => ({});
+    const get_below_slot_context = () => ({});
+
+    const get_center_slot_changes = () => ({});
+    const get_center_slot_context = () => ({});
+
+    const get_above_slot_changes = () => ({});
+    const get_above_slot_context = () => ({});
+
+    function create_fragment$1(ctx) {
+    	var div3, div0, t0, div1, t1, div2, div3_class_value, current;
+
+    	const above_slot_1 = ctx.$$slots.above;
+    	const above_slot = create_slot(above_slot_1, ctx, get_above_slot_context);
+
+    	const center_slot_1 = ctx.$$slots.center;
+    	const center_slot = create_slot(center_slot_1, ctx, get_center_slot_context);
+
+    	const below_slot_1 = ctx.$$slots.below;
+    	const below_slot = create_slot(below_slot_1, ctx, get_below_slot_context);
+
+    	return {
+    		c: function create() {
+    			div3 = element("div");
+    			div0 = element("div");
+
+    			if (above_slot) above_slot.c();
+    			t0 = space();
+    			div1 = element("div");
+
+    			if (center_slot) center_slot.c();
+    			t1 = space();
+    			div2 = element("div");
+
+    			if (below_slot) below_slot.c();
+
+    			attr(div0, "class", "above svelte-11jtp0a");
+    			add_location(div0, file$1, 38, 4, 884);
+
+    			attr(div1, "class", "center svelte-11jtp0a");
+    			add_location(div1, file$1, 41, 4, 954);
+
+    			attr(div2, "class", "below svelte-11jtp0a");
+    			add_location(div2, file$1, 44, 4, 1026);
+    			attr(div3, "class", div3_class_value = "" + (`cover${ctx.id}`) + " svelte-11jtp0a");
+    			add_location(div3, file$1, 37, 0, 853);
+    		},
+
+    		l: function claim(nodes) {
+    			if (above_slot) above_slot.l(div0_nodes);
+
+    			if (center_slot) center_slot.l(div1_nodes);
+
+    			if (below_slot) below_slot.l(div2_nodes);
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div3, anchor);
+    			append(div3, div0);
+
+    			if (above_slot) {
+    				above_slot.m(div0, null);
+    			}
+
+    			append(div3, t0);
+    			append(div3, div1);
+
+    			if (center_slot) {
+    				center_slot.m(div1, null);
+    			}
+
+    			append(div3, t1);
+    			append(div3, div2);
+
+    			if (below_slot) {
+    				below_slot.m(div2, null);
+    			}
+
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (above_slot && above_slot.p && changed.$$scope) {
+    				above_slot.p(get_slot_changes(above_slot_1, ctx, changed, get_above_slot_changes), get_slot_context(above_slot_1, ctx, get_above_slot_context));
+    			}
+
+    			if (center_slot && center_slot.p && changed.$$scope) {
+    				center_slot.p(get_slot_changes(center_slot_1, ctx, changed, get_center_slot_changes), get_slot_context(center_slot_1, ctx, get_center_slot_context));
+    			}
+
+    			if (below_slot && below_slot.p && changed.$$scope) {
+    				below_slot.p(get_slot_changes(below_slot_1, ctx, changed, get_below_slot_changes), get_slot_context(below_slot_1, ctx, get_below_slot_context));
+    			}
+
+    			if ((!current || changed.id) && div3_class_value !== (div3_class_value = "" + (`cover${ctx.id}`) + " svelte-11jtp0a")) {
+    				attr(div3, "class", div3_class_value);
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(above_slot, local);
+    			transition_in(center_slot, local);
+    			transition_in(below_slot, local);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(above_slot, local);
+    			transition_out(center_slot, local);
+    			transition_out(below_slot, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div3);
+    			}
+
+    			if (above_slot) above_slot.d(detaching);
+
+    			if (center_slot) center_slot.d(detaching);
+
+    			if (below_slot) below_slot.d(detaching);
+    		}
+    	};
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	let { padding = '--s0', margin = '--s0' } = $$props;
+
+    	onMount(() => {
+            document.querySelectorAll(`.cover${id}`).forEach(e => e.style.padding = `var(${padding})`);
+            document.querySelectorAll(`.cover${id} > .above`).forEach(e => e.style.marginBottom = `var(${margin})`);
+            document.querySelectorAll(`.cover${id} > .below`).forEach(e => e.style.marginTop = `var(${margin})`);
+
+    	});
+
+    	const writable_props = ['padding', 'margin'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Cover> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+
+    	$$self.$set = $$props => {
+    		if ('padding' in $$props) $$invalidate('padding', padding = $$props.padding);
+    		if ('margin' in $$props) $$invalidate('margin', margin = $$props.margin);
+    		if ('$$scope' in $$props) $$invalidate('$$scope', $$scope = $$props.$$scope);
+    	};
+
+    	let id;
+
+    	$$self.$$.update = ($$dirty = { padding: 1, margin: 1 }) => {
+    		if ($$dirty.padding || $$dirty.margin) { $$invalidate('id', id = padding + margin); }
+    	};
+
+    	return { padding, margin, id, $$slots, $$scope };
+    }
+
+    class Cover extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, ["padding", "margin"]);
+    	}
+
+    	get padding() {
+    		throw new Error("<Cover>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set padding(value) {
+    		throw new Error("<Cover>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get margin() {
+    		throw new Error("<Cover>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set margin(value) {
+    		throw new Error("<Cover>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src/layout/Bracket.svelte generated by Svelte v3.6.5 */
+
+    const file$2 = "src/layout/Bracket.svelte";
+
+    const get_right_slot_changes = () => ({});
+    const get_right_slot_context = () => ({});
+
+    const get_center_slot_changes$1 = () => ({});
+    const get_center_slot_context$1 = () => ({});
+
+    const get_left_slot_changes = () => ({});
+    const get_left_slot_context = () => ({});
+
+    function create_fragment$2(ctx) {
+    	var div3, div0, t0, div1, t1, div2, div3_class_value, current;
+
+    	const left_slot_1 = ctx.$$slots.left;
+    	const left_slot = create_slot(left_slot_1, ctx, get_left_slot_context);
+
+    	const center_slot_1 = ctx.$$slots.center;
+    	const center_slot = create_slot(center_slot_1, ctx, get_center_slot_context$1);
+
+    	const right_slot_1 = ctx.$$slots.right;
+    	const right_slot = create_slot(right_slot_1, ctx, get_right_slot_context);
+
+    	return {
+    		c: function create() {
+    			div3 = element("div");
+    			div0 = element("div");
+
+    			if (left_slot) left_slot.c();
+    			t0 = space();
+    			div1 = element("div");
+
+    			if (center_slot) center_slot.c();
+    			t1 = space();
+    			div2 = element("div");
+
+    			if (right_slot) right_slot.c();
+
+    			attr(div0, "class", "left svelte-1h4xusl");
+    			add_location(div0, file$2, 38, 4, 1026);
+
+    			attr(div1, "class", "center svelte-1h4xusl");
+    			add_location(div1, file$2, 41, 4, 1094);
+
+    			attr(div2, "class", "right svelte-1h4xusl");
+    			add_location(div2, file$2, 44, 4, 1166);
+    			attr(div3, "class", div3_class_value = "" + (`bracket${ctx.id}`) + " svelte-1h4xusl");
+    			attr(div3, "style", ctx.style);
+    			add_location(div3, file$2, 37, 0, 985);
+    		},
+
+    		l: function claim(nodes) {
+    			if (left_slot) left_slot.l(div0_nodes);
+
+    			if (center_slot) center_slot.l(div1_nodes);
+
+    			if (right_slot) right_slot.l(div2_nodes);
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div3, anchor);
+    			append(div3, div0);
+
+    			if (left_slot) {
+    				left_slot.m(div0, null);
+    			}
+
+    			append(div3, t0);
+    			append(div3, div1);
+
+    			if (center_slot) {
+    				center_slot.m(div1, null);
+    			}
+
+    			append(div3, t1);
+    			append(div3, div2);
+
+    			if (right_slot) {
+    				right_slot.m(div2, null);
+    			}
+
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (left_slot && left_slot.p && changed.$$scope) {
+    				left_slot.p(get_slot_changes(left_slot_1, ctx, changed, get_left_slot_changes), get_slot_context(left_slot_1, ctx, get_left_slot_context));
+    			}
+
+    			if (center_slot && center_slot.p && changed.$$scope) {
+    				center_slot.p(get_slot_changes(center_slot_1, ctx, changed, get_center_slot_changes$1), get_slot_context(center_slot_1, ctx, get_center_slot_context$1));
+    			}
+
+    			if (right_slot && right_slot.p && changed.$$scope) {
+    				right_slot.p(get_slot_changes(right_slot_1, ctx, changed, get_right_slot_changes), get_slot_context(right_slot_1, ctx, get_right_slot_context));
+    			}
+
+    			if ((!current || changed.id) && div3_class_value !== (div3_class_value = "" + (`bracket${ctx.id}`) + " svelte-1h4xusl")) {
+    				attr(div3, "class", div3_class_value);
+    			}
+
+    			if (!current || changed.style) {
+    				attr(div3, "style", ctx.style);
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(left_slot, local);
+    			transition_in(center_slot, local);
+    			transition_in(right_slot, local);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(left_slot, local);
+    			transition_out(center_slot, local);
+    			transition_out(right_slot, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div3);
+    			}
+
+    			if (left_slot) left_slot.d(detaching);
+
+    			if (center_slot) center_slot.d(detaching);
+
+    			if (right_slot) right_slot.d(detaching);
+    		}
+    	};
+    }
+
+    function instance$2($$self, $$props, $$invalidate) {
+    	let { padding = '--s0', margin = '--s0', maxOut = false, style = '' } = $$props;
+
+    	onMount(() => {
+            document.querySelectorAll(`.bracket${id}`).forEach(e => e.style.padding = `var(${padding})`);
+            document.querySelectorAll(`.bracket${id} > .left`).forEach(e => e.style.marginRight = `var(${margin})`);
+            maxOut ? document.querySelectorAll(`.bracket${id} > .center`).forEach(e => e.style.flexGrow = 1) : null;
+            document.querySelectorAll(`.bracket${id} > .right`).forEach(e => e.style.marginLeft = `var(${margin})`);
+    	});
+
+    	const writable_props = ['padding', 'margin', 'maxOut', 'style'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Bracket> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+
+    	$$self.$set = $$props => {
+    		if ('padding' in $$props) $$invalidate('padding', padding = $$props.padding);
+    		if ('margin' in $$props) $$invalidate('margin', margin = $$props.margin);
+    		if ('maxOut' in $$props) $$invalidate('maxOut', maxOut = $$props.maxOut);
+    		if ('style' in $$props) $$invalidate('style', style = $$props.style);
+    		if ('$$scope' in $$props) $$invalidate('$$scope', $$scope = $$props.$$scope);
+    	};
+
+    	let id;
+
+    	$$self.$$.update = ($$dirty = { padding: 1, margin: 1, maxOut: 1 }) => {
+    		if ($$dirty.padding || $$dirty.margin || $$dirty.maxOut) { $$invalidate('id', id = padding + margin + maxOut); }
+    	};
+
+    	return {
+    		padding,
+    		margin,
+    		maxOut,
+    		style,
+    		id,
+    		$$slots,
+    		$$scope
+    	};
+    }
+
+    class Bracket extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, ["padding", "margin", "maxOut", "style"]);
+    	}
+
+    	get padding() {
+    		throw new Error("<Bracket>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set padding(value) {
+    		throw new Error("<Bracket>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get margin() {
+    		throw new Error("<Bracket>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set margin(value) {
+    		throw new Error("<Bracket>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get maxOut() {
+    		throw new Error("<Bracket>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set maxOut(value) {
+    		throw new Error("<Bracket>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get style() {
+    		throw new Error("<Bracket>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set style(value) {
+    		throw new Error("<Bracket>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src/layout/Stack.svelte generated by Svelte v3.6.5 */
+
+    const file$3 = "src/layout/Stack.svelte";
+
+    function create_fragment$3(ctx) {
+    	var div, div_class_value, current;
+
+    	const default_slot_1 = ctx.$$slots.default;
+    	const default_slot = create_slot(default_slot_1, ctx, null);
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+
+    			if (default_slot) default_slot.c();
+
+    			attr(div, "class", div_class_value = `stack${ctx.id}`);
+    			add_location(div, file$3, 17, 0, 410);
+    		},
+
+    		l: function claim(nodes) {
+    			if (default_slot) default_slot.l(div_nodes);
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+
+    			if (default_slot) {
+    				default_slot.m(div, null);
+    			}
+
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (default_slot && default_slot.p && changed.$$scope) {
+    				default_slot.p(get_slot_changes(default_slot_1, ctx, changed, null), get_slot_context(default_slot_1, ctx, null));
+    			}
+
+    			if ((!current || changed.id) && div_class_value !== (div_class_value = `stack${ctx.id}`)) {
+    				attr(div, "class", div_class_value);
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			if (default_slot) default_slot.d(detaching);
+    		}
+    	};
+    }
+
+    function instance$3($$self, $$props, $$invalidate) {
+    	let { space = '--s0', splitAfter = '' } = $$props;
+
+    	onMount(() => {
+    		document.querySelectorAll(`.stack${id} > * + *`).forEach(e => e.style.marginTop = `var(${space})`);
+
+    		if (splitAfter) {
+    			document.querySelectorAll(`.stack${id} > :nth-child(${splitAfter})`).forEach(e => e.style.marginBottom = 'auto');
+    		}
+    	});
+
+    	const writable_props = ['space', 'splitAfter'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Stack> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+
+    	$$self.$set = $$props => {
+    		if ('space' in $$props) $$invalidate('space', space = $$props.space);
+    		if ('splitAfter' in $$props) $$invalidate('splitAfter', splitAfter = $$props.splitAfter);
+    		if ('$$scope' in $$props) $$invalidate('$$scope', $$scope = $$props.$$scope);
+    	};
+
+    	let id;
+
+    	$$self.$$.update = ($$dirty = { space: 1, splitAfter: 1 }) => {
+    		if ($$dirty.space || $$dirty.splitAfter) { $$invalidate('id', id = space + splitAfter); }
+    	};
+
+    	return { space, splitAfter, id, $$slots, $$scope };
+    }
+
+    class Stack extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, ["space", "splitAfter"]);
+    	}
+
+    	get space() {
+    		throw new Error("<Stack>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set space(value) {
+    		throw new Error("<Stack>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get splitAfter() {
+    		throw new Error("<Stack>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set splitAfter(value) {
+    		throw new Error("<Stack>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src/Alternate.svelte generated by Svelte v3.6.5 */
+
+    const file$4 = "src/Alternate.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = Object.create(ctx);
+    	child_ctx.statement = list[i];
+    	child_ctx.i = i;
+    	return child_ctx;
+    }
+
+    // (16:16) {:else}
+    function create_else_block(ctx) {
+    	var current;
+
+    	var bracket = new Bracket({
+    		props: {
+    		padding: "--zero",
+    		$$slots: {
+    		default: [create_default_slot_3],
+    		right: [create_right_slot]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			bracket.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(bracket, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket_changes = {};
+    			if (changed.$$scope || changed.statements) bracket_changes.$$scope = { changed, ctx };
+    			bracket.$set(bracket_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(bracket, detaching);
+    		}
+    	};
+    }
+
+    // (12:16) {#if i%2 == 0}
+    function create_if_block(ctx) {
+    	var current;
+
+    	var bracket = new Bracket({
+    		props: {
+    		padding: "--zero",
+    		$$slots: {
+    		default: [create_default_slot_2],
+    		left: [create_left_slot]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			bracket.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(bracket, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket_changes = {};
+    			if (changed.$$scope || changed.statements) bracket_changes.$$scope = { changed, ctx };
+    			bracket.$set(bracket_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(bracket, detaching);
+    		}
+    	};
+    }
+
+    // (18:24) <p slot="right">
+    function create_right_slot(ctx) {
+    	var p, raw_value = ctx.statement;
+
+    	return {
+    		c: function create() {
+    			p = element("p");
+    			attr(p, "slot", "right");
+    			add_location(p, file$4, 17, 24, 563);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, p, anchor);
+    			p.innerHTML = raw_value;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.statements) && raw_value !== (raw_value = ctx.statement)) {
+    				p.innerHTML = raw_value;
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(p);
+    			}
+    		}
+    	};
+    }
+
+    // (17:20) <Bracket padding="--zero">
+    function create_default_slot_3(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = space();
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		p: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (14:24) <p slot="left">
+    function create_left_slot(ctx) {
+    	var p, raw_value = ctx.statement;
+
+    	return {
+    		c: function create() {
+    			p = element("p");
+    			attr(p, "slot", "left");
+    			add_location(p, file$4, 13, 24, 400);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, p, anchor);
+    			p.innerHTML = raw_value;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.statements) && raw_value !== (raw_value = ctx.statement)) {
+    				p.innerHTML = raw_value;
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(p);
+    			}
+    		}
+    	};
+    }
+
+    // (13:20) <Bracket padding="--zero">
+    function create_default_slot_2(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = space();
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		p: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (11:12) {#each statements as statement, i}
+    function create_each_block(ctx) {
+    	var current_block_type_index, if_block, if_block_anchor, current;
+
+    	var if_block_creators = [
+    		create_if_block,
+    		create_else_block
+    	];
+
+    	var if_blocks = [];
+
+    	function select_block_type(ctx) {
+    		if (ctx.i%2 == 0) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	return {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+
+    		m: function mount(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(changed, ctx);
+    			} else {
+    				group_outros();
+    				transition_out(if_blocks[previous_block_index], 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+    				check_outros();
+
+    				if_block = if_blocks[current_block_type_index];
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				}
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+
+    			if (detaching) {
+    				detach(if_block_anchor);
+    			}
+    		}
+    	};
+    }
+
+    // (10:8) <Stack>
+    function create_default_slot_1(ctx) {
+    	var each_1_anchor, current;
+
+    	var each_value = ctx.statements;
+
+    	var each_blocks = [];
+
+    	for (var i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	return {
+    		c: function create() {
+    			for (var i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+
+    		m: function mount(target, anchor) {
+    			for (var i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert(target, each_1_anchor, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (changed.statements) {
+    				each_value = ctx.statements;
+
+    				for (var i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(changed, child_ctx);
+    						transition_in(each_blocks[i], 1);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				group_outros();
+    				for (i = each_value.length; i < each_blocks.length; i += 1) out(i);
+    				check_outros();
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			for (var i = 0; i < each_value.length; i += 1) transition_in(each_blocks[i]);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			each_blocks = each_blocks.filter(Boolean);
+    			for (let i = 0; i < each_blocks.length; i += 1) transition_out(each_blocks[i]);
+
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_each(each_blocks, detaching);
+
+    			if (detaching) {
+    				detach(each_1_anchor);
+    			}
+    		}
+    	};
+    }
+
+    // (9:4) <div slot="center">
+    function create_center_slot(ctx) {
+    	var div, current;
+
+    	var stack = new Stack({
+    		props: {
+    		$$slots: { default: [create_default_slot_1] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			stack.$$.fragment.c();
+    			attr(div, "slot", "center");
+    			add_location(div, file$4, 8, 4, 215);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(stack, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var stack_changes = {};
+    			if (changed.$$scope || changed.statements) stack_changes.$$scope = { changed, ctx };
+    			stack.$set(stack_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(stack.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(stack.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(stack, );
+    		}
+    	};
+    }
+
+    // (8:0) <Bracket padding="--s2" maxOut={true}>
+    function create_default_slot(ctx) {
+
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: noop
+    	};
+    }
+
+    function create_fragment$4(ctx) {
+    	var current;
+
+    	var bracket = new Bracket({
+    		props: {
+    		padding: "--s2",
+    		maxOut: true,
+    		$$slots: {
+    		default: [create_default_slot],
+    		center: [create_center_slot]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			bracket.$$.fragment.c();
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(bracket, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket_changes = {};
+    			if (changed.$$scope || changed.statements) bracket_changes.$$scope = { changed, ctx };
+    			bracket.$set(bracket_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(bracket, detaching);
+    		}
+    	};
+    }
+
+    function instance$4($$self, $$props, $$invalidate) {
+    	
+        
+        let { statements = ["Hello", "World!"] } = $$props;
+
+    	const writable_props = ['statements'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Alternate> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$set = $$props => {
+    		if ('statements' in $$props) $$invalidate('statements', statements = $$props.statements);
+    	};
+
+    	return { statements };
+    }
+
+    class Alternate extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, ["statements"]);
+    	}
+
+    	get statements() {
+    		throw new Error("<Alternate>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set statements(value) {
+    		throw new Error("<Alternate>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src/Button.svelte generated by Svelte v3.6.5 */
+
+    const file$5 = "src/Button.svelte";
+
+    function create_fragment$5(ctx) {
+    	var div, div_class_value, current;
+
+    	const default_slot_1 = ctx.$$slots.default;
+    	const default_slot = create_slot(default_slot_1, ctx, null);
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+
+    			if (default_slot) default_slot.c();
+
+    			attr(div, "class", div_class_value = "" + (`button${ctx.id}`) + " svelte-vp67cq");
+    			add_location(div, file$5, 40, 0, 1126);
+    		},
+
+    		l: function claim(nodes) {
+    			if (default_slot) default_slot.l(div_nodes);
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+
+    			if (default_slot) {
+    				default_slot.m(div, null);
+    			}
+
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (default_slot && default_slot.p && changed.$$scope) {
+    				default_slot.p(get_slot_changes(default_slot_1, ctx, changed, null), get_slot_context(default_slot_1, ctx, null));
+    			}
+
+    			if ((!current || changed.id) && div_class_value !== (div_class_value = "" + (`button${ctx.id}`) + " svelte-vp67cq")) {
+    				attr(div, "class", div_class_value);
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			if (default_slot) default_slot.d(detaching);
+    		}
+    	};
+    }
+
+    function instance$5($$self, $$props, $$invalidate) {
+    	let { priority = 'primary' } = $$props;
+
+    	onMount(() => {
+            switch (priority) {
+                case 'primary':
+                    document.querySelectorAll(`.button${id}`).forEach(e => {
+                        e.style.background = `var(--color-primary)`;
+                        e.style.color = `black`;
+                    });
+                    break;
+                case 'secondary':
+                    document.querySelectorAll(`.button${id}`).forEach(e => {
+                        e.style.background = `var(--color-secondary)`;
+                        e.style.color = `white`;
+                    });
+                    break;
+                case 'ternary':
+                    document.querySelectorAll(`.button${id}`).forEach(e => {
+                        e.style.background = `var(--color-ternary)`;
+                        e.style.color = `white`;
+                    });
+                    break;
+            }
+    	});
+
+    	const writable_props = ['priority'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Button> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+
+    	$$self.$set = $$props => {
+    		if ('priority' in $$props) $$invalidate('priority', priority = $$props.priority);
+    		if ('$$scope' in $$props) $$invalidate('$$scope', $$scope = $$props.$$scope);
+    	};
+
+    	let id;
+
+    	$$self.$$.update = ($$dirty = { priority: 1 }) => {
+    		if ($$dirty.priority) { $$invalidate('id', id = priority); }
+    	};
+
+    	return { priority, id, $$slots, $$scope };
+    }
+
+    class Button extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, ["priority"]);
+    	}
+
+    	get priority() {
+    		throw new Error("<Button>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set priority(value) {
+    		throw new Error("<Button>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    const statements = [
+        "This website is an experiment to learn webdesign.",
+        `It is layouted according to the ideas of <a href="https://every-layout.dev/" target="blank">https://every-layout.dev/</a>.`,
+        `The color schema comes from <a href="https://colorsupplyyy.com/app" target="blank">https://colorsupplyyy.com/app</a>.`,
+        "Press spacebar or swipe to cycle some layouts.",
+        "More content to come."
+    ];
+
+    /* src/SampleConfiguration_001.svelte generated by Svelte v3.6.5 */
+
+    const file$6 = "src/SampleConfiguration_001.svelte";
+
+    // (16:3) <h1 slot="center">
+    function create_center_slot_3(ctx) {
+    	var h1;
+
+    	return {
+    		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "Welcome!";
+    			attr(h1, "slot", "center");
+    			add_location(h1, file$6, 15, 3, 430);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, h1, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(h1);
+    			}
+    		}
+    	};
+    }
+
+    // (15:2) <Bracket>
+    function create_default_slot_8(ctx) {
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		d: noop
+    	};
+    }
+
+    // (14:1) <div slot="above">
+    function create_above_slot(ctx) {
+    	var div, current;
+
+    	var bracket = new Bracket({
+    		props: {
+    		$$slots: {
+    		default: [create_default_slot_8],
+    		center: [create_center_slot_3]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			bracket.$$.fragment.c();
+    			attr(div, "slot", "above");
+    			add_location(div, file$6, 13, 1, 396);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(bracket, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket_changes = {};
+    			if (changed.$$scope) bracket_changes.$$scope = { changed, ctx };
+    			bracket.$set(bracket_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(bracket, );
+    		}
+    	};
+    }
+
+    // (26:7) <Button>
+    function create_default_slot_7(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = text("Option 1");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (27:7) <Button>
+    function create_default_slot_6(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = text("Option 2");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (28:7) <Button>
+    function create_default_slot_5(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = text("Option 3");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (24:6) <Stack>
+    function create_default_slot_4(ctx) {
+    	var p, t1, t2, t3, current;
+
+    	var button0 = new Button({
+    		props: {
+    		$$slots: { default: [create_default_slot_7] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	var button1 = new Button({
+    		props: {
+    		$$slots: { default: [create_default_slot_6] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	var button2 = new Button({
+    		props: {
+    		$$slots: { default: [create_default_slot_5] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = "Sidebar Title";
+    			t1 = space();
+    			button0.$$.fragment.c();
+    			t2 = space();
+    			button1.$$.fragment.c();
+    			t3 = space();
+    			button2.$$.fragment.c();
+    			add_location(p, file$6, 24, 7, 616);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, p, anchor);
+    			insert(target, t1, anchor);
+    			mount_component(button0, target, anchor);
+    			insert(target, t2, anchor);
+    			mount_component(button1, target, anchor);
+    			insert(target, t3, anchor);
+    			mount_component(button2, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var button0_changes = {};
+    			if (changed.$$scope) button0_changes.$$scope = { changed, ctx };
+    			button0.$set(button0_changes);
+
+    			var button1_changes = {};
+    			if (changed.$$scope) button1_changes.$$scope = { changed, ctx };
+    			button1.$set(button1_changes);
+
+    			var button2_changes = {};
+    			if (changed.$$scope) button2_changes.$$scope = { changed, ctx };
+    			button2.$set(button2_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+
+    			transition_in(button1.$$.fragment, local);
+
+    			transition_in(button2.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			transition_out(button2.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(p);
+    				detach(t1);
+    			}
+
+    			destroy_component(button0, detaching);
+
+    			if (detaching) {
+    				detach(t2);
+    			}
+
+    			destroy_component(button1, detaching);
+
+    			if (detaching) {
+    				detach(t3);
+    			}
+
+    			destroy_component(button2, detaching);
+    		}
+    	};
+    }
+
+    // (23:5) <div slot="center">
+    function create_center_slot_2(ctx) {
+    	var div, current;
+
+    	var stack = new Stack({
+    		props: {
+    		$$slots: { default: [create_default_slot_4] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			stack.$$.fragment.c();
+    			attr(div, "slot", "center");
+    			add_location(div, file$6, 22, 5, 575);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(stack, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var stack_changes = {};
+    			if (changed.$$scope) stack_changes.$$scope = { changed, ctx };
+    			stack.$set(stack_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(stack.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(stack.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(stack, );
+    		}
+    	};
+    }
+
+    // (22:4) <Bracket padding="--s-1">
+    function create_default_slot_3$1(ctx) {
+
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: noop
+    	};
+    }
+
+    // (21:3) <div slot="sidebar">
+    function create_sidebar_slot(ctx) {
+    	var div, current;
+
+    	var bracket = new Bracket({
+    		props: {
+    		padding: "--s-1",
+    		$$slots: {
+    		default: [create_default_slot_3$1],
+    		center: [create_center_slot_2]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			bracket.$$.fragment.c();
+    			attr(div, "slot", "sidebar");
+    			add_location(div, file$6, 20, 3, 519);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(bracket, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket_changes = {};
+    			if (changed.$$scope) bracket_changes.$$scope = { changed, ctx };
+    			bracket.$set(bracket_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(bracket, );
+    		}
+    	};
+    }
+
+    // (33:3) <div slot="not-sidebar">
+    function create_not_sidebar_slot(ctx) {
+    	var div, current;
+
+    	var alternate = new Alternate({
+    		props: { statements: statements },
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			alternate.$$.fragment.c();
+    			attr(div, "slot", "not-sidebar");
+    			add_location(div, file$6, 32, 3, 791);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(alternate, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var alternate_changes = {};
+    			if (changed.statements) alternate_changes.statements = statements;
+    			alternate.$set(alternate_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(alternate.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(alternate.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(alternate, );
+    		}
+    	};
+    }
+
+    // (20:2) <Sidebar>
+    function create_default_slot_2$1(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = space();
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		p: noop,
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (19:1) <div slot="center">
+    function create_center_slot_1(ctx) {
+    	var div, current;
+
+    	var sidebar = new Sidebar({
+    		props: {
+    		$$slots: {
+    		default: [create_default_slot_2$1],
+    		"not-sidebar": [create_not_sidebar_slot],
+    		sidebar: [create_sidebar_slot]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			sidebar.$$.fragment.c();
+    			attr(div, "slot", "center");
+    			add_location(div, file$6, 18, 1, 484);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(sidebar, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var sidebar_changes = {};
+    			if (changed.$$scope) sidebar_changes.$$scope = { changed, ctx };
+    			sidebar.$set(sidebar_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sidebar.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(sidebar.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(sidebar, );
+    		}
+    	};
+    }
+
+    // (40:3) <p slot="center">
+    function create_center_slot$1(ctx) {
+    	var p;
+
+    	return {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = "Footer";
+    			attr(p, "slot", "center");
+    			add_location(p, file$6, 39, 3, 923);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, p, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(p);
+    			}
+    		}
+    	};
+    }
+
+    // (39:2) <Bracket>
+    function create_default_slot_1$1(ctx) {
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		d: noop
+    	};
+    }
+
+    // (38:1) <div slot="below">
+    function create_below_slot(ctx) {
+    	var div, current;
+
+    	var bracket = new Bracket({
+    		props: {
+    		$$slots: {
+    		default: [create_default_slot_1$1],
+    		center: [create_center_slot$1]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			bracket.$$.fragment.c();
+    			attr(div, "slot", "below");
+    			add_location(div, file$6, 37, 1, 889);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(bracket, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket_changes = {};
+    			if (changed.$$scope) bracket_changes.$$scope = { changed, ctx };
+    			bracket.$set(bracket_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(bracket, );
+    		}
+    	};
+    }
+
+    // (13:0) <Cover padding="--zero" margin="--zero" maxOut={true}>
+    function create_default_slot$1(ctx) {
+    	var t0, t1;
+
+    	return {
+    		c: function create() {
+    			t0 = space();
+    			t1 = space();
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t0, anchor);
+    			insert(target, t1, anchor);
+    		},
+
+    		p: noop,
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t0);
+    				detach(t1);
+    			}
+    		}
+    	};
+    }
+
+    function create_fragment$6(ctx) {
+    	var current;
+
+    	var cover = new Cover({
+    		props: {
+    		padding: "--zero",
+    		margin: "--zero",
+    		maxOut: true,
+    		$$slots: {
+    		default: [create_default_slot$1],
+    		below: [create_below_slot],
+    		center: [create_center_slot_1],
+    		above: [create_above_slot]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			cover.$$.fragment.c();
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(cover, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var cover_changes = {};
+    			if (changed.$$scope) cover_changes.$$scope = { changed, ctx };
+    			cover.$set(cover_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(cover.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(cover.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(cover, detaching);
+    		}
+    	};
+    }
+
+    class SampleConfiguration_001 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, null, create_fragment$6, safe_not_equal, []);
+    	}
+    }
+
+    /* src/FullHeightSidebar.svelte generated by Svelte v3.6.5 */
+
+    const file$7 = "src/FullHeightSidebar.svelte";
+
+    const get_footer_slot_changes = () => ({});
+    const get_footer_slot_context = () => ({});
+
+    const get_not_sidebar_slot_changes$1 = () => ({});
+    const get_not_sidebar_slot_context$1 = () => ({});
+
+    const get_sidebar_slot_changes$1 = () => ({});
+    const get_sidebar_slot_context$1 = () => ({});
+
+    const get_header_slot_changes = () => ({});
+    const get_header_slot_context = () => ({});
+
+    // (40:3) <div slot="sidebar">
+    function create_sidebar_slot$1(ctx) {
+    	var div, current;
+
+    	const sidebar_slot_1 = ctx.$$slots.sidebar;
+    	const sidebar_slot = create_slot(sidebar_slot_1, ctx, get_sidebar_slot_context$1);
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+
+    			if (sidebar_slot) sidebar_slot.c();
+
+    			attr(div, "slot", "sidebar");
+    			add_location(div, file$7, 39, 3, 836);
+    		},
+
+    		l: function claim(nodes) {
+    			if (sidebar_slot) sidebar_slot.l(div_nodes);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+
+    			if (sidebar_slot) {
+    				sidebar_slot.m(div, null);
+    			}
+
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (sidebar_slot && sidebar_slot.p && changed.$$scope) {
+    				sidebar_slot.p(get_slot_changes(sidebar_slot_1, ctx, changed, get_sidebar_slot_changes$1), get_slot_context(sidebar_slot_1, ctx, get_sidebar_slot_context$1));
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sidebar_slot, local);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(sidebar_slot, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			if (sidebar_slot) sidebar_slot.d(detaching);
+    		}
+    	};
+    }
+
+    // (43:3) <div slot="not-sidebar">
+    function create_not_sidebar_slot$1(ctx) {
+    	var div, current;
+
+    	const not_sidebar_slot_1 = ctx.$$slots["not-sidebar"];
+    	const not_sidebar_slot = create_slot(not_sidebar_slot_1, ctx, get_not_sidebar_slot_context$1);
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+
+    			if (not_sidebar_slot) not_sidebar_slot.c();
+
+    			attr(div, "slot", "not-sidebar");
+    			add_location(div, file$7, 42, 3, 903);
+    		},
+
+    		l: function claim(nodes) {
+    			if (not_sidebar_slot) not_sidebar_slot.l(div_nodes);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+
+    			if (not_sidebar_slot) {
+    				not_sidebar_slot.m(div, null);
+    			}
+
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (not_sidebar_slot && not_sidebar_slot.p && changed.$$scope) {
+    				not_sidebar_slot.p(get_slot_changes(not_sidebar_slot_1, ctx, changed, get_not_sidebar_slot_changes$1), get_slot_context(not_sidebar_slot_1, ctx, get_not_sidebar_slot_context$1));
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(not_sidebar_slot, local);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(not_sidebar_slot, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			if (not_sidebar_slot) not_sidebar_slot.d(detaching);
+    		}
+    	};
+    }
+
+    // (39:2) <Sidebar>
+    function create_default_slot_1$2(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = space();
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		p: noop,
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (37:1) <Stack scale="--zero">
+    function create_default_slot$2(ctx) {
+    	var t0, t1, current;
+
+    	const header_slot_1 = ctx.$$slots.header;
+    	const header_slot = create_slot(header_slot_1, ctx, get_header_slot_context);
+
+    	var sidebar = new Sidebar({
+    		props: {
+    		$$slots: {
+    		default: [create_default_slot_1$2],
+    		"not-sidebar": [create_not_sidebar_slot$1],
+    		sidebar: [create_sidebar_slot$1]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	const footer_slot_1 = ctx.$$slots.footer;
+    	const footer_slot = create_slot(footer_slot_1, ctx, get_footer_slot_context);
+
+    	return {
+    		c: function create() {
+    			if (header_slot) header_slot.c();
+    			t0 = space();
+    			sidebar.$$.fragment.c();
+    			t1 = space();
+
+    			if (footer_slot) footer_slot.c();
+    		},
+
+    		l: function claim(nodes) {
+    			if (header_slot) header_slot.l(nodes);
+
+    			if (footer_slot) footer_slot.l(nodes);
+    		},
+
+    		m: function mount(target, anchor) {
+    			if (header_slot) {
+    				header_slot.m(target, anchor);
+    			}
+
+    			insert(target, t0, anchor);
+    			mount_component(sidebar, target, anchor);
+    			insert(target, t1, anchor);
+
+    			if (footer_slot) {
+    				footer_slot.m(target, anchor);
+    			}
+
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (header_slot && header_slot.p && changed.$$scope) {
+    				header_slot.p(get_slot_changes(header_slot_1, ctx, changed, get_header_slot_changes), get_slot_context(header_slot_1, ctx, get_header_slot_context));
+    			}
+
+    			var sidebar_changes = {};
+    			if (changed.$$scope) sidebar_changes.$$scope = { changed, ctx };
+    			sidebar.$set(sidebar_changes);
+
+    			if (footer_slot && footer_slot.p && changed.$$scope) {
+    				footer_slot.p(get_slot_changes(footer_slot_1, ctx, changed, get_footer_slot_changes), get_slot_context(footer_slot_1, ctx, get_footer_slot_context));
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(header_slot, local);
+
+    			transition_in(sidebar.$$.fragment, local);
+
+    			transition_in(footer_slot, local);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(header_slot, local);
+    			transition_out(sidebar.$$.fragment, local);
+    			transition_out(footer_slot, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (header_slot) header_slot.d(detaching);
+
+    			if (detaching) {
+    				detach(t0);
+    			}
+
+    			destroy_component(sidebar, detaching);
+
+    			if (detaching) {
+    				detach(t1);
+    			}
+
+    			if (footer_slot) footer_slot.d(detaching);
+    		}
+    	};
+    }
+
+    function create_fragment$7(ctx) {
+    	var div, current;
+
+    	var stack = new Stack({
+    		props: {
+    		scale: "--zero",
+    		$$slots: { default: [create_default_slot$2] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			stack.$$.fragment.c();
+    			attr(div, "class", "full-height svelte-1mvbzb9");
+    			add_location(div, file$7, 35, 0, 741);
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(stack, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var stack_changes = {};
+    			if (changed.$$scope) stack_changes.$$scope = { changed, ctx };
+    			stack.$set(stack_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(stack.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(stack.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(stack, );
+    		}
+    	};
+    }
+
+    function instance$6($$self, $$props, $$invalidate) {
+    	let { $$slots = {}, $$scope } = $$props;
+
+    	$$self.$set = $$props => {
+    		if ('$$scope' in $$props) $$invalidate('$$scope', $$scope = $$props.$$scope);
+    	};
+
+    	return { $$slots, $$scope };
+    }
+
+    class FullHeightSidebar extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$6, create_fragment$7, safe_not_equal, []);
+    	}
+    }
+
+    /* src/SampleConfiguration_002.svelte generated by Svelte v3.6.5 */
+
+    const file$8 = "src/SampleConfiguration_002.svelte";
+
+    // (15:3) <h1 slot="center">
+    function create_center_slot_3$1(ctx) {
+    	var h1;
+
+    	return {
+    		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "Welcome!";
+    			attr(h1, "slot", "center");
+    			add_location(h1, file$8, 14, 3, 412);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, h1, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(h1);
+    			}
+    		}
+    	};
+    }
+
+    // (14:2) <Bracket style="background: var(--color-primary);">
+    function create_default_slot_8$1(ctx) {
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		d: noop
+    	};
+    }
+
+    // (13:1) <div slot="header">
+    function create_header_slot(ctx) {
+    	var div, current;
+
+    	var bracket = new Bracket({
+    		props: {
+    		style: "background: var(--color-primary);",
+    		$$slots: {
+    		default: [create_default_slot_8$1],
+    		center: [create_center_slot_3$1]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			bracket.$$.fragment.c();
+    			attr(div, "slot", "header");
+    			add_location(div, file$8, 12, 1, 335);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(bracket, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket_changes = {};
+    			if (changed.$$scope) bracket_changes.$$scope = { changed, ctx };
+    			bracket.$set(bracket_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(bracket, );
+    		}
+    	};
+    }
+
+    // (21:3) <p slot="center">
+    function create_center_slot_2$1(ctx) {
+    	var p;
+
+    	return {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = "Sidebar Title";
+    			attr(p, "slot", "center");
+    			add_location(p, file$8, 20, 3, 577);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, p, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(p);
+    			}
+    		}
+    	};
+    }
+
+    // (20:2) <Bracket padding="--s-1">
+    function create_default_slot_7$1(ctx) {
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		d: noop
+    	};
+    }
+
+    // (26:5) <Button priority="ternary">
+    function create_default_slot_6$1(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = text("Option 1");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (27:5) <Button priority="ternary">
+    function create_default_slot_5$1(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = text("Option 2");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (28:5) <Button priority="ternary">
+    function create_default_slot_4$1(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = text("Option 3");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (25:4) <Stack>
+    function create_default_slot_3$2(ctx) {
+    	var t0, t1, current;
+
+    	var button0 = new Button({
+    		props: {
+    		priority: "ternary",
+    		$$slots: { default: [create_default_slot_6$1] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	var button1 = new Button({
+    		props: {
+    		priority: "ternary",
+    		$$slots: { default: [create_default_slot_5$1] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	var button2 = new Button({
+    		props: {
+    		priority: "ternary",
+    		$$slots: { default: [create_default_slot_4$1] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			button0.$$.fragment.c();
+    			t0 = space();
+    			button1.$$.fragment.c();
+    			t1 = space();
+    			button2.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(button0, target, anchor);
+    			insert(target, t0, anchor);
+    			mount_component(button1, target, anchor);
+    			insert(target, t1, anchor);
+    			mount_component(button2, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var button0_changes = {};
+    			if (changed.$$scope) button0_changes.$$scope = { changed, ctx };
+    			button0.$set(button0_changes);
+
+    			var button1_changes = {};
+    			if (changed.$$scope) button1_changes.$$scope = { changed, ctx };
+    			button1.$set(button1_changes);
+
+    			var button2_changes = {};
+    			if (changed.$$scope) button2_changes.$$scope = { changed, ctx };
+    			button2.$set(button2_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+
+    			transition_in(button1.$$.fragment, local);
+
+    			transition_in(button2.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			transition_out(button2.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(button0, detaching);
+
+    			if (detaching) {
+    				detach(t0);
+    			}
+
+    			destroy_component(button1, detaching);
+
+    			if (detaching) {
+    				detach(t1);
+    			}
+
+    			destroy_component(button2, detaching);
+    		}
+    	};
+    }
+
+    // (24:3) <div slot="center">
+    function create_center_slot_1$1(ctx) {
+    	var div, current;
+
+    	var stack = new Stack({
+    		props: {
+    		$$slots: { default: [create_default_slot_3$2] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			stack.$$.fragment.c();
+    			attr(div, "slot", "center");
+    			add_location(div, file$8, 23, 3, 656);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(stack, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var stack_changes = {};
+    			if (changed.$$scope) stack_changes.$$scope = { changed, ctx };
+    			stack.$set(stack_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(stack.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(stack.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(stack, );
+    		}
+    	};
+    }
+
+    // (23:2) <Bracket padding="--s-1">
+    function create_default_slot_2$2(ctx) {
+
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: noop
+    	};
+    }
+
+    // (19:1) <div slot="sidebar" style="background: var(--color-secondary); color: white;">
+    function create_sidebar_slot$2(ctx) {
+    	var div, t, current;
+
+    	var bracket0 = new Bracket({
+    		props: {
+    		padding: "--s-1",
+    		$$slots: {
+    		default: [create_default_slot_7$1],
+    		center: [create_center_slot_2$1]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	var bracket1 = new Bracket({
+    		props: {
+    		padding: "--s-1",
+    		$$slots: {
+    		default: [create_default_slot_2$2],
+    		center: [create_center_slot_1$1]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			bracket0.$$.fragment.c();
+    			t = space();
+    			bracket1.$$.fragment.c();
+    			attr(div, "slot", "sidebar");
+    			set_style(div, "background", "var(--color-secondary)");
+    			set_style(div, "color", "white");
+    			add_location(div, file$8, 18, 1, 467);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(bracket0, div, null);
+    			append(div, t);
+    			mount_component(bracket1, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket0_changes = {};
+    			if (changed.$$scope) bracket0_changes.$$scope = { changed, ctx };
+    			bracket0.$set(bracket0_changes);
+
+    			var bracket1_changes = {};
+    			if (changed.$$scope) bracket1_changes.$$scope = { changed, ctx };
+    			bracket1.$set(bracket1_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket0.$$.fragment, local);
+
+    			transition_in(bracket1.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket0.$$.fragment, local);
+    			transition_out(bracket1.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(bracket0, );
+
+    			destroy_component(bracket1, );
+    		}
+    	};
+    }
+
+    // (34:1) <div slot="not-sidebar">
+    function create_not_sidebar_slot$2(ctx) {
+    	var div, current;
+
+    	var alternate = new Alternate({
+    		props: { statements: statements },
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			alternate.$$.fragment.c();
+    			attr(div, "slot", "not-sidebar");
+    			add_location(div, file$8, 33, 1, 884);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(alternate, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var alternate_changes = {};
+    			if (changed.statements) alternate_changes.statements = statements;
+    			alternate.$set(alternate_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(alternate.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(alternate.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(alternate, );
+    		}
+    	};
+    }
+
+    // (40:3) <p slot="center">
+    function create_center_slot$2(ctx) {
+    	var p;
+
+    	return {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = "Footer";
+    			attr(p, "slot", "center");
+    			add_location(p, file$8, 39, 3, 1035);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, p, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(p);
+    			}
+    		}
+    	};
+    }
+
+    // (39:2) <Bracket style="background: var(--color-primary);">
+    function create_default_slot_1$3(ctx) {
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		d: noop
+    	};
+    }
+
+    // (38:1) <div slot="footer">
+    function create_footer_slot(ctx) {
+    	var div, current;
+
+    	var bracket = new Bracket({
+    		props: {
+    		style: "background: var(--color-primary);",
+    		$$slots: {
+    		default: [create_default_slot_1$3],
+    		center: [create_center_slot$2]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			bracket.$$.fragment.c();
+    			attr(div, "slot", "footer");
+    			add_location(div, file$8, 37, 1, 958);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(bracket, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket_changes = {};
+    			if (changed.$$scope) bracket_changes.$$scope = { changed, ctx };
+    			bracket.$set(bracket_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(bracket, );
+    		}
+    	};
+    }
+
+    // (11:0) <FullHeightSidebar>
+    function create_default_slot$3(ctx) {
+    	var t0, t1, t2;
+
+    	return {
+    		c: function create() {
+    			t0 = space();
+    			t1 = space();
+    			t2 = space();
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t0, anchor);
+    			insert(target, t1, anchor);
+    			insert(target, t2, anchor);
+    		},
+
+    		p: noop,
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t0);
+    				detach(t1);
+    				detach(t2);
+    			}
+    		}
+    	};
+    }
+
+    function create_fragment$8(ctx) {
+    	var current;
+
+    	var fullheightsidebar = new FullHeightSidebar({
+    		props: {
+    		$$slots: {
+    		default: [create_default_slot$3],
+    		footer: [create_footer_slot],
+    		"not-sidebar": [create_not_sidebar_slot$2],
+    		sidebar: [create_sidebar_slot$2],
+    		header: [create_header_slot]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			fullheightsidebar.$$.fragment.c();
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(fullheightsidebar, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var fullheightsidebar_changes = {};
+    			if (changed.$$scope) fullheightsidebar_changes.$$scope = { changed, ctx };
+    			fullheightsidebar.$set(fullheightsidebar_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(fullheightsidebar.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(fullheightsidebar.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(fullheightsidebar, detaching);
+    		}
+    	};
+    }
+
+    class SampleConfiguration_002 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, null, create_fragment$8, safe_not_equal, []);
+    	}
+    }
+
+    /* src/SampleConfiguration_003.svelte generated by Svelte v3.6.5 */
+
+    const file$9 = "src/SampleConfiguration_003.svelte";
+
+    // (16:3) <p slot="center">
+    function create_center_slot_4(ctx) {
+    	var p;
+
+    	return {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = "Sidebar Title";
+    			attr(p, "slot", "center");
+    			add_location(p, file$9, 15, 3, 489);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, p, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(p);
+    			}
+    		}
+    	};
+    }
+
+    // (15:2) <Bracket padding="--s-1">
+    function create_default_slot_9(ctx) {
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		d: noop
+    	};
+    }
+
+    // (21:5) <Button priority="ternary">
+    function create_default_slot_8$2(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = text("Option 1");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (22:5) <Button priority="ternary">
+    function create_default_slot_7$2(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = text("Option 2");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (23:5) <Button priority="ternary">
+    function create_default_slot_6$2(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = text("Option 3");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    // (20:4) <Stack>
+    function create_default_slot_5$2(ctx) {
+    	var t0, t1, current;
+
+    	var button0 = new Button({
+    		props: {
+    		priority: "ternary",
+    		$$slots: { default: [create_default_slot_8$2] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	var button1 = new Button({
+    		props: {
+    		priority: "ternary",
+    		$$slots: { default: [create_default_slot_7$2] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	var button2 = new Button({
+    		props: {
+    		priority: "ternary",
+    		$$slots: { default: [create_default_slot_6$2] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			button0.$$.fragment.c();
+    			t0 = space();
+    			button1.$$.fragment.c();
+    			t1 = space();
+    			button2.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(button0, target, anchor);
+    			insert(target, t0, anchor);
+    			mount_component(button1, target, anchor);
+    			insert(target, t1, anchor);
+    			mount_component(button2, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var button0_changes = {};
+    			if (changed.$$scope) button0_changes.$$scope = { changed, ctx };
+    			button0.$set(button0_changes);
+
+    			var button1_changes = {};
+    			if (changed.$$scope) button1_changes.$$scope = { changed, ctx };
+    			button1.$set(button1_changes);
+
+    			var button2_changes = {};
+    			if (changed.$$scope) button2_changes.$$scope = { changed, ctx };
+    			button2.$set(button2_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+
+    			transition_in(button1.$$.fragment, local);
+
+    			transition_in(button2.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			transition_out(button2.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(button0, detaching);
+
+    			if (detaching) {
+    				detach(t0);
+    			}
+
+    			destroy_component(button1, detaching);
+
+    			if (detaching) {
+    				detach(t1);
+    			}
+
+    			destroy_component(button2, detaching);
+    		}
+    	};
+    }
+
+    // (19:3) <div slot="center">
+    function create_center_slot_3$2(ctx) {
+    	var div, current;
+
+    	var stack = new Stack({
+    		props: {
+    		$$slots: { default: [create_default_slot_5$2] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			stack.$$.fragment.c();
+    			attr(div, "slot", "center");
+    			add_location(div, file$9, 18, 3, 568);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(stack, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var stack_changes = {};
+    			if (changed.$$scope) stack_changes.$$scope = { changed, ctx };
+    			stack.$set(stack_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(stack.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(stack.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(stack, );
+    		}
+    	};
+    }
+
+    // (18:2) <Bracket padding="--s-1">
+    function create_default_slot_4$2(ctx) {
+
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: noop
+    	};
+    }
+
+    // (14:1) <div slot="sidebar" style="background: var(--color-secondary); color: white;">
+    function create_sidebar_slot$3(ctx) {
+    	var div, t, current;
+
+    	var bracket0 = new Bracket({
+    		props: {
+    		padding: "--s-1",
+    		$$slots: {
+    		default: [create_default_slot_9],
+    		center: [create_center_slot_4]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	var bracket1 = new Bracket({
+    		props: {
+    		padding: "--s-1",
+    		$$slots: {
+    		default: [create_default_slot_4$2],
+    		center: [create_center_slot_3$2]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			bracket0.$$.fragment.c();
+    			t = space();
+    			bracket1.$$.fragment.c();
+    			attr(div, "slot", "sidebar");
+    			set_style(div, "background", "var(--color-secondary)");
+    			set_style(div, "color", "white");
+    			add_location(div, file$9, 13, 1, 379);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(bracket0, div, null);
+    			append(div, t);
+    			mount_component(bracket1, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket0_changes = {};
+    			if (changed.$$scope) bracket0_changes.$$scope = { changed, ctx };
+    			bracket0.$set(bracket0_changes);
+
+    			var bracket1_changes = {};
+    			if (changed.$$scope) bracket1_changes.$$scope = { changed, ctx };
+    			bracket1.$set(bracket1_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket0.$$.fragment, local);
+
+    			transition_in(bracket1.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket0.$$.fragment, local);
+    			transition_out(bracket1.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(bracket0, );
+
+    			destroy_component(bracket1, );
+    		}
+    	};
+    }
+
+    // (33:5) <h1 slot="center">
+    function create_center_slot_2$2(ctx) {
+    	var h1;
+
+    	return {
+    		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "Welcome!";
+    			attr(h1, "slot", "center");
+    			add_location(h1, file$9, 32, 5, 931);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, h1, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(h1);
+    			}
+    		}
+    	};
+    }
+
+    // (32:4) <Bracket style="background: var(--color-primary);">
+    function create_default_slot_3$3(ctx) {
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		d: noop
+    	};
+    }
+
+    // (31:3) <div slot="above">
+    function create_above_slot$1(ctx) {
+    	var div, current;
+
+    	var bracket = new Bracket({
+    		props: {
+    		style: "background: var(--color-primary);",
+    		$$slots: {
+    		default: [create_default_slot_3$3],
+    		center: [create_center_slot_2$2]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			bracket.$$.fragment.c();
+    			attr(div, "slot", "above");
+    			add_location(div, file$9, 30, 3, 851);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(bracket, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket_changes = {};
+    			if (changed.$$scope) bracket_changes.$$scope = { changed, ctx };
+    			bracket.$set(bracket_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(bracket, );
+    		}
+    	};
+    }
+
+    // (37:3) <div slot="center">
+    function create_center_slot_1$2(ctx) {
+    	var div, current;
+
+    	var alternate = new Alternate({
+    		props: { statements: statements },
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			alternate.$$.fragment.c();
+    			attr(div, "slot", "center");
+    			add_location(div, file$9, 36, 3, 992);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(alternate, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var alternate_changes = {};
+    			if (changed.statements) alternate_changes.statements = statements;
+    			alternate.$set(alternate_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(alternate.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(alternate.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(alternate, );
+    		}
+    	};
+    }
+
+    // (43:5) <p slot="center">
+    function create_center_slot$3(ctx) {
+    	var p;
+
+    	return {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = "Footer";
+    			attr(p, "slot", "center");
+    			add_location(p, file$9, 42, 5, 1147);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, p, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(p);
+    			}
+    		}
+    	};
+    }
+
+    // (42:4) <Bracket style="background: var(--color-primary);">
+    function create_default_slot_2$3(ctx) {
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		d: noop
+    	};
+    }
+
+    // (41:3) <div slot="below">
+    function create_below_slot$1(ctx) {
+    	var div, current;
+
+    	var bracket = new Bracket({
+    		props: {
+    		style: "background: var(--color-primary);",
+    		$$slots: {
+    		default: [create_default_slot_2$3],
+    		center: [create_center_slot$3]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			bracket.$$.fragment.c();
+    			attr(div, "slot", "below");
+    			add_location(div, file$9, 40, 3, 1067);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(bracket, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var bracket_changes = {};
+    			if (changed.$$scope) bracket_changes.$$scope = { changed, ctx };
+    			bracket.$set(bracket_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(bracket.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(bracket.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(bracket, );
+    		}
+    	};
+    }
+
+    // (30:2) <Cover padding="--zero">
+    function create_default_slot_1$4(ctx) {
+    	var t0, t1;
+
+    	return {
+    		c: function create() {
+    			t0 = space();
+    			t1 = space();
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t0, anchor);
+    			insert(target, t1, anchor);
+    		},
+
+    		p: noop,
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t0);
+    				detach(t1);
+    			}
+    		}
+    	};
+    }
+
+    // (29:1) <div slot="not-sidebar">
+    function create_not_sidebar_slot$3(ctx) {
+    	var div, current;
+
+    	var cover = new Cover({
+    		props: {
+    		padding: "--zero",
+    		$$slots: {
+    		default: [create_default_slot_1$4],
+    		below: [create_below_slot$1],
+    		center: [create_center_slot_1$2],
+    		above: [create_above_slot$1]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			cover.$$.fragment.c();
+    			attr(div, "slot", "not-sidebar");
+    			add_location(div, file$9, 28, 1, 796);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(cover, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var cover_changes = {};
+    			if (changed.$$scope) cover_changes.$$scope = { changed, ctx };
+    			cover.$set(cover_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(cover.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(cover.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(cover, );
+    		}
+    	};
+    }
+
+    // (12:0) <FullHeightSidebar>
+    function create_default_slot$4(ctx) {
+    	var t;
+
+    	return {
+    		c: function create() {
+    			t = space();
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, t, anchor);
+    		},
+
+    		p: noop,
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(t);
+    			}
+    		}
+    	};
+    }
+
+    function create_fragment$9(ctx) {
+    	var current;
+
+    	var fullheightsidebar = new FullHeightSidebar({
+    		props: {
+    		$$slots: {
+    		default: [create_default_slot$4],
+    		"not-sidebar": [create_not_sidebar_slot$3],
+    		sidebar: [create_sidebar_slot$3]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			fullheightsidebar.$$.fragment.c();
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(fullheightsidebar, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var fullheightsidebar_changes = {};
+    			if (changed.$$scope) fullheightsidebar_changes.$$scope = { changed, ctx };
+    			fullheightsidebar.$set(fullheightsidebar_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(fullheightsidebar.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(fullheightsidebar.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(fullheightsidebar, detaching);
+    		}
+    	};
+    }
+
+    class SampleConfiguration_003 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, null, create_fragment$9, safe_not_equal, []);
+    	}
+    }
+
+    /* src/SampleConfiguration_004.svelte generated by Svelte v3.6.5 */
+
+    const file$a = "src/SampleConfiguration_004.svelte";
+
+    // (11:2) <Stack splitAfter="2">
+    function create_default_slot$5(ctx) {
+    	var p0, t1, p1, t3, p2;
+
+    	return {
+    		c: function create() {
+    			p0 = element("p");
+    			p0.textContent = "eins";
+    			t1 = space();
+    			p1 = element("p");
+    			p1.textContent = "zwei";
+    			t3 = space();
+    			p2 = element("p");
+    			p2.textContent = "drei";
+    			add_location(p0, file$a, 11, 3, 284);
+    			add_location(p1, file$a, 12, 3, 299);
+    			add_location(p2, file$a, 13, 3, 314);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, p0, anchor);
+    			insert(target, t1, anchor);
+    			insert(target, p1, anchor);
+    			insert(target, t3, anchor);
+    			insert(target, p2, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(p0);
+    				detach(t1);
+    				detach(p1);
+    				detach(t3);
+    				detach(p2);
+    			}
+    		}
+    	};
+    }
+
+    function create_fragment$a(ctx) {
+    	var current;
+
+    	var stack = new Stack({
+    		props: {
+    		splitAfter: "2",
+    		$$slots: { default: [create_default_slot$5] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			stack.$$.fragment.c();
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(stack, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var stack_changes = {};
+    			if (changed.$$scope) stack_changes.$$scope = { changed, ctx };
+    			stack.$set(stack_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(stack.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(stack.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(stack, detaching);
+    		}
+    	};
+    }
+
+    class SampleConfiguration_004 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, null, create_fragment$a, safe_not_equal, []);
+    	}
+    }
+
+    /* src/App.svelte generated by Svelte v3.6.5 */
+
+    // (63:30) 
+    function create_if_block_3(ctx) {
+    	var current;
+
+    	var sampleconfiguration_004 = new SampleConfiguration_004({ $$inline: true });
+
+    	return {
+    		c: function create() {
+    			sampleconfiguration_004.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(sampleconfiguration_004, target, anchor);
+    			current = true;
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sampleconfiguration_004.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(sampleconfiguration_004.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(sampleconfiguration_004, detaching);
+    		}
+    	};
+    }
+
+    // (61:30) 
+    function create_if_block_2(ctx) {
+    	var current;
+
+    	var sampleconfiguration_003 = new SampleConfiguration_003({ $$inline: true });
+
+    	return {
+    		c: function create() {
+    			sampleconfiguration_003.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(sampleconfiguration_003, target, anchor);
+    			current = true;
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sampleconfiguration_003.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(sampleconfiguration_003.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(sampleconfiguration_003, detaching);
+    		}
+    	};
+    }
+
+    // (59:30) 
+    function create_if_block_1(ctx) {
+    	var current;
+
+    	var sampleconfiguration_002 = new SampleConfiguration_002({ $$inline: true });
+
+    	return {
+    		c: function create() {
+    			sampleconfiguration_002.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(sampleconfiguration_002, target, anchor);
+    			current = true;
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sampleconfiguration_002.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(sampleconfiguration_002.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(sampleconfiguration_002, detaching);
+    		}
+    	};
+    }
+
+    // (57:0) {#if configuration === 0}
+    function create_if_block$1(ctx) {
+    	var current;
+
+    	var sampleconfiguration_001 = new SampleConfiguration_001({ $$inline: true });
+
+    	return {
+    		c: function create() {
+    			sampleconfiguration_001.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(sampleconfiguration_001, target, anchor);
+    			current = true;
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sampleconfiguration_001.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(sampleconfiguration_001.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(sampleconfiguration_001, detaching);
+    		}
+    	};
+    }
+
+    function create_fragment$b(ctx) {
+    	var current_block_type_index, if_block, if_block_anchor, current;
+
+    	var if_block_creators = [
+    		create_if_block$1,
+    		create_if_block_1,
+    		create_if_block_2,
+    		create_if_block_3
+    	];
+
+    	var if_blocks = [];
+
+    	function select_block_type(ctx) {
+    		if (ctx.configuration === 0) return 0;
+    		if (ctx.configuration === 1) return 1;
+    		if (ctx.configuration === 2) return 2;
+    		if (ctx.configuration === 3) return 3;
+    		return -1;
+    	}
+
+    	if (~(current_block_type_index = select_block_type(ctx))) {
+    		if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    	}
+
+    	return {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			if (~current_block_type_index) if_blocks[current_block_type_index].m(target, anchor);
+    			insert(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+    			if (current_block_type_index !== previous_block_index) {
+    				if (if_block) {
+    					group_outros();
+    					transition_out(if_blocks[previous_block_index], 1, () => {
+    						if_blocks[previous_block_index] = null;
+    					});
+    					check_outros();
+    				}
+
+    				if (~current_block_type_index) {
+    					if_block = if_blocks[current_block_type_index];
+    					if (!if_block) {
+    						if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    						if_block.c();
+    					}
+    					transition_in(if_block, 1);
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				} else {
+    					if_block = null;
+    				}
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (~current_block_type_index) if_blocks[current_block_type_index].d(detaching);
+
+    			if (detaching) {
+    				detach(if_block_anchor);
+    			}
+    		}
+    	};
+    }
+
+    const PAGES = 4;
+
+    function unify(e) { return e.changedTouches ? e.changedTouches[0] : e }
+
+    function instance$7($$self, $$props, $$invalidate) {
+    	
+
+    	let configuration = 0;
+    	let x0 = null;
+
+    	/* spacebar press */
+    	document.body.onkeyup = function(e){
+    		if(e.keyCode === 32){
+    			$$invalidate('configuration', configuration = (configuration + 1) % PAGES);
+    		}
+    	};
+
+    	function lock(e) {
+    		x0 = unify(e).clientX;
+    	}
+
+    	function move(e) {
+    		if(x0 || x0 === 0) {
+    			let dx = unify(e).clientX - x0, s = Math.sign(dx);
+
+    			/* trigger only if more the 20 percent of screen are swiped */
+    			let threshold = Math.abs(dx) > document.body.getBoundingClientRect().width * 0.2;
+
+    			if (!threshold) return;
+
+    			if (s > 0) {
+    				$$invalidate('configuration', configuration = (configuration + 1) % PAGES);
+    			} else {
+    				$$invalidate('configuration', configuration = (configuration + 2) % PAGES);
+    			}
+    			
+    			x0 = null;
+    		}
+    	}
+
+    	/* swipe with touch */
+    	document.body.addEventListener('touchstart', lock, false);
+    	document.body.addEventListener('touchend', move, false);
+
+    	/* swipe with mouse */
+    	document.body.addEventListener('mousedown', lock, false);
+    	document.body.addEventListener('mouseup', move, false);
+
+    	/* prevent default action */
+    	document.body.addEventListener('touchmove', e => { e.preventDefault(); }, false);
+
+    	return { configuration };
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$7, create_fragment$b, safe_not_equal, []);
+    	}
+    }
+
+    const app = new App({
+    	target: document.body,
+    	props: {
+    		name: 'world'
+    	}
+    });
+
+    return app;
+
+}());
 //# sourceMappingURL=bundle.js.map

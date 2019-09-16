@@ -1,9 +1,9 @@
 <script>
-	import Cover from './Cover.svelte';
-	import Bracket from './Bracket.svelte';
+	import Cover from './layout/Cover.svelte';
+	import Bracket from './layout/Bracket.svelte';
+	import Stack from './layout/Stack.svelte';
     import Alternate from './Alternate.svelte';
     import Button from './Button.svelte';
-	import Stack from './Stack.svelte';
 	import FullHeightSidebar from './FullHeightSidebar.svelte';
 
 	import { statements } from './staticContent.js'

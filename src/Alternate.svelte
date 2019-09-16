@@ -1,6 +1,6 @@
 <script>
-    import Stack from './Stack.svelte';
-    import Bracket from './Bracket.svelte';
+    import Stack from './layout/Stack.svelte';
+    import Bracket from './layout/Bracket.svelte';
     
     export let statements = ["Hello", "World!"];
 </script>

@@ -1,6 +1,6 @@
 <script>
-	import Sidebar from './Sidebar.svelte';
-    import Stack from './Stack.svelte';
+	import Sidebar from './layout/Sidebar.svelte';
+    import Stack from './layout/Stack.svelte';
 </script>
 
 <style>

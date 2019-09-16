@@ -2,14 +2,17 @@
 	import SampleConfiguration_001 from './SampleConfiguration_001.svelte';
 	import SampleConfiguration_002 from './SampleConfiguration_002.svelte';
 	import SampleConfiguration_003 from './SampleConfiguration_003.svelte';
+	import SampleConfiguration_004 from './SampleConfiguration_004.svelte';
 
 	let configuration = 0;
 	let x0 = null;
 
+	const PAGES = 4;
+
 	/* spacebar press */
 	document.body.onkeyup = function(e){
 		if(e.keyCode === 32){
-			configuration = (configuration + 1) % 3;
+			configuration = (configuration + 1) % PAGES;
 		}
 	}
 
@@ -29,9 +32,9 @@
 			if (!threshold) return;
 
 			if (s > 0) {
-				configuration = (configuration + 1) % 3;
+				configuration = (configuration + 1) % PAGES;
 			} else {
-				configuration = (configuration + 2) % 3;
+				configuration = (configuration + 2) % PAGES;
 			}
 			
 			x0 = null;
@@ -57,4 +60,6 @@
 	<SampleConfiguration_002></SampleConfiguration_002>
 {:else if configuration === 2}
 	<SampleConfiguration_003></SampleConfiguration_003>
+{:else if configuration === 3}
+	<SampleConfiguration_004></SampleConfiguration_004>
 {/if}

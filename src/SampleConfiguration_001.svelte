@@ -1,10 +1,10 @@
 <script>
-	import Sidebar from './Sidebar.svelte';
-	import Cover from './Cover.svelte';
-	import Bracket from './Bracket.svelte';
+	import Sidebar from './layout/Sidebar.svelte';
+	import Cover from './layout/Cover.svelte';
+	import Bracket from './layout/Bracket.svelte';
 	import Alternate from './Alternate.svelte';
 	import Button from './Button.svelte';
-	import Stack from './Stack.svelte';
+	import Stack from './layout/Stack.svelte';
 	
 	import { statements } from './staticContent.js'
 </script>
