@@ -1,4 +1,5 @@
 <script>
+	import SampleConfiguration_000 from './SampleConfiguration_000.svelte';
 	import SampleConfiguration_001 from './SampleConfiguration_001.svelte';
 	import SampleConfiguration_002 from './SampleConfiguration_002.svelte';
 	import SampleConfiguration_003 from './SampleConfiguration_003.svelte';
@@ -57,6 +58,8 @@
 
 <main>
 	{#if configuration === 0}
+		<SampleConfiguration_000></SampleConfiguration_000>
+	{:else if configuration === 1}
 		<SampleConfiguration_001></SampleConfiguration_001>
 	{:else if configuration === 1}
 		<SampleConfiguration_002></SampleConfiguration_002>
