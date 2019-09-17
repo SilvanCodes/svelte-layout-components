@@ -1,27 +1,22 @@
 <script>
 	import Cover from './layout/Cover.svelte';
-	import Bracket from './layout/Bracket.svelte';
-	import Cluster from './layout/Cluster.svelte';
+	import Grid from './layout/Grid.svelte';
+	import Box from './layout/Box.svelte';
 </script>
 
 <Cover>
 	<div slot="center">
-		<Bracket intrinsic={true}>
-			<div slot="center">
-				<p>WIDE CONTENT</p>
-				<Cluster>
-					<ul>
-						<li>A</li>
-						<li>B</li>
-						<li>C</li>
-						<li>D</li>
-						<li>E</li>
-						<li>F</li>
-						<li>G</li>
-						<li>H</li>
-					</ul>
-				</Cluster>
-			</div>
-		</Bracket>
+		<Grid>
+			<Box>Hello, this is a test. Here come a lot of text that I wrote myself. Interesting right?</Box>
+			<Box>B</Box>
+			<Box></Box>
+			<Box></Box>
+			<Box></Box>
+			<Box></Box>
+			<Box></Box>
+			<Box></Box>
+			<Box></Box>
+			<Box></Box>
+		</Grid>
 	</div>
 </Cover>
