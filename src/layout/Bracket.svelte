@@ -3,7 +3,7 @@
     import { cssValue } from '../lib/helpers';
 
     export let maxWidth = 'measure';
-    export let andText = false;
+    export let andText = true;
     export let space = 's0';
     export let padding = 's0';
     export let intrinsic = false;

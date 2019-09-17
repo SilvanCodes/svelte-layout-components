@@ -10,7 +10,7 @@
 
 	onMount(() => {
         document.querySelectorAll(`.${id}`).forEach(e => e.style.minHeight = cssValue(minHeight));
-        document.querySelectorAll(`.${id} > .above`).forEach(e => e.style.spaceBottom = cssValue(space));
+        document.querySelectorAll(`.${id} > .above`).forEach(e => e.style.marginBottom = cssValue(space));
         document.querySelectorAll(`.${id} > .below`).forEach(e => e.style.marginTop = cssValue(space));
 
         if (pad) {
