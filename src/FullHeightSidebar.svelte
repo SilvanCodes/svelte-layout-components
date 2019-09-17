@@ -34,7 +34,7 @@
 </style>
 
 <div class="full-height">
-	<Stack scale="--zero">
+	<Stack space="--zero">
 		<slot name="header"></slot>
 		<Sidebar>
 			<div slot="sidebar">

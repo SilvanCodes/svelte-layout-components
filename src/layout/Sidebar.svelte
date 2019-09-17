@@ -6,7 +6,7 @@
     export let contentMin = '50%';
     export let space = '--s0';
 
-    $: id = side + sideWidth + contentMin + space;
+    const id = side + sideWidth + contentMin.replace('%', '') + space;
 
 	onMount(() => {
         if (sideWidth) {

@@ -5,7 +5,7 @@
     export let statements = ["Hello", "World!"];
 </script>
 
-<Bracket padding="--s2" maxOut={true}>
+<Bracket padding="--s2">
     <div slot="center">
         <Stack>
             {#each statements as statement, i}

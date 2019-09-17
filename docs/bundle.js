@@ -314,14 +314,111 @@ var app = (function () {
 
     const file = "src/layout/Sidebar.svelte";
 
+    const get_sidebar_slot_changes_1 = () => ({});
+    const get_sidebar_slot_context_1 = () => ({});
+
+    const get_not_sidebar_slot_changes_1 = () => ({});
+    const get_not_sidebar_slot_context_1 = () => ({});
+
     const get_not_sidebar_slot_changes = () => ({});
     const get_not_sidebar_slot_context = () => ({});
 
     const get_sidebar_slot_changes = () => ({});
     const get_sidebar_slot_context = () => ({});
 
-    function create_fragment(ctx) {
-    	var div3, div2, div0, t, div1, div3_class_value, current;
+    // (58:8) {:else}
+    function create_else_block(ctx) {
+    	var div0, t, div1, current;
+
+    	const not_sidebar_slot_1 = ctx.$$slots["not-sidebar"];
+    	const not_sidebar_slot = create_slot(not_sidebar_slot_1, ctx, get_not_sidebar_slot_context_1);
+
+    	const sidebar_slot_1 = ctx.$$slots.sidebar;
+    	const sidebar_slot = create_slot(sidebar_slot_1, ctx, get_sidebar_slot_context_1);
+
+    	return {
+    		c: function create() {
+    			div0 = element("div");
+
+    			if (not_sidebar_slot) not_sidebar_slot.c();
+    			t = space();
+    			div1 = element("div");
+
+    			if (sidebar_slot) sidebar_slot.c();
+
+    			attr(div0, "class", "not-sidebar svelte-c4ub5i");
+    			add_location(div0, file, 58, 12, 1666);
+
+    			attr(div1, "class", "sidebar svelte-c4ub5i");
+    			add_location(div1, file, 61, 12, 1772);
+    		},
+
+    		l: function claim(nodes) {
+    			if (not_sidebar_slot) not_sidebar_slot.l(div0_nodes);
+
+    			if (sidebar_slot) sidebar_slot.l(div1_nodes);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div0, anchor);
+
+    			if (not_sidebar_slot) {
+    				not_sidebar_slot.m(div0, null);
+    			}
+
+    			insert(target, t, anchor);
+    			insert(target, div1, anchor);
+
+    			if (sidebar_slot) {
+    				sidebar_slot.m(div1, null);
+    			}
+
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (not_sidebar_slot && not_sidebar_slot.p && changed.$$scope) {
+    				not_sidebar_slot.p(get_slot_changes(not_sidebar_slot_1, ctx, changed, get_not_sidebar_slot_changes_1), get_slot_context(not_sidebar_slot_1, ctx, get_not_sidebar_slot_context_1));
+    			}
+
+    			if (sidebar_slot && sidebar_slot.p && changed.$$scope) {
+    				sidebar_slot.p(get_slot_changes(sidebar_slot_1, ctx, changed, get_sidebar_slot_changes_1), get_slot_context(sidebar_slot_1, ctx, get_sidebar_slot_context_1));
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(not_sidebar_slot, local);
+    			transition_in(sidebar_slot, local);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(not_sidebar_slot, local);
+    			transition_out(sidebar_slot, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div0);
+    			}
+
+    			if (not_sidebar_slot) not_sidebar_slot.d(detaching);
+
+    			if (detaching) {
+    				detach(t);
+    				detach(div1);
+    			}
+
+    			if (sidebar_slot) sidebar_slot.d(detaching);
+    		}
+    	};
+    }
+
+    // (51:8) {#if side === 'left'}
+    function create_if_block(ctx) {
+    	var div0, t, div1, current;
 
     	const sidebar_slot_1 = ctx.$$slots.sidebar;
     	const sidebar_slot = create_slot(sidebar_slot_1, ctx, get_sidebar_slot_context);
@@ -331,8 +428,6 @@ var app = (function () {
 
     	return {
     		c: function create() {
-    			div3 = element("div");
-    			div2 = element("div");
     			div0 = element("div");
 
     			if (sidebar_slot) sidebar_slot.c();
@@ -341,35 +436,28 @@ var app = (function () {
 
     			if (not_sidebar_slot) not_sidebar_slot.c();
 
-    			attr(div0, "class", "sidebar svelte-1hzyy5d");
-    			add_location(div0, file, 36, 8, 867);
+    			attr(div0, "class", "sidebar svelte-c4ub5i");
+    			add_location(div0, file, 51, 12, 1446);
 
-    			attr(div1, "class", "not-sidebar svelte-1hzyy5d");
-    			add_location(div1, file, 39, 8, 954);
-    			attr(div2, "class", "svelte-1hzyy5d");
-    			add_location(div2, file, 35, 4, 853);
-    			attr(div3, "class", div3_class_value = "" + (`with-sidebar${ctx.id}`) + " svelte-1hzyy5d");
-    			add_location(div3, file, 34, 0, 815);
+    			attr(div1, "class", "not-sidebar svelte-c4ub5i");
+    			add_location(div1, file, 54, 12, 1544);
     		},
 
     		l: function claim(nodes) {
     			if (sidebar_slot) sidebar_slot.l(div0_nodes);
 
     			if (not_sidebar_slot) not_sidebar_slot.l(div1_nodes);
-    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
 
     		m: function mount(target, anchor) {
-    			insert(target, div3, anchor);
-    			append(div3, div2);
-    			append(div2, div0);
+    			insert(target, div0, anchor);
 
     			if (sidebar_slot) {
     				sidebar_slot.m(div0, null);
     			}
 
-    			append(div2, t);
-    			append(div2, div1);
+    			insert(target, t, anchor);
+    			insert(target, div1, anchor);
 
     			if (not_sidebar_slot) {
     				not_sidebar_slot.m(div1, null);
@@ -385,10 +473,6 @@ var app = (function () {
 
     			if (not_sidebar_slot && not_sidebar_slot.p && changed.$$scope) {
     				not_sidebar_slot.p(get_slot_changes(not_sidebar_slot_1, ctx, changed, get_not_sidebar_slot_changes), get_slot_context(not_sidebar_slot_1, ctx, get_not_sidebar_slot_context));
-    			}
-
-    			if ((!current || changed.id) && div3_class_value !== (div3_class_value = "" + (`with-sidebar${ctx.id}`) + " svelte-1hzyy5d")) {
-    				attr(div3, "class", div3_class_value);
     			}
     		},
 
@@ -407,28 +491,126 @@ var app = (function () {
 
     		d: function destroy(detaching) {
     			if (detaching) {
-    				detach(div3);
+    				detach(div0);
     			}
 
     			if (sidebar_slot) sidebar_slot.d(detaching);
+
+    			if (detaching) {
+    				detach(t);
+    				detach(div1);
+    			}
 
     			if (not_sidebar_slot) not_sidebar_slot.d(detaching);
     		}
     	};
     }
 
+    function create_fragment(ctx) {
+    	var div1, div0, current_block_type_index, if_block, div1_class_value, current;
+
+    	var if_block_creators = [
+    		create_if_block,
+    		create_else_block
+    	];
+
+    	var if_blocks = [];
+
+    	function select_block_type(ctx) {
+    		if (ctx.side === 'left') return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	return {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			if_block.c();
+    			attr(div0, "class", "svelte-c4ub5i");
+    			add_location(div0, file, 49, 4, 1398);
+    			attr(div1, "class", div1_class_value = "" + (`with-sidebar${ctx.id}`) + " svelte-c4ub5i");
+    			add_location(div1, file, 48, 0, 1360);
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div1, anchor);
+    			append(div1, div0);
+    			if_blocks[current_block_type_index].m(div0, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(changed, ctx);
+    			} else {
+    				group_outros();
+    				transition_out(if_blocks[previous_block_index], 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+    				check_outros();
+
+    				if_block = if_blocks[current_block_type_index];
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				}
+    				transition_in(if_block, 1);
+    				if_block.m(div0, null);
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div1);
+    			}
+
+    			if_blocks[current_block_type_index].d();
+    		}
+    	};
+    }
+
     function instance($$self, $$props, $$invalidate) {
-    	let { gap = null } = $$props;
+    	let { side = 'left', sideWidth = '', contentMin = '50%', space = '--s0' } = $$props;
+
+        const id = side + sideWidth + contentMin.replace('%', '') + space;
 
     	onMount(() => {
-            if (gap) {
-                document.querySelectorAll(`.with-sidebar${id} > *`).forEach(e => e.style.margin = `calc(-1 * var(${gap}) / 2)`);
-                document.querySelectorAll(`.with-sidebar${id} > * > *`).forEach(e => e.style.margin = `calc(var(${gap}) / 2)`);
-                document.querySelector(`.with-sidebar${id} > * > .not-sidebar`).style.minWidth = `calc(50% - var(${gap}))`;
+            if (sideWidth) {
+                document.querySelector(`.with-sidebar${id} > * > .sidebar`).forEach(e => e.style.flexBasis = sideWidth);
+            }
+
+            if (contentMin) {
+                document.querySelectorAll(`.with-sidebar${id} > * > .not-sidebar`).forEach(e => e.style.minWidth = contentMin);
+            }
+
+            if (space) {
+                document.querySelectorAll(`.with-sidebar${id} > *`).forEach(e => e.style.margin = `calc(var(${space}) / 2 * -1)`);
+                document.querySelectorAll(`.with-sidebar${id} > * > *`).forEach(e => e.style.margin = `calc(var(${space}) / 2)`);
+                document.querySelectorAll(`.with-sidebar${id} > * > .not-sidebar`).forEach(e => e.style.minWidth = `calc(${contentMin} - var(${space}))`);
             }
     	});
 
-    	const writable_props = ['gap'];
+    	const writable_props = ['side', 'sideWidth', 'contentMin', 'space'];
     	Object.keys($$props).forEach(key => {
     		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Sidebar> was created with unknown prop '${key}'`);
     	});
@@ -436,30 +618,59 @@ var app = (function () {
     	let { $$slots = {}, $$scope } = $$props;
 
     	$$self.$set = $$props => {
-    		if ('gap' in $$props) $$invalidate('gap', gap = $$props.gap);
+    		if ('side' in $$props) $$invalidate('side', side = $$props.side);
+    		if ('sideWidth' in $$props) $$invalidate('sideWidth', sideWidth = $$props.sideWidth);
+    		if ('contentMin' in $$props) $$invalidate('contentMin', contentMin = $$props.contentMin);
+    		if ('space' in $$props) $$invalidate('space', space = $$props.space);
     		if ('$$scope' in $$props) $$invalidate('$$scope', $$scope = $$props.$$scope);
     	};
 
-    	let id;
-
-    	$$self.$$.update = ($$dirty = { gap: 1 }) => {
-    		if ($$dirty.gap) { $$invalidate('id', id = gap); }
+    	return {
+    		side,
+    		sideWidth,
+    		contentMin,
+    		space,
+    		id,
+    		$$slots,
+    		$$scope
     	};
-
-    	return { gap, id, $$slots, $$scope };
     }
 
     class Sidebar extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance, create_fragment, safe_not_equal, ["gap"]);
+    		init(this, options, instance, create_fragment, safe_not_equal, ["side", "sideWidth", "contentMin", "space"]);
     	}
 
-    	get gap() {
+    	get side() {
     		throw new Error("<Sidebar>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	set gap(value) {
+    	set side(value) {
+    		throw new Error("<Sidebar>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get sideWidth() {
+    		throw new Error("<Sidebar>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set sideWidth(value) {
+    		throw new Error("<Sidebar>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get contentMin() {
+    		throw new Error("<Sidebar>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set contentMin(value) {
+    		throw new Error("<Sidebar>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get space() {
+    		throw new Error("<Sidebar>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set space(value) {
     		throw new Error("<Sidebar>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -1023,7 +1234,7 @@ var app = (function () {
     }
 
     // (16:16) {:else}
-    function create_else_block(ctx) {
+    function create_else_block$1(ctx) {
     	var current;
 
     	var bracket = new Bracket({
@@ -1073,7 +1284,7 @@ var app = (function () {
     }
 
     // (12:16) {#if i%2 == 0}
-    function create_if_block(ctx) {
+    function create_if_block$1(ctx) {
     	var current;
 
     	var bracket = new Bracket({
@@ -1130,7 +1341,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			attr(p, "slot", "right");
-    			add_location(p, file$4, 17, 24, 563);
+    			add_location(p, file$4, 17, 24, 549);
     		},
 
     		m: function mount(target, anchor) {
@@ -1183,7 +1394,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			attr(p, "slot", "left");
-    			add_location(p, file$4, 13, 24, 400);
+    			add_location(p, file$4, 13, 24, 386);
     		},
 
     		m: function mount(target, anchor) {
@@ -1233,8 +1444,8 @@ var app = (function () {
     	var current_block_type_index, if_block, if_block_anchor, current;
 
     	var if_block_creators = [
-    		create_if_block,
-    		create_else_block
+    		create_if_block$1,
+    		create_else_block$1
     	];
 
     	var if_blocks = [];
@@ -1401,7 +1612,7 @@ var app = (function () {
     			div = element("div");
     			stack.$$.fragment.c();
     			attr(div, "slot", "center");
-    			add_location(div, file$4, 8, 4, 215);
+    			add_location(div, file$4, 8, 4, 201);
     		},
 
     		m: function mount(target, anchor) {
@@ -1438,7 +1649,7 @@ var app = (function () {
     	};
     }
 
-    // (8:0) <Bracket padding="--s2" maxOut={true}>
+    // (8:0) <Bracket padding="--s2">
     function create_default_slot(ctx) {
 
     	return {
@@ -1457,7 +1668,6 @@ var app = (function () {
     	var bracket = new Bracket({
     		props: {
     		padding: "--s2",
-    		maxOut: true,
     		$$slots: {
     		default: [create_default_slot],
     		center: [create_center_slot]
@@ -1686,7 +1896,7 @@ var app = (function () {
     			h1 = element("h1");
     			h1.textContent = "Welcome!";
     			attr(h1, "slot", "center");
-    			add_location(h1, file$6, 15, 3, 430);
+    			add_location(h1, file$6, 15, 3, 416);
     		},
 
     		m: function mount(target, anchor) {
@@ -1731,7 +1941,7 @@ var app = (function () {
     			div = element("div");
     			bracket.$$.fragment.c();
     			attr(div, "slot", "above");
-    			add_location(div, file$6, 13, 1, 396);
+    			add_location(div, file$6, 13, 1, 382);
     		},
 
     		m: function mount(target, anchor) {
@@ -1869,7 +2079,7 @@ var app = (function () {
     			button1.$$.fragment.c();
     			t3 = space();
     			button2.$$.fragment.c();
-    			add_location(p, file$6, 24, 7, 616);
+    			add_location(p, file$6, 24, 7, 602);
     		},
 
     		m: function mount(target, anchor) {
@@ -1955,7 +2165,7 @@ var app = (function () {
     			div = element("div");
     			stack.$$.fragment.c();
     			attr(div, "slot", "center");
-    			add_location(div, file$6, 22, 5, 575);
+    			add_location(div, file$6, 22, 5, 561);
     		},
 
     		m: function mount(target, anchor) {
@@ -2026,7 +2236,7 @@ var app = (function () {
     			div = element("div");
     			bracket.$$.fragment.c();
     			attr(div, "slot", "sidebar");
-    			add_location(div, file$6, 20, 3, 519);
+    			add_location(div, file$6, 20, 3, 505);
     		},
 
     		m: function mount(target, anchor) {
@@ -2077,7 +2287,7 @@ var app = (function () {
     			div = element("div");
     			alternate.$$.fragment.c();
     			attr(div, "slot", "not-sidebar");
-    			add_location(div, file$6, 32, 3, 791);
+    			add_location(div, file$6, 32, 3, 777);
     		},
 
     		m: function mount(target, anchor) {
@@ -2160,7 +2370,7 @@ var app = (function () {
     			div = element("div");
     			sidebar.$$.fragment.c();
     			attr(div, "slot", "center");
-    			add_location(div, file$6, 18, 1, 484);
+    			add_location(div, file$6, 18, 1, 470);
     		},
 
     		m: function mount(target, anchor) {
@@ -2206,7 +2416,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Footer";
     			attr(p, "slot", "center");
-    			add_location(p, file$6, 39, 3, 923);
+    			add_location(p, file$6, 39, 3, 909);
     		},
 
     		m: function mount(target, anchor) {
@@ -2251,7 +2461,7 @@ var app = (function () {
     			div = element("div");
     			bracket.$$.fragment.c();
     			attr(div, "slot", "below");
-    			add_location(div, file$6, 37, 1, 889);
+    			add_location(div, file$6, 37, 1, 875);
     		},
 
     		m: function mount(target, anchor) {
@@ -2288,7 +2498,7 @@ var app = (function () {
     	};
     }
 
-    // (13:0) <Cover padding="--zero" margin="--zero" maxOut={true}>
+    // (13:0) <Cover padding="--zero" margin="--zero">
     function create_default_slot$1(ctx) {
     	var t0, t1;
 
@@ -2323,7 +2533,6 @@ var app = (function () {
     		props: {
     		padding: "--zero",
     		margin: "--zero",
-    		maxOut: true,
     		$$slots: {
     		default: [create_default_slot$1],
     		below: [create_below_slot],
@@ -2537,7 +2746,7 @@ var app = (function () {
     	};
     }
 
-    // (37:1) <Stack scale="--zero">
+    // (37:1) <Stack space="--zero">
     function create_default_slot$2(ctx) {
     	var t0, t1, current;
 
@@ -2645,7 +2854,7 @@ var app = (function () {
 
     	var stack = new Stack({
     		props: {
-    		scale: "--zero",
+    		space: "--zero",
     		$$slots: { default: [create_default_slot$2] },
     		$$scope: { ctx }
     	},
@@ -4781,8 +4990,8 @@ var app = (function () {
 
     			if (default_slot) default_slot.c();
 
-    			attr(div, "class", div_class_value = "" + (`cluster${ctx.id}`) + " svelte-18txvu5");
-    			add_location(div, file$c, 29, 0, 719);
+    			attr(div, "class", div_class_value = "" + (`cluster${ctx.id}`) + " svelte-w9oxpl");
+    			add_location(div, file$c, 30, 0, 724);
     		},
 
     		l: function claim(nodes) {
@@ -5171,11 +5380,421 @@ var app = (function () {
     	}
     }
 
+    /* src/layout/Switcher.svelte generated by Svelte v3.6.5 */
+
+    const file$e = "src/layout/Switcher.svelte";
+
+    function create_fragment$e(ctx) {
+    	var div, div_class_value, current;
+
+    	const default_slot_1 = ctx.$$slots.default;
+    	const default_slot = create_slot(default_slot_1, ctx, null);
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+
+    			if (default_slot) default_slot.c();
+
+    			attr(div, "class", div_class_value = "" + (`switcher${ctx.id}`) + " svelte-i6526e");
+    			add_location(div, file$e, 39, 0, 1080);
+    		},
+
+    		l: function claim(nodes) {
+    			if (default_slot) default_slot.l(div_nodes);
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+
+    			if (default_slot) {
+    				default_slot.m(div, null);
+    			}
+
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (default_slot && default_slot.p && changed.$$scope) {
+    				default_slot.p(get_slot_changes(default_slot_1, ctx, changed, null), get_slot_context(default_slot_1, ctx, null));
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			if (default_slot) default_slot.d(detaching);
+    		}
+    	};
+    }
+
+    function instance$9($$self, $$props, $$invalidate) {
+    	let { threshold = '--measure', space = '--s0', limit = '5' } = $$props;
+
+        const id = threshold + space + limit;
+
+        onMount(() => {
+            document.querySelectorAll(`.switcher${id} > *`).forEach(e => e.style.margin = `calc(var(${space}) / 2 * -1)`);
+            document.querySelectorAll(`.switcher${id} > * > *`).forEach(e => {
+                e.style.flexBasis = `calc((var(${threshold}) - 100% + var(${space})) * 999)`;
+                e.style.margin = `calc(var(${space}) / 2)`;
+            });
+
+            if (limit) {
+                document.querySelectorAll(`.switcher${id} > * > :nth-last-child(n+${limit}), .switcher${id} > * > :nth-last-child(n+${limit}) ~ *`)
+                    .forEach(e => e.style.flexBasis = '100%');
+            }
+    	});
+
+    	const writable_props = ['threshold', 'space', 'limit'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Switcher> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+
+    	$$self.$set = $$props => {
+    		if ('threshold' in $$props) $$invalidate('threshold', threshold = $$props.threshold);
+    		if ('space' in $$props) $$invalidate('space', space = $$props.space);
+    		if ('limit' in $$props) $$invalidate('limit', limit = $$props.limit);
+    		if ('$$scope' in $$props) $$invalidate('$$scope', $$scope = $$props.$$scope);
+    	};
+
+    	return {
+    		threshold,
+    		space,
+    		limit,
+    		id,
+    		$$slots,
+    		$$scope
+    	};
+    }
+
+    class Switcher extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$9, create_fragment$e, safe_not_equal, ["threshold", "space", "limit"]);
+    	}
+
+    	get threshold() {
+    		throw new Error("<Switcher>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set threshold(value) {
+    		throw new Error("<Switcher>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get space() {
+    		throw new Error("<Switcher>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set space(value) {
+    		throw new Error("<Switcher>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get limit() {
+    		throw new Error("<Switcher>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set limit(value) {
+    		throw new Error("<Switcher>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src/SampleConfiguration_006.svelte generated by Svelte v3.6.5 */
+
+    const file$f = "src/SampleConfiguration_006.svelte";
+
+    // (10:3) <Box>
+    function create_default_slot_2$6(ctx) {
+    	var t0, t1, current;
+
+    	var box0 = new Box({ $$inline: true });
+
+    	var box1 = new Box({ $$inline: true });
+
+    	var box2 = new Box({ $$inline: true });
+
+    	return {
+    		c: function create() {
+    			box0.$$.fragment.c();
+    			t0 = space();
+    			box1.$$.fragment.c();
+    			t1 = space();
+    			box2.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(box0, target, anchor);
+    			insert(target, t0, anchor);
+    			mount_component(box1, target, anchor);
+    			insert(target, t1, anchor);
+    			mount_component(box2, target, anchor);
+    			current = true;
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(box0.$$.fragment, local);
+
+    			transition_in(box1.$$.fragment, local);
+
+    			transition_in(box2.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(box0.$$.fragment, local);
+    			transition_out(box1.$$.fragment, local);
+    			transition_out(box2.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(box0, detaching);
+
+    			if (detaching) {
+    				detach(t0);
+    			}
+
+    			destroy_component(box1, detaching);
+
+    			if (detaching) {
+    				detach(t1);
+    			}
+
+    			destroy_component(box2, detaching);
+    		}
+    	};
+    }
+
+    // (9:2) <Switcher limit="10">
+    function create_default_slot_1$7(ctx) {
+    	var current;
+
+    	var box = new Box({
+    		props: {
+    		$$slots: { default: [create_default_slot_2$6] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			box.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(box, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var box_changes = {};
+    			if (changed.$$scope) box_changes.$$scope = { changed, ctx };
+    			box.$set(box_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(box.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(box.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(box, detaching);
+    		}
+    	};
+    }
+
+    // (8:1) <div slot="center">
+    function create_center_slot$6(ctx) {
+    	var div, current;
+
+    	var switcher = new Switcher({
+    		props: {
+    		limit: "10",
+    		$$slots: { default: [create_default_slot_1$7] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			switcher.$$.fragment.c();
+    			attr(div, "slot", "center");
+    			add_location(div, file$f, 7, 1, 163);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			mount_component(switcher, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var switcher_changes = {};
+    			if (changed.$$scope) switcher_changes.$$scope = { changed, ctx };
+    			switcher.$set(switcher_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(switcher.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(switcher.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_component(switcher, );
+    		}
+    	};
+    }
+
+    // (7:0) <Cover>
+    function create_default_slot$7(ctx) {
+
+    	return {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: noop
+    	};
+    }
+
+    function create_fragment$f(ctx) {
+    	var current;
+
+    	var cover = new Cover({
+    		props: {
+    		$$slots: {
+    		default: [create_default_slot$7],
+    		center: [create_center_slot$6]
+    	},
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	return {
+    		c: function create() {
+    			cover.$$.fragment.c();
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(cover, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var cover_changes = {};
+    			if (changed.$$scope) cover_changes.$$scope = { changed, ctx };
+    			cover.$set(cover_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(cover.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(cover.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(cover, detaching);
+    		}
+    	};
+    }
+
+    class SampleConfiguration_006 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, null, create_fragment$f, safe_not_equal, []);
+    	}
+    }
+
     /* src/App.svelte generated by Svelte v3.6.5 */
 
-    const file$e = "src/App.svelte";
+    const file$g = "src/App.svelte";
 
-    // (67:31) 
+    // (70:31) 
+    function create_if_block_5(ctx) {
+    	var current;
+
+    	var sampleconfiguration_006 = new SampleConfiguration_006({ $$inline: true });
+
+    	return {
+    		c: function create() {
+    			sampleconfiguration_006.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(sampleconfiguration_006, target, anchor);
+    			current = true;
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(sampleconfiguration_006.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(sampleconfiguration_006.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(sampleconfiguration_006, detaching);
+    		}
+    	};
+    }
+
+    // (68:31) 
     function create_if_block_4(ctx) {
     	var current;
 
@@ -5209,7 +5828,7 @@ var app = (function () {
     	};
     }
 
-    // (65:31) 
+    // (66:31) 
     function create_if_block_3(ctx) {
     	var current;
 
@@ -5243,7 +5862,7 @@ var app = (function () {
     	};
     }
 
-    // (63:31) 
+    // (64:31) 
     function create_if_block_2(ctx) {
     	var current;
 
@@ -5277,7 +5896,7 @@ var app = (function () {
     	};
     }
 
-    // (61:31) 
+    // (62:31) 
     function create_if_block_1(ctx) {
     	var current;
 
@@ -5311,8 +5930,8 @@ var app = (function () {
     	};
     }
 
-    // (59:1) {#if configuration === 0}
-    function create_if_block$1(ctx) {
+    // (60:1) {#if configuration === 0}
+    function create_if_block$2(ctx) {
     	var current;
 
     	var sampleconfiguration_001 = new SampleConfiguration_001({ $$inline: true });
@@ -5345,15 +5964,16 @@ var app = (function () {
     	};
     }
 
-    function create_fragment$e(ctx) {
+    function create_fragment$g(ctx) {
     	var main, current_block_type_index, if_block, current;
 
     	var if_block_creators = [
-    		create_if_block$1,
+    		create_if_block$2,
     		create_if_block_1,
     		create_if_block_2,
     		create_if_block_3,
-    		create_if_block_4
+    		create_if_block_4,
+    		create_if_block_5
     	];
 
     	var if_blocks = [];
@@ -5364,6 +5984,7 @@ var app = (function () {
     		if (ctx.configuration === 2) return 2;
     		if (ctx.configuration === 3) return 3;
     		if (ctx.configuration === 4) return 4;
+    		if (ctx.configuration === 5) return 5;
     		return -1;
     	}
 
@@ -5375,7 +5996,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			if (if_block) if_block.c();
-    			add_location(main, file$e, 57, 0, 1542);
+    			add_location(main, file$g, 58, 0, 1615);
     		},
 
     		l: function claim(nodes) {
@@ -5435,11 +6056,11 @@ var app = (function () {
     	};
     }
 
-    const PAGES = 5;
+    const PAGES = 6;
 
     function unify(e) { return e.changedTouches ? e.changedTouches[0] : e }
 
-    function instance$9($$self, $$props, $$invalidate) {
+    function instance$a($$self, $$props, $$invalidate) {
     	
 
     	let configuration = 0;
@@ -5492,7 +6113,7 @@ var app = (function () {
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$9, create_fragment$e, safe_not_equal, []);
+    		init(this, options, instance$a, create_fragment$g, safe_not_equal, []);
     	}
     }
 
