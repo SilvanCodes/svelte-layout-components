@@ -22,9 +22,14 @@
 	/* spacing between sidebar and not-sidebar */
 	--sidebar-spacing: var(--s1);
 
+	
+
+
+
+
 	/* color scheme from colorsuplyyy */
-	--color-primary: #ffc902;
-	--color-secondary: #0a008a;
+	--color-primary: #8EE3C8;
+	--color-secondary: #6DCAE2;
 	--color-ternary: #ff4a12;
 
 	/* border widths */
@@ -89,5 +94,6 @@ p {
 }
 
 a {
-	color: var(--color-ternary);
+	color: var(--color-secondary);
+	cursor: pointer;
 }

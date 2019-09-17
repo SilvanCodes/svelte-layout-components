@@ -1,13 +1,13 @@
 [class^="button"].svelte-vp67cq{padding:var(--s-2);border-radius:var(--s-3);font-family:JosefinSlab;font-size:var(--s1)}
-[class^="with-sidebar"].svelte-c4ub5i{overflow:hidden}[class^="with-sidebar"].svelte-c4ub5i>.svelte-c4ub5i{display:flex;flex-wrap:wrap}.sidebar.svelte-c4ub5i{flex-grow:1}[class^="not-sidebar"].svelte-c4ub5i{flex-basis:0;flex-grow:999}
 [class^="cover"].svelte-e60axm{display:flex;flex-direction:column}[class^="cover"].svelte-e60axm>.center.svelte-e60axm{margin-top:auto;margin-bottom:auto}[class^="cover"].svelte-e60axm>.above.svelte-e60axm{margin-top:0}[class^="cover"].svelte-e60axm>.below.svelte-e60axm{margin-bottom:0}
+[class^="with-sidebar"].svelte-c4ub5i{overflow:hidden}[class^="with-sidebar"].svelte-c4ub5i>.svelte-c4ub5i{display:flex;flex-wrap:wrap}.sidebar.svelte-c4ub5i{flex-grow:1}[class^="not-sidebar"].svelte-c4ub5i{flex-basis:0;flex-grow:999}
 [class^="bracket"].svelte-1mln3ll{display:flex}[class^="bracket"].svelte-1mln3ll>.center.svelte-1mln3ll{margin-left:auto;margin-right:auto;display:flex;flex-direction:column}[class^="bracket"].svelte-1mln3ll>.left.svelte-1mln3ll{margin-left:0}[class^="bracket"].svelte-1mln3ll>.right.svelte-1mln3ll{margin-right:0}
 [class^="stack"].svelte-wr42n8{display:flex;flex-direction:column;justify-content:flex-start}[class^="stack"].svelte-wr42n8:only-child{height:100%}
-[class^="box"].svelte-1vdjooe .svelte-1vdjooe{color:inherit}
-[class^="frame"].svelte-1y2uvsw{position:relative}[class^="frame"] > *{display:flex;justify-content:center;align-items:center;overflow:hidden;position:absolute;top:0;right:0;bottom:0;left:0}[class^="frame"] > img, [class^="frame"] > video{height:100%;width:100%;object-fit:cover}
 [class^="grid"].svelte-y482uv{display:grid}
-[class^="switcher"] > *{display:flex;flex-wrap:wrap;overflow:hidden}[class^="switcher"] > * > *{flex-grow:1}
-[class^="reel"].svelte-1ebaim2{display:flex;overflow-x:auto;overflow-y:hidden}[class^="reel"] > img{height:100%;flex-basis:auto;width:auto}
+[class^="box"].svelte-1vdjooe .svelte-1vdjooe{color:inherit}
 [class^="cluster"].svelte-w9oxpl{overflow:hidden}[class^="cluster"] > *{display:flex;flex-wrap:wrap}
+[class^="switcher"] > *{display:flex;flex-wrap:wrap;overflow:hidden}[class^="switcher"] > * > *{flex-grow:1}
+[class^="frame"].svelte-1y2uvsw{position:relative}[class^="frame"] > *{display:flex;justify-content:center;align-items:center;overflow:hidden;position:absolute;top:0;right:0;bottom:0;left:0}[class^="frame"] > img, [class^="frame"] > video{height:100%;width:100%;object-fit:cover}
+[class^="reel"].svelte-1ebaim2{display:flex;overflow-x:auto;overflow-y:hidden}[class^="reel"] > img{height:100%;flex-basis:auto;width:auto}
 
 /*# sourceMappingURL=bundle.css.map */
