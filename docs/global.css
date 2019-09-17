@@ -22,11 +22,6 @@
 	/* spacing between sidebar and not-sidebar */
 	--sidebar-spacing: var(--s1);
 
-	
-
-
-
-
 	/* color scheme from colorsuplyyy */
 	--color-primary: #8EE3C8;
 	--color-secondary: #6DCAE2;
@@ -42,7 +37,7 @@
 	/* in general calculate from border-box */
 	box-sizing: border-box;
 
-	/* cap mac with for visual elements */
+	/* cap max-with for visual elements */
 	max-width: var(--measure);
 
 	/* clear default padding and margin*/
