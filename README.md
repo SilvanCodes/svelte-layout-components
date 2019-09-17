@@ -3,19 +3,21 @@
 This repo is based on [svelte/template](https://github.com/sveltejs/template).
 
 I created some layouts from [EveryLayout](https://every-layout.dev/), they are great!
-Also I like to try and play with [ColorSupply](https://colorsupplyyy.com/app).
+Also I like [ColorSupply](https://colorsupplyyy.com/app) very much.
 
-Feel free to play around with these layout components! Feedback and bug reports welcome. :)
+Feel free to explore these layout components! Feedback and bug reports welcome. :)
 
-Also this is very much WIP. You can see it [here](https://silvancodes.github.io/svelte-layout-components/) on github pages .
+You can see it [here](https://silvancodes.github.io/svelte-layout-components/) on github pages.
 
 ## Get started
 
-Clone repo and install the dependencies.
+*You need to have [Node.js](https://nodejs.org) installed.*
+
+Degit repo and install the dependencies to start your own project.
 
 ```bash
-git clone git@github.com:SilvanCodes/svelte-layout-components.git
-cd svelte-layout-components
+npx degit SilvanCodes/svelte-layout-components svelte-layouts
+cd svelte-layouts
 npm install
 ```
 
