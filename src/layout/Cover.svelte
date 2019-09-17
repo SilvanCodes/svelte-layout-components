@@ -1,16 +1,20 @@
 <script>
     import { onMount } from 'svelte';
 
-    export let padding = '--s0';
-    export let margin = '--s0';
+    export let space = '--s0';
+    export let minHeight = '100vh';
+    export let pad = true;
 
-    $: id = padding + margin;
+    const id = space + minHeight + pad;
 
 	onMount(() => {
-        document.querySelectorAll(`.cover${id}`).forEach(e => e.style.padding = `var(${padding})`);
-        document.querySelectorAll(`.cover${id} > .above`).forEach(e => e.style.marginBottom = `var(${margin})`);
-        document.querySelectorAll(`.cover${id} > .below`).forEach(e => e.style.marginTop = `var(${margin})`);
+        document.querySelectorAll(`.cover${id}`).forEach(e => e.style.minHeight = minHeight);
+        document.querySelectorAll(`.cover${id} > .above`).forEach(e => e.style.spaceBottom = `var(${space})`);
+        document.querySelectorAll(`.cover${id} > .below`).forEach(e => e.style.marginTop = `var(${space})`);
 
+        if (pad) {
+           document.querySelectorAll(`.cover${id}`).forEach(e => e.style.padding = `var(${space})`); 
+        }
 	});
 </script>
 
