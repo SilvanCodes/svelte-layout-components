@@ -1,12 +1,12 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue } from '../lib/helpers';
+    import { cssValue, buildId } from '../lib/helpers';
 
     export let space = 's0';
     export let minHeight = '100vh';
     export let pad = true;
 
-    const id = 'cover' + space + minHeight + pad;
+    const id = buildId('cover', space, minHeight, pad);
 
 	onMount(() => {
         document.querySelectorAll(`.${id}`).forEach(e => e.style.minHeight = cssValue(minHeight));
@@ -44,7 +44,7 @@
         <slot name="above"></slot>
     </div>
     <div class="center">
-        <slot name="center"></slot>
+        <slot></slot>
     </div>
     <div class="below">
         <slot name="below"></slot>

@@ -1,13 +1,13 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue } from '../lib/helpers';
+    import { cssValue, buildId } from '../lib/helpers';
 
     export let threshold = 'measure';
     export let space = 's0';
     /** limit can only be a number (handed as a string), but not a CSS-variable */
     export let limit = '5';
 
-    const id = 'switcher' + threshold + space + limit;
+    const id = buildId('switcher', threshold, space, limit);
 
     onMount(() => {
         document.querySelectorAll(`.${id} > *`).forEach(e => e.style.margin = `calc(${cssValue(space)} / 2 * -1)`);

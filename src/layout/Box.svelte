@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue } from '../lib/helpers';
+    import { cssValue, buildId } from '../lib/helpers';
 
     export let padding = 's1';
     export let color = 'color-primary';
@@ -9,7 +9,7 @@
     export let borderStyle = 'solid';
     export let borderColor = 'color-primary';
 
-    const id = 'box' + padding + color + backgroundColor + borderWidth + borderStyle + borderColor;
+    const id = buildId('box', padding, color, backgroundColor, borderWidth, borderStyle, borderColor);
 
     onMount(() => {
         document.querySelectorAll(`.${id}`).forEach(e => e.style.padding = cssValue(padding));

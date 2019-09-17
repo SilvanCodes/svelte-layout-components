@@ -1,11 +1,11 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue } from '../lib/helpers';
+    import { cssValue, buildId } from '../lib/helpers';
 
     export let min = '12rem';
     export let space = 's0';
 
-    const id = 'grid' + min + space;
+    const id = buildId('grid', min, space);
 
 	onMount(() => {
         document.querySelectorAll(`.${id}`).forEach(e => {

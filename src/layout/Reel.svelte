@@ -1,12 +1,12 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue } from '../lib/helpers';
+    import { cssValue, buildId } from '../lib/helpers';
 
     export let itemWidth = 'auto';
     export let space = 's1';
     export let height = 'auto';
 
-    const id = 'reel' + itemWidth + space + height;
+    const id = buildId('reel', itemWidth, space, height);
 
 	onMount(() => {
         document.querySelectorAll(`.${id}`).forEach(e => {

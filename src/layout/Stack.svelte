@@ -1,13 +1,13 @@
 <script>
 	import { onMount } from 'svelte';
-	import { cssValue } from '../lib/helpers';
+	import { cssValue, buildId } from '../lib/helpers';
 
 	export let space = 's0';
 	export let recursive = false;
 	/** splitAfter can only be a number (handed as a string), but not a CSS-variable */
 	export let splitAfter = '';
 
-	const id = 'stack' + space + recursive + splitAfter;
+	const id = buildId('stack', space, recursive, splitAfter);
 
 	onMount(() => {
 		if (recursive) {

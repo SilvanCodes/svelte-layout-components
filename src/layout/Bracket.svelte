@@ -1,14 +1,14 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue } from '../lib/helpers';
+    import { cssValue, buildId } from '../lib/helpers';
 
     export let maxWidth = 'measure';
     export let andText = true;
-    export let space = 's0';
+    export let space = 'zero';
     export let padding = 's0';
     export let intrinsic = false;
 
-    const id = 'bracket' + maxWidth + andText + space + padding + intrinsic;
+    const id = buildId('bracket', maxWidth, andText, space, padding, intrinsic);
 
 	onMount(() => {
         document.querySelectorAll(`.${id}`).forEach(e => e.style.padding = cssValue(padding));
@@ -53,7 +53,7 @@
         <slot name="left"></slot>
     </div>
     <div class="center">
-        <slot name="center"></slot>
+        <slot></slot>
     </div>
     <div class="right" style="">
         <slot name="right"></slot>

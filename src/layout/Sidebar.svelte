@@ -1,13 +1,13 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue } from '../lib/helpers';
+    import { cssValue, buildId } from '../lib/helpers';
 
     export let side = 'left';
     export let sideWidth = '';
     export let contentMin = '50%';
     export let space = 's0';
 
-    const id = 'with-sidebar' + side + sideWidth + contentMin.replace('%', '') + space;
+    const id = buildId('with-sidebar', side, sideWidth, contentMin, space);
 
 	onMount(() => {
         if (sideWidth) {

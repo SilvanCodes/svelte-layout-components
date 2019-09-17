@@ -1,12 +1,12 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue } from '../lib/helpers';
+    import { cssValue, buildId } from '../lib/helpers';
 
     export let justify = 'center';
     export let align = 'center';
     export let space = 's0';
 
-    const id = 'cluster' + justify + align + space;
+    const id = buildId('cluster', justify, align, space);
 
     onMount(() => {
         document.querySelectorAll(`.${id} > *`).forEach(e => {
