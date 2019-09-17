@@ -22,10 +22,6 @@
 </script>
 
 <style>
-    [class^="switcher"] {
-        display: block;
-    }
-
     :global([class^="switcher"] > *) {
         display: flex;
         flex-wrap: wrap;
