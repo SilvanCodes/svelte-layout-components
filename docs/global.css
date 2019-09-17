@@ -52,7 +52,9 @@ div,
 header,
 nav,
 main,
-footer {
+footer,
+img,
+video {
 	max-width: none;
 }
 

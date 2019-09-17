@@ -5,11 +5,12 @@
 	import SampleConfiguration_004 from './SampleConfiguration_004.svelte';
 	import SampleConfiguration_005 from './SampleConfiguration_005.svelte';
 	import SampleConfiguration_006 from './SampleConfiguration_006.svelte';
+	import SampleConfiguration_007 from './SampleConfiguration_007.svelte';
 
 	let configuration = 0;
 	let x0 = null;
 
-	const PAGES = 6;
+	const PAGES = 7;
 
 	/* spacebar press */
 	document.body.onkeyup = function(e){
@@ -69,5 +70,7 @@
 		<SampleConfiguration_005></SampleConfiguration_005>
 	{:else if configuration === 5}
 		<SampleConfiguration_006></SampleConfiguration_006>
+	{:else if configuration === 6}
+		<SampleConfiguration_007></SampleConfiguration_007>
 	{/if}
 </main>

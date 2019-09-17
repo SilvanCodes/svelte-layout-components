@@ -2,6 +2,7 @@
 	import Stack from './layout/Stack.svelte';
 	import Box from './layout/Box.svelte';
 	import Bracket from './layout/Bracket.svelte';
+	import Frame from './layout/Frame.svelte';
 </script>
 
 <Bracket>
