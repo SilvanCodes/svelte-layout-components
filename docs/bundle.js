@@ -716,15 +716,15 @@ var app = (function () {
     			if (below_slot) below_slot.c();
 
     			attr(div0, "class", "above svelte-11jtp0a");
-    			add_location(div0, file$1, 38, 4, 884);
+    			add_location(div0, file$1, 42, 4, 1045);
 
     			attr(div1, "class", "center svelte-11jtp0a");
-    			add_location(div1, file$1, 41, 4, 954);
+    			add_location(div1, file$1, 45, 4, 1115);
 
     			attr(div2, "class", "below svelte-11jtp0a");
-    			add_location(div2, file$1, 44, 4, 1026);
+    			add_location(div2, file$1, 48, 4, 1187);
     			attr(div3, "class", div3_class_value = "" + (`cover${ctx.id}`) + " svelte-11jtp0a");
-    			add_location(div3, file$1, 37, 0, 853);
+    			add_location(div3, file$1, 41, 0, 1014);
     		},
 
     		l: function claim(nodes) {
@@ -773,10 +773,6 @@ var app = (function () {
     			if (below_slot && below_slot.p && changed.$$scope) {
     				below_slot.p(get_slot_changes(below_slot_1, ctx, changed, get_below_slot_changes), get_slot_context(below_slot_1, ctx, get_below_slot_context));
     			}
-
-    			if ((!current || changed.id) && div3_class_value !== (div3_class_value = "" + (`cover${ctx.id}`) + " svelte-11jtp0a")) {
-    				attr(div3, "class", div3_class_value);
-    			}
     		},
 
     		i: function intro(local) {
@@ -809,16 +805,21 @@ var app = (function () {
     }
 
     function instance$1($$self, $$props, $$invalidate) {
-    	let { padding = '--s0', margin = '--s0' } = $$props;
+    	let { space = '--s0', minHeight = '100vh', pad = true } = $$props;
+
+        const id = space + minHeight + pad;
 
     	onMount(() => {
-            document.querySelectorAll(`.cover${id}`).forEach(e => e.style.padding = `var(${padding})`);
-            document.querySelectorAll(`.cover${id} > .above`).forEach(e => e.style.marginBottom = `var(${margin})`);
-            document.querySelectorAll(`.cover${id} > .below`).forEach(e => e.style.marginTop = `var(${margin})`);
+            document.querySelectorAll(`.cover${id}`).forEach(e => e.style.minHeight = minHeight);
+            document.querySelectorAll(`.cover${id} > .above`).forEach(e => e.style.spaceBottom = `var(${space})`);
+            document.querySelectorAll(`.cover${id} > .below`).forEach(e => e.style.marginTop = `var(${space})`);
 
+            if (pad) {
+               document.querySelectorAll(`.cover${id}`).forEach(e => e.style.padding = `var(${space})`); 
+            }
     	});
 
-    	const writable_props = ['padding', 'margin'];
+    	const writable_props = ['space', 'minHeight', 'pad'];
     	Object.keys($$props).forEach(key => {
     		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Cover> was created with unknown prop '${key}'`);
     	});
@@ -826,39 +827,49 @@ var app = (function () {
     	let { $$slots = {}, $$scope } = $$props;
 
     	$$self.$set = $$props => {
-    		if ('padding' in $$props) $$invalidate('padding', padding = $$props.padding);
-    		if ('margin' in $$props) $$invalidate('margin', margin = $$props.margin);
+    		if ('space' in $$props) $$invalidate('space', space = $$props.space);
+    		if ('minHeight' in $$props) $$invalidate('minHeight', minHeight = $$props.minHeight);
+    		if ('pad' in $$props) $$invalidate('pad', pad = $$props.pad);
     		if ('$$scope' in $$props) $$invalidate('$$scope', $$scope = $$props.$$scope);
     	};
 
-    	let id;
-
-    	$$self.$$.update = ($$dirty = { padding: 1, margin: 1 }) => {
-    		if ($$dirty.padding || $$dirty.margin) { $$invalidate('id', id = padding + margin); }
+    	return {
+    		space,
+    		minHeight,
+    		pad,
+    		id,
+    		$$slots,
+    		$$scope
     	};
-
-    	return { padding, margin, id, $$slots, $$scope };
     }
 
     class Cover extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, ["padding", "margin"]);
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, ["space", "minHeight", "pad"]);
     	}
 
-    	get padding() {
+    	get space() {
     		throw new Error("<Cover>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	set padding(value) {
+    	set space(value) {
     		throw new Error("<Cover>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	get margin() {
+    	get minHeight() {
     		throw new Error("<Cover>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	set margin(value) {
+    	set minHeight(value) {
+    		throw new Error("<Cover>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get pad() {
+    		throw new Error("<Cover>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set pad(value) {
     		throw new Error("<Cover>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -1896,7 +1907,7 @@ var app = (function () {
     			h1 = element("h1");
     			h1.textContent = "Welcome!";
     			attr(h1, "slot", "center");
-    			add_location(h1, file$6, 15, 3, 416);
+    			add_location(h1, file$6, 15, 3, 398);
     		},
 
     		m: function mount(target, anchor) {
@@ -1941,7 +1952,7 @@ var app = (function () {
     			div = element("div");
     			bracket.$$.fragment.c();
     			attr(div, "slot", "above");
-    			add_location(div, file$6, 13, 1, 382);
+    			add_location(div, file$6, 13, 1, 364);
     		},
 
     		m: function mount(target, anchor) {
@@ -2079,7 +2090,7 @@ var app = (function () {
     			button1.$$.fragment.c();
     			t3 = space();
     			button2.$$.fragment.c();
-    			add_location(p, file$6, 24, 7, 602);
+    			add_location(p, file$6, 24, 7, 584);
     		},
 
     		m: function mount(target, anchor) {
@@ -2165,7 +2176,7 @@ var app = (function () {
     			div = element("div");
     			stack.$$.fragment.c();
     			attr(div, "slot", "center");
-    			add_location(div, file$6, 22, 5, 561);
+    			add_location(div, file$6, 22, 5, 543);
     		},
 
     		m: function mount(target, anchor) {
@@ -2236,7 +2247,7 @@ var app = (function () {
     			div = element("div");
     			bracket.$$.fragment.c();
     			attr(div, "slot", "sidebar");
-    			add_location(div, file$6, 20, 3, 505);
+    			add_location(div, file$6, 20, 3, 487);
     		},
 
     		m: function mount(target, anchor) {
@@ -2287,7 +2298,7 @@ var app = (function () {
     			div = element("div");
     			alternate.$$.fragment.c();
     			attr(div, "slot", "not-sidebar");
-    			add_location(div, file$6, 32, 3, 777);
+    			add_location(div, file$6, 32, 3, 759);
     		},
 
     		m: function mount(target, anchor) {
@@ -2370,7 +2381,7 @@ var app = (function () {
     			div = element("div");
     			sidebar.$$.fragment.c();
     			attr(div, "slot", "center");
-    			add_location(div, file$6, 18, 1, 470);
+    			add_location(div, file$6, 18, 1, 452);
     		},
 
     		m: function mount(target, anchor) {
@@ -2416,7 +2427,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Footer";
     			attr(p, "slot", "center");
-    			add_location(p, file$6, 39, 3, 909);
+    			add_location(p, file$6, 39, 3, 891);
     		},
 
     		m: function mount(target, anchor) {
@@ -2461,7 +2472,7 @@ var app = (function () {
     			div = element("div");
     			bracket.$$.fragment.c();
     			attr(div, "slot", "below");
-    			add_location(div, file$6, 37, 1, 875);
+    			add_location(div, file$6, 37, 1, 857);
     		},
 
     		m: function mount(target, anchor) {
@@ -2498,7 +2509,7 @@ var app = (function () {
     	};
     }
 
-    // (13:0) <Cover padding="--zero" margin="--zero">
+    // (13:0) <Cover space="--zero">
     function create_default_slot$1(ctx) {
     	var t0, t1;
 
@@ -2531,8 +2542,7 @@ var app = (function () {
 
     	var cover = new Cover({
     		props: {
-    		padding: "--zero",
-    		margin: "--zero",
+    		space: "--zero",
     		$$slots: {
     		default: [create_default_slot$1],
     		below: [create_below_slot],
@@ -3963,7 +3973,7 @@ var app = (function () {
     			h1 = element("h1");
     			h1.textContent = "Welcome!";
     			attr(h1, "slot", "center");
-    			add_location(h1, file$9, 32, 5, 889);
+    			add_location(h1, file$9, 32, 5, 887);
     		},
 
     		m: function mount(target, anchor) {
@@ -4008,7 +4018,7 @@ var app = (function () {
     			div = element("div");
     			bracket.$$.fragment.c();
     			attr(div, "slot", "above");
-    			add_location(div, file$9, 30, 3, 851);
+    			add_location(div, file$9, 30, 3, 849);
     		},
 
     		m: function mount(target, anchor) {
@@ -4059,7 +4069,7 @@ var app = (function () {
     			div = element("div");
     			alternate.$$.fragment.c();
     			attr(div, "slot", "center");
-    			add_location(div, file$9, 36, 3, 950);
+    			add_location(div, file$9, 36, 3, 948);
     		},
 
     		m: function mount(target, anchor) {
@@ -4105,7 +4115,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Footer";
     			attr(p, "slot", "center");
-    			add_location(p, file$9, 42, 5, 1063);
+    			add_location(p, file$9, 42, 5, 1061);
     		},
 
     		m: function mount(target, anchor) {
@@ -4150,7 +4160,7 @@ var app = (function () {
     			div = element("div");
     			bracket.$$.fragment.c();
     			attr(div, "slot", "below");
-    			add_location(div, file$9, 40, 3, 1025);
+    			add_location(div, file$9, 40, 3, 1023);
     		},
 
     		m: function mount(target, anchor) {
@@ -4187,7 +4197,7 @@ var app = (function () {
     	};
     }
 
-    // (30:2) <Cover padding="--zero">
+    // (30:2) <Cover space="--zero">
     function create_default_slot_1$4(ctx) {
     	var t0, t1;
 
@@ -4221,7 +4231,7 @@ var app = (function () {
 
     	var cover = new Cover({
     		props: {
-    		padding: "--zero",
+    		space: "--zero",
     		$$slots: {
     		default: [create_default_slot_1$4],
     		below: [create_below_slot$1],

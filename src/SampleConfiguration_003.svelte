@@ -27,7 +27,7 @@
 	</div>
 
 	<div slot="not-sidebar">
-		<Cover padding="--zero">
+		<Cover space="--zero">
 			<div slot="above">
 				<Bracket>
 					<h1 slot="center">Welcome!</h1>
