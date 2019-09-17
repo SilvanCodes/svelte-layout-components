@@ -1,27 +1,28 @@
 <script>
     import { onMount } from 'svelte';
+    import { cssValue } from '../lib/helpers';
 
-    export let maxWidth = '--measure';
+    export let maxWidth = 'measure';
     export let andText = false;
-    export let gutters = '--s0';
-    export let padding = '--s0';
+    export let space = 's0';
+    export let padding = 's0';
     export let intrinsic = false;
 
-    const id = maxWidth + andText + gutters + padding + intrinsic;
+    const id = 'bracket' + maxWidth + andText + space + padding + intrinsic;
 
 	onMount(() => {
-        document.querySelectorAll(`.bracket${id}`).forEach(e => e.style.padding = `var(${padding})`);
-        document.querySelectorAll(`.bracket${id} > .left`).forEach(e => e.style.marginRight = `var(${gutters})`);
-        document.querySelectorAll(`.bracket${id} > .right`).forEach(e => e.style.marginLeft = `var(${gutters})`);
+        document.querySelectorAll(`.${id}`).forEach(e => e.style.padding = cssValue(padding));
+        document.querySelectorAll(`.${id} > .left`).forEach(e => e.style.marginRight = cssValue(space));
+        document.querySelectorAll(`.${id} > .right`).forEach(e => e.style.marginLeft = cssValue(space));
 
-        document.querySelectorAll(`.bracket${id} > .center`).forEach(e => e.style.maxWidth = `var(${maxWidth})`);
+        document.querySelectorAll(`.${id} > .center`).forEach(e => e.style.maxWidth = cssValue(maxWidth));
 
         if (intrinsic) {
-            document.querySelectorAll(`.bracket${id} > .center`).forEach(e => e.style.alignItems = 'center');
+            document.querySelectorAll(`.${id} > .center`).forEach(e => e.style.alignItems = 'center');
         }
 
         if (andText) {
-            document.querySelectorAll(`.bracket${id} > .center`).forEach(e => e.style.textAlign = 'center');
+            document.querySelectorAll(`.${id} > .center`).forEach(e => e.style.textAlign = 'center');
         }
 	});
 </script>
@@ -47,7 +48,7 @@
     }
 </style>
 
-<div class={`bracket${id}`}>
+<div class={id}>
     <div class="left">
         <slot name="left"></slot>
     </div>

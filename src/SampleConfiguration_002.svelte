@@ -1,44 +1,36 @@
 <script>
-	import Bracket from './layout/Bracket.svelte';
 	import Stack from './layout/Stack.svelte';
-    import Alternate from './Alternate.svelte';
-    import Button from './Button.svelte';
-	import FullHeightSidebar from './FullHeightSidebar.svelte';
-
-	import { statements } from './staticContent.js'
+	import Box from './layout/Box.svelte';
+	import Bracket from './layout/Bracket.svelte';
+	import Frame from './layout/Frame.svelte';
 </script>
 
-<FullHeightSidebar>
-
-	<div slot="header">
-		<Bracket>
-			<h1 slot="center">Welcome!</h1>
-		</Bracket>
+<Bracket>
+	<div slot="left">
+		<p>left</p>
 	</div>
-
-	<div slot="sidebar" style="background: var(--color-secondary); color: white;">
-		<Bracket padding="--s-1">
-			<p slot="center">Sidebar Title</p>
-		</Bracket>
-		<Bracket padding="--s-1">
-			<div slot="center">
-				<Stack>
-					<Button priority="ternary">Option 1</Button>
-					<Button priority="ternary">Option 2</Button>
-					<Button priority="ternary">Option 3</Button>
-				</Stack>
-			</div>
-		</Bracket>
+	<div slot="center">
+		<Stack splitAfter="2" recursive="true">
+			<p>one</p>
+			<Box>
+				<ul>
+					<Box>
+						<li>1</li>
+					</Box>			
+					<Box>
+						<li>2</li>
+					</Box>
+					<Box>
+						<li>3</li>
+					</Box>
+					<li>4</li>
+				</ul>
+			</Box>
+			<p>two</p>
+			<p>three</p>
+		</Stack>
 	</div>
-
-	<div slot="not-sidebar">
-		<Alternate {statements}></Alternate>
+	<div slot="right">
+		<p>right</p>
 	</div>
-
-	<div slot="footer">
-		<Bracket>
-			<p slot="center">Footer</p>
-		</Bracket>
-	</div>
-
-</FullHeightSidebar>
+</Bracket>

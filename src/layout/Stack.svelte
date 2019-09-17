@@ -1,21 +1,23 @@
 <script>
 	import { onMount } from 'svelte';
+	import { cssValue } from '../lib/helpers';
 
-	export let space = '--s0';
+	export let space = 's0';
 	export let recursive = false;
+	/** splitAfter can only be a number (handed as a string), but not a CSS-variable */
 	export let splitAfter = '';
 
-	const id = space + recursive + splitAfter;
+	const id = 'stack' + space + recursive + splitAfter;
 
 	onMount(() => {
 		if (recursive) {
-			document.querySelectorAll(`.stack${id} * + *`).forEach(e => e.style.marginTop = `var(${space})`);
+			document.querySelectorAll(`.${id} * + *`).forEach(e => e.style.marginTop = cssValue(space));
 		} else {
-			document.querySelectorAll(`.stack${id} > * + *`).forEach(e => e.style.marginTop = `var(${space})`);
+			document.querySelectorAll(`.${id} > * + *`).forEach(e => e.style.marginTop = cssValue(space));
 		}
 
 		if (splitAfter) {
-			document.querySelectorAll(`.stack${id} > :nth-child(${splitAfter})`).forEach(e => e.style.marginBottom = 'auto');
+			document.querySelectorAll(`.${id} > :nth-child(${splitAfter})`).forEach(e => e.style.marginBottom = 'auto');
 		}
 	});
 </script>
@@ -33,7 +35,7 @@
     }
 </style>
 
-<div class={`stack${id}`}>
+<div class={id}>
     <slot>
     </slot>
 </div>

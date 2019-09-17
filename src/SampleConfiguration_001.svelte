@@ -10,7 +10,7 @@
 </script>
 
 
-<Cover space="--zero">
+<Cover space="zero">
 	<div slot="above">
 		<Bracket>
 			<h1 slot="center">Welcome!</h1>
@@ -19,7 +19,7 @@
 	<div slot="center">
 		<Sidebar contentMin="70%">
 			<div slot="sidebar">
-				<Bracket padding="--s-1">
+				<Bracket padding="s-1">
 					<div slot="center">
 						<Stack>
 							<p>Sidebar Title</p>

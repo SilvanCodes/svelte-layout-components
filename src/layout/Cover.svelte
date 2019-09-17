@@ -1,19 +1,20 @@
 <script>
     import { onMount } from 'svelte';
+    import { cssValue } from '../lib/helpers';
 
-    export let space = '--s0';
+    export let space = 's0';
     export let minHeight = '100vh';
     export let pad = true;
 
-    const id = space + minHeight + pad;
+    const id = 'cover' + space + minHeight + pad;
 
 	onMount(() => {
-        document.querySelectorAll(`.cover${id}`).forEach(e => e.style.minHeight = minHeight);
-        document.querySelectorAll(`.cover${id} > .above`).forEach(e => e.style.spaceBottom = `var(${space})`);
-        document.querySelectorAll(`.cover${id} > .below`).forEach(e => e.style.marginTop = `var(${space})`);
+        document.querySelectorAll(`.${id}`).forEach(e => e.style.minHeight = cssValue(minHeight));
+        document.querySelectorAll(`.${id} > .above`).forEach(e => e.style.spaceBottom = cssValue(space));
+        document.querySelectorAll(`.${id} > .below`).forEach(e => e.style.marginTop = cssValue(space));
 
         if (pad) {
-           document.querySelectorAll(`.cover${id}`).forEach(e => e.style.padding = `var(${space})`); 
+           document.querySelectorAll(`.${id}`).forEach(e => e.style.padding = cssValue(space)); 
         }
 	});
 </script>
@@ -38,7 +39,7 @@
     }
 </style>
 
-<div class={`cover${id}`}>
+<div class={id}>
     <div class="above">
         <slot name="above"></slot>
     </div>

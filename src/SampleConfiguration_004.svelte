@@ -1,36 +1,47 @@
 <script>
-	import Stack from './layout/Stack.svelte';
+	import Switcher from './layout/Switcher.svelte';
+	import Cover from './layout/Cover.svelte';
 	import Box from './layout/Box.svelte';
-	import Bracket from './layout/Bracket.svelte';
-	import Frame from './layout/Frame.svelte';
+	import Reel from './layout/Reel.svelte';
 </script>
 
-<Bracket>
-	<div slot="left">
-		<p>left</p>
+<Cover>
+	<div slot="above">
+		<Reel itemWidth="s3">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+			<img src="favicon.png" alt="favicon">
+		</Reel>
 	</div>
 	<div slot="center">
-		<Stack splitAfter="2" recursive="true">
-			<p>one</p>
-			<Box>
-				<ul>
-					<Box>
-						<li>1</li>
-					</Box>			
-					<Box>
-						<li>2</li>
-					</Box>
-					<Box>
-						<li>3</li>
-					</Box>
-					<li>4</li>
-				</ul>
-			</Box>
-			<p>two</p>
-			<p>three</p>
-		</Stack>
+		<Box>
+			<Switcher limit="10">
+				<Box></Box>
+				<Box></Box>
+				<Box></Box>		
+			</Switcher>	
+		</Box>
 	</div>
-	<div slot="right">
-		<p>right</p>
-	</div>
-</Bracket>
+</Cover>

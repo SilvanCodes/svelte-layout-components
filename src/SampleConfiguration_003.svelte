@@ -1,49 +1,22 @@
 <script>
 	import Cover from './layout/Cover.svelte';
-	import Bracket from './layout/Bracket.svelte';
-	import Stack from './layout/Stack.svelte';
-    import Alternate from './Alternate.svelte';
-    import Button from './Button.svelte';
-	import FullHeightSidebar from './FullHeightSidebar.svelte';
-
-	import { statements } from './staticContent.js'
+	import Grid from './layout/Grid.svelte';
+	import Box from './layout/Box.svelte';
 </script>
 
-<FullHeightSidebar>
-
-	<div slot="sidebar" style="background: var(--color-secondary); color: white;">
-		<Bracket padding="--s-1">
-			<p slot="center">Sidebar Title</p>
-		</Bracket>
-		<Bracket padding="--s-1">
-			<div slot="center">
-				<Stack>
-					<Button priority="ternary">Option 1</Button>
-					<Button priority="ternary">Option 2</Button>
-					<Button priority="ternary">Option 3</Button>
-				</Stack>
-			</div>
-		</Bracket>
+<Cover>
+	<div slot="center">
+		<Grid>
+			<Box>Hello, this is a test. Here come a lot of text that I wrote myself. Interesting right?</Box>
+			<Box>B</Box>
+			<Box></Box>
+			<Box></Box>
+			<Box></Box>
+			<Box></Box>
+			<Box></Box>
+			<Box></Box>
+			<Box></Box>
+			<Box></Box>
+		</Grid>
 	</div>
-
-	<div slot="not-sidebar">
-		<Cover space="--zero">
-			<div slot="above">
-				<Bracket>
-					<h1 slot="center">Welcome!</h1>
-				</Bracket>
-			</div>
-
-			<div slot="center">
-				<Alternate {statements}></Alternate>
-			</div>
-
-			<div slot="below">
-				<Bracket>
-					<p slot="center">Footer</p>
-				</Bracket>
-			</div>
-		</Cover>
-	</div>
-
-</FullHeightSidebar>
+</Cover>

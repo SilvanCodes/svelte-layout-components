@@ -1,18 +1,19 @@
 <script>
     import { onMount } from 'svelte';
+    import { cssValue } from '../lib/helpers';
 
     export let itemWidth = 'auto';
-    export let space = '--s1';
+    export let space = 's1';
     export let height = 'auto';
 
-    const id = itemWidth + space + height;
+    const id = 'reel' + itemWidth + space + height;
 
 	onMount(() => {
-        document.querySelectorAll(`.reel${id}`).forEach(e => {
-            e.style.height = `var(${height}, ${height})`;
+        document.querySelectorAll(`.${id}`).forEach(e => {
+            e.style.height = cssValue(height);
         });
-        document.querySelectorAll(`.reel${id} > * + *`).forEach(e => e.style.marginLeft = `var(${space}, ${space})`);
-        document.querySelectorAll(`.reel${id} > *`).forEach(e => e.style.flex = `0 0 var(${itemWidth}, ${itemWidth})`);
+        document.querySelectorAll(`.${id} > * + *`).forEach(e => e.style.marginLeft = cssValue(space));
+        document.querySelectorAll(`.${id} > *`).forEach(e => e.style.flex = `0 0 ${cssValue(itemWidth)}`);
 	});
 </script>
 
@@ -30,6 +31,6 @@
     }
 </style>
 
-<div class={`reel${id}`}>
+<div class={id}>
     <slot></slot>
 </div>

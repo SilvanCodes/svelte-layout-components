@@ -4,13 +4,11 @@
 	import SampleConfiguration_003 from './SampleConfiguration_003.svelte';
 	import SampleConfiguration_004 from './SampleConfiguration_004.svelte';
 	import SampleConfiguration_005 from './SampleConfiguration_005.svelte';
-	import SampleConfiguration_006 from './SampleConfiguration_006.svelte';
-	import SampleConfiguration_007 from './SampleConfiguration_007.svelte';
 
 	let configuration = 0;
 	let x0 = null;
 
-	const PAGES = 7;
+	const PAGES = 5;
 
 	/* spacebar press */
 	document.body.onkeyup = function(e){
@@ -49,8 +47,8 @@
 	document.body.addEventListener('touchend', move, false);
 
 	/* swipe with mouse */
-	document.body.addEventListener('mousedown', lock, false);
-	document.body.addEventListener('mouseup', move, false);
+	// document.body.addEventListener('mousedown', lock, false);
+	// document.body.addEventListener('mouseup', move, false);
 
 	/* prevent default action */
 	document.body.addEventListener('touchmove', e => { e.preventDefault() }, false);
@@ -68,9 +66,5 @@
 		<SampleConfiguration_004></SampleConfiguration_004>
 	{:else if configuration === 4}
 		<SampleConfiguration_005></SampleConfiguration_005>
-	{:else if configuration === 5}
-		<SampleConfiguration_006></SampleConfiguration_006>
-	{:else if configuration === 6}
-		<SampleConfiguration_007></SampleConfiguration_007>
 	{/if}
 </main>

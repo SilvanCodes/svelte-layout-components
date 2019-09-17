@@ -1,26 +1,27 @@
 <script>
     import { onMount } from 'svelte';
+    import { cssValue } from '../lib/helpers';
 
     export let side = 'left';
     export let sideWidth = '';
     export let contentMin = '50%';
-    export let space = '--s0';
+    export let space = 's0';
 
-    const id = side + sideWidth + contentMin.replace('%', '') + space;
+    const id = 'with-sidebar' + side + sideWidth + contentMin.replace('%', '') + space;
 
 	onMount(() => {
         if (sideWidth) {
-            document.querySelector(`.with-sidebar${id} > * > .sidebar`).forEach(e => e.style.flexBasis = sideWidth);
+            document.querySelector(`.${id} > * > .sidebar`).forEach(e => e.style.flexBasis = cssValue(sideWidth));
         }
 
         if (contentMin) {
-            document.querySelectorAll(`.with-sidebar${id} > * > .not-sidebar`).forEach(e => e.style.minWidth = contentMin);
+            document.querySelectorAll(`.${id} > * > .not-sidebar`).forEach(e => e.style.minWidth = cssValue(contentMin));
         }
 
         if (space) {
-            document.querySelectorAll(`.with-sidebar${id} > *`).forEach(e => e.style.margin = `calc(var(${space}) / 2 * -1)`);
-            document.querySelectorAll(`.with-sidebar${id} > * > *`).forEach(e => e.style.margin = `calc(var(${space}) / 2)`);
-            document.querySelectorAll(`.with-sidebar${id} > * > .not-sidebar`).forEach(e => e.style.minWidth = `calc(${contentMin} - var(${space}))`);
+            document.querySelectorAll(`.${id} > *`).forEach(e => e.style.margin = `calc(${cssValue(space)} / 2 * -1)`);
+            document.querySelectorAll(`.${id} > * > *`).forEach(e => e.style.margin = `calc(${cssValue(space)} / 2)`);
+            document.querySelectorAll(`.${id} > * > .not-sidebar`).forEach(e => e.style.minWidth = `calc(${cssValue(contentMin)} - ${cssValue(space)})`);
         }
 	});
 </script>
@@ -46,7 +47,7 @@
     }
 </style>
 
-<div class={`with-sidebar${id}`}>
+<div class={id}>
     <div>
         {#if side === 'left'}
             <div class="sidebar">

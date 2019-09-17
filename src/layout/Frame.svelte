@@ -1,13 +1,14 @@
 <script>
     import { onMount } from 'svelte';
+    import { cssValue } from '../lib/helpers';
 
     export let n = '6';
     export let d = '9';
 
-    const id = n + d;
+    const id = 'frame' + n + d;
 
 	onMount(() => {
-        document.querySelectorAll(`.frame${id}`).forEach(e => e.style.paddingBottom = `calc(${n} / ${d} * 100%)`);
+        document.querySelectorAll(`.${id}`).forEach(e => e.style.paddingBottom = `calc(${cssValue(n)} / ${cssValue(d)} * 100%)`);
 	});
 </script>
 
@@ -35,6 +36,6 @@
     }
 </style>
 
-<div class={`frame${id}`}>
+<div class={id}>
     <slot></slot>
 </div>

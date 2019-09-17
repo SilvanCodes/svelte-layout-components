@@ -1,19 +1,20 @@
 <script>
     import { onMount } from 'svelte';
+    import { cssValue } from '../lib/helpers';
 
     export let justify = 'center';
     export let align = 'center';
-    export let space = '--s0';
+    export let space = 's0';
 
-    const id = justify + align + space;
+    const id = 'cluster' + justify + align + space;
 
     onMount(() => {
-        document.querySelectorAll(`.cluster${id} > *`).forEach(e => {
-            e.style.justifyContent = justify;
-            e.style.alignItems = align;
-            e.style.margin = `calc(var(${space}) / 2 * -1)`
+        document.querySelectorAll(`.${id} > *`).forEach(e => {
+            e.style.justifyContent = cssValue(justify);
+            e.style.alignItems = cssValue(align);
+            e.style.margin = `calc(${cssValue(space)} / 2 * -1)`
         });
-        document.querySelectorAll(`.cluster${id} > * > *`).forEach(e => e.style.margin = `calc(var(${space}) / 2)`);
+        document.querySelectorAll(`.${id} > * > *`).forEach(e => e.style.margin = `calc(${cssValue(space)} / 2)`);
 	});
 </script>
 
@@ -28,7 +29,7 @@
     }
 </style>
 
-<div class={`cluster${id}`}>
+<div class={id}>
     <slot>
     </slot>
 </div>
