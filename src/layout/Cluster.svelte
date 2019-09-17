@@ -5,7 +5,7 @@
     export let align = 'center';
     export let space = '--s0';
 
-    const id = space;
+    const id = justify + align + space;
 
     onMount(() => {
         document.querySelectorAll(`.cluster${id} > *`).forEach(e => {

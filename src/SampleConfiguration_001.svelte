@@ -17,7 +17,7 @@
 		</Bracket>
 	</div>
 	<div slot="center">
-		<Sidebar>
+		<Sidebar contentMin="70%">
 			<div slot="sidebar">
 				<Bracket padding="--s-1">
 					<div slot="center">
