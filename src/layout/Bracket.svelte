@@ -15,15 +15,11 @@
         document.querySelectorAll(`.${id} > .left`).forEach(e => e.style.marginRight = cssValue(space));
         document.querySelectorAll(`.${id} > .right`).forEach(e => e.style.marginLeft = cssValue(space));
 
-        document.querySelectorAll(`.${id} > .center`).forEach(e => e.style.maxWidth = cssValue(maxWidth));
-
-        if (intrinsic) {
-            document.querySelectorAll(`.${id} > .center`).forEach(e => e.style.alignItems = 'center');
-        }
-
-        if (andText) {
-            document.querySelectorAll(`.${id} > .center`).forEach(e => e.style.textAlign = 'center');
-        }
+        document.querySelectorAll(`.${id} > .center`).forEach(e => {
+            e.style.maxWidth = cssValue(maxWidth);
+            intrinsic ? e.style.alignItems = 'center' : null;
+            andText ? e.style.textAlign = 'center' : null;
+        });
 	});
 </script>
 

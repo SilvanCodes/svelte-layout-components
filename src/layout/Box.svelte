@@ -12,16 +12,18 @@
     const id = buildId('box', padding, color, backgroundColor, borderWidth, borderStyle, borderColor);
 
     onMount(() => {
-        document.querySelectorAll(`.${id}`).forEach(e => e.style.padding = cssValue(padding));
-        document.querySelectorAll(`.${id}`).forEach(e => e.style.color = cssValue(color));
-        document.querySelectorAll(`.${id}`).forEach(e => e.style.backgroundColor = cssValue(backgroundColor));
+        document.querySelectorAll(`.${id}`).forEach(e => {
+            e.style.padding = cssValue(padding);
+            e.style.color = cssValue(color);
+            e.style.backgroundColor = cssValue(backgroundColor);
 
-        if (borderWidth) {
-            document.querySelectorAll(`.${id}`).forEach(e => e.style.border = cssValue(borderWidth, borderStyle, borderColor));
-        } else {
-            document.querySelectorAll(`.${id}`).forEach(e => e.style.outline = '0.125rem solid transparent');
-            document.querySelectorAll(`.${id}`).forEach(e => e.style.outlineOffset = '-0.125rem');
-        }
+            if (borderWidth) {
+                e.style.border = cssValue(borderWidth, borderStyle, borderColor);
+            } else {
+                e.style.outline = '0.125rem solid transparent';
+                e.style.outlineOffset = '-0.125rem';
+            }
+        });
 	});
 </script>
 
