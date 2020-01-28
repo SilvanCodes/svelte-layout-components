@@ -9,6 +9,7 @@
 	import Switcher from './layout/Switcher.svelte';
 	import Frame from './layout/Frame.svelte';
 	import Reel from './layout/Reel.svelte';
+	import Imposter from './layout/Imposter.svelte';
 	import Presentation from './Presentation.svelte';
 </script>
 
@@ -70,14 +71,14 @@
 			<a slot="title" href="https://every-layout.dev/layouts/sidebar/" target="blank"><h5>Sidebar</h5></a>
 			<Sidebar contentMin="70%">
 				<div slot="sidebar">
-					<Box padding="s-2">
+					<Box padding="s-2" color="white">
 						<p>A</p>
 						<p>B</p>
 						<p>C</p>
 					</Box>
 				</div>
 				<div slot="not-sidebar">
-					<Box>
+					<Box color="white">
 						<p>Main Content</p>
 					</Box>
 				</div>
@@ -110,15 +111,15 @@
 			<a slot="title" href="https://every-layout.dev/layouts/grid/" target="blank"><h5>Grid</h5></a>
 			<div style="min-width: 8rem;">
 				<Grid min="s1" space="s0">
-					<Box padding="s-3">X</Box>
-					<Box padding="s-3">o</Box>
-					<Box padding="s-3">o</Box>
-					<Box padding="s-3">o</Box>
-					<Box padding="s-3">X</Box>
-					<Box padding="s-3">o</Box>
-					<Box padding="s-3">o</Box>
-					<Box padding="s-3">o</Box>
-					<Box padding="s-3">X</Box>
+					<Box padding="s-3" color="white">X</Box>
+					<Box padding="s-3" color="white">o</Box>
+					<Box padding="s-3" color="white">o</Box>
+					<Box padding="s-3" color="white">o</Box>
+					<Box padding="s-3" color="white">X</Box>
+					<Box padding="s-3" color="white">o</Box>
+					<Box padding="s-3" color="white">o</Box>
+					<Box padding="s-3" color="white">o</Box>
+					<Box padding="s-3" color="white">X</Box>
 				</Grid>
 			</div>
 		</Presentation>
@@ -127,7 +128,7 @@
 			<a slot="title" href="https://every-layout.dev/layouts/frame/" target="blank"><h5>Frame</h5></a>
 			<Box padding="zero">
 				<Frame>
-					<img src='favicon.png' alt='favicon'>
+					<img src="favicon.png" alt="favicon">
 				</Frame>
 			</Box>
 		</Presentation>
@@ -137,17 +138,36 @@
 			<Box padding="zero" backgroundColor="white">
 				<div style="max-width: 12rem;">
 					<Reel itemWidth="s2">
-						<img src='favicon.png' alt='favicon'>
-						<img src='favicon.png' alt='favicon'>
-						<img src='favicon.png' alt='favicon'>
-						<img src='favicon.png' alt='favicon'>
-						<img src='favicon.png' alt='favicon'>
-						<img src='favicon.png' alt='favicon'>
-						<img src='favicon.png' alt='favicon'>
-						<img src='favicon.png' alt='favicon'>
-						<img src='favicon.png' alt='favicon'>
-						<img src='favicon.png' alt='favicon'>
+						<img src="favicon.png" alt="favicon">
+						<img src="favicon.png" alt="favicon">
+						<img src="favicon.png" alt="favicon">
+						<img src="favicon.png" alt="favicon">
+						<img src="favicon.png" alt="favicon">
+						<img src="favicon.png" alt="favicon">
+						<img src="favicon.png" alt="favicon">
+						<img src="favicon.png" alt="favicon">
+						<img src="favicon.png" alt="favicon">
+						<img src="favicon.png" alt="favicon">
 					</Reel>
+				</div>
+			</Box>
+		</Presentation>
+
+		<Presentation>
+			<a slot="title" href="https://absolutely.every-layout.dev/layouts/imposter/" target="blank"><h5>Imposter</h5></a>
+			<Box padding="zero" backgroundColor="white">
+				<div style="max-width: 12rem; position: relative;">
+					<p>Some obscured text. Some obscured text. Some obscured text. Some obscured text. Some obscured text.</p>
+					<Imposter margin="s1">
+						<Box color="white" padding="s-2">
+							<p>I'm important!</p>
+							<br>
+							<br>
+							<br>
+							<br>
+							<p>And scrollable!</p>
+						</Box>
+					</Imposter>
 				</div>
 			</Box>
 		</Presentation>
