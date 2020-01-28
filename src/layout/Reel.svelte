@@ -1,36 +1,34 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue, buildId } from '../lib/helpers';
+    import { cssValue } from '../lib/helpers';
 
     export let itemWidth = 'auto';
     export let space = 's1';
     export let height = 'auto';
 
-    const id = buildId('reel', itemWidth, space, height);
+    let reel;
 
 	onMount(() => {
-        document.querySelectorAll(`.${id}`).forEach(e => {
-            e.style.height = cssValue(height);
-        });
-        document.querySelectorAll(`.${id} > * + *`).forEach(e => e.style.marginLeft = cssValue(space));
-        document.querySelectorAll(`.${id} > *`).forEach(e => e.style.flex = `0 0 ${cssValue(itemWidth)}`);
+        reel.style.height = cssValue(height);
+        reel.querySelectorAll(`.reel > * + *`).forEach(e => e.style.marginLeft = cssValue(space));
+        reel.querySelectorAll(`.reel > *`).forEach(e => e.style.flex = `0 0 ${cssValue(itemWidth)}`);
 	});
 </script>
 
 <style>
-    [class^="reel"] {
+    .reel {
         display: flex;
         overflow-x: auto;
         overflow-y: hidden;
     }
 
-    :global([class^="reel"] > img) {
+    .reel > :global(img) {
         height: 100%;
         flex-basis: auto;
         width: auto;
     }
 </style>
 
-<div class={id}>
+<div bind:this={reel} class="reel">
     <slot></slot>
 </div>

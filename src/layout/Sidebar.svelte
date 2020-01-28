@@ -1,37 +1,37 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue, buildId } from '../lib/helpers';
+    import { cssValue } from '../lib/helpers';
 
     export let side = 'left';
     export let sideWidth = '';
     export let contentMin = '50%';
     export let space = 's0';
 
-    const id = buildId('with-sidebar', side, sideWidth, contentMin, space);
+    let withSidebar;
+    let notSidebar;
+    let sidebar;
 
 	onMount(() => {
-        if (sideWidth) {
-            document.querySelector(`.${id} > * > .sidebar`).forEach(e => e.style.flexBasis = cssValue(sideWidth));
-        }
+        notSidebar.style.minWidth = cssValue(contentMin);
 
-        if (contentMin) {
-            document.querySelectorAll(`.${id} > * > .not-sidebar`).forEach(e => e.style.minWidth = cssValue(contentMin));
+        if (sideWidth) {
+            sidebar.style.flexBasis = cssValue(sideWidth);
         }
 
         if (space) {
-            document.querySelectorAll(`.${id} > *`).forEach(e => e.style.margin = `calc(${cssValue(space)} / 2 * -1)`);
-            document.querySelectorAll(`.${id} > * > *`).forEach(e => e.style.margin = `calc(${cssValue(space)} / 2)`);
-            document.querySelectorAll(`.${id} > * > .not-sidebar`).forEach(e => e.style.minWidth = `calc(${cssValue(contentMin)} - ${cssValue(space)})`);
+            withSidebar.querySelectorAll(`.with-sidebar > *`).forEach(e => e.style.margin = `calc(${cssValue(space)} / 2 * -1)`);
+            withSidebar.querySelectorAll(`.with-sidebar > * > *`).forEach(e => e.style.margin = `calc(${cssValue(space)} / 2)`);
+            notSidebar.style.minWidth = `calc(${cssValue(contentMin)} - ${cssValue(space)})`;
         }
 	});
 </script>
 
 <style>
-    [class^="with-sidebar"] {
+    .with-sidebar {
         overflow: hidden;
     }
 
-    [class^="with-sidebar"] > * {
+    .with-sidebar > * {
         display: flex;
         flex-wrap: wrap;
     }
@@ -40,27 +40,27 @@
         flex-grow: 1;
     }
 
-    [class^="not-sidebar"] {
+    .not-sidebar {
         /* ↓ grow from nothing */
         flex-basis: 0;
         flex-grow: 999;
     }
 </style>
 
-<div class={id}>
+<div bind:this={withSidebar} class="with-sidebar">
     <div>
         {#if side === 'left'}
-            <div class="sidebar">
+            <div bind:this={sidebar} class="sidebar">
                 <slot name="sidebar"></slot>
             </div>
-            <div class="not-sidebar">
+            <div bind:this={notSidebar} class="not-sidebar">
                 <slot name="not-sidebar"></slot>
             </div>
         {:else}
-            <div class="not-sidebar">
+            <div bind:this={notSidebar} class="not-sidebar">
                 <slot name="not-sidebar"></slot>
             </div>
-            <div class="sidebar">
+            <div bind:this={sidebar} class="sidebar">
                 <slot name="sidebar"></slot>
             </div>
         {/if}

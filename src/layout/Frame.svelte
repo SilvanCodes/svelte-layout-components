@@ -1,23 +1,23 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue, buildId } from '../lib/helpers';
+    import { cssValue } from '../lib/helpers';
 
     export let n = '6';
     export let d = '9';
 
-    const id = buildId('frame', n, d);
+    let frame;
 
 	onMount(() => {
-        document.querySelectorAll(`.${id}`).forEach(e => e.style.paddingBottom = `calc(${cssValue(n)} / ${cssValue(d)} * 100%)`);
+        frame.style.paddingBottom = `calc(${cssValue(n)} / ${cssValue(d)} * 100%)`;
 	});
 </script>
 
 <style>
-    [class^="frame"] {
+    .frame {
         position: relative;
     }
 
-    :global([class^="frame"] > *) {
+    .frame > :global(*) {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -29,13 +29,13 @@
         left: 0;
     }
 
-    :global([class^="frame"] > img, [class^="frame"] > video) {
+    .frame > :global(img), .frame > :global(video) {
         height: 100%;
         width: 100%;
         object-fit: cover;
     }
 </style>
 
-<div class={id}>
+<div bind:this={frame} class="frame">
     <slot></slot>
 </div>

@@ -1,41 +1,42 @@
 <script>
 	import { onMount } from 'svelte';
-	import { cssValue, buildId } from '../lib/helpers';
+	import { cssValue } from '../lib/helpers';
 
 	export let space = 's0';
 	export let recursive = false;
 	/** splitAfter can only be a number (handed as a string), but not a CSS-variable */
 	export let splitAfter = '';
 
-	const id = buildId('stack', space, recursive, splitAfter);
+	let stack;
 
 	onMount(() => {
+
 		if (recursive) {
-			document.querySelectorAll(`.${id} * + *`).forEach(e => e.style.marginTop = cssValue(space));
+			stack.querySelectorAll(`* + *`).forEach(e => e.style.marginTop = cssValue(space));
 		} else {
-			document.querySelectorAll(`.${id} > * + *`).forEach(e => e.style.marginTop = cssValue(space));
+			stack.querySelectorAll(`.stack > * + *`).forEach(e => e.style.marginTop = cssValue(space));
 		}
 
 		if (splitAfter) {
-			document.querySelectorAll(`.${id} > :nth-child(${splitAfter})`).forEach(e => e.style.marginBottom = 'auto');
+			stack.querySelectorAll(`.stack > :nth-child(${splitAfter})`).forEach(e => e.style.marginBottom = 'auto');
 		}
 	});
 </script>
 
 <style>
-	[class^="stack"] {
+	.stack {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     }
 
 	/* allow for split even if no sibling height is available */
-	[class^="stack"]:only-child {
+	.stack:only-child {
         height: 100%;
     }
 </style>
 
-<div class={id}>
+<div bind:this={stack} class="stack">
     <slot>
     </slot>
 </div>

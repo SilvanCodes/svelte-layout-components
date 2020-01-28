@@ -1,26 +1,24 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue, buildId } from '../lib/helpers';
+    import { cssValue } from '../lib/helpers';
 
     export let min = '12rem';
     export let space = 's0';
 
-    const id = buildId('grid', min, space);
+    let grid;
 
 	onMount(() => {
-        document.querySelectorAll(`.${id}`).forEach(e => {
-            e.style.gridGap = `var(--${space}, ${space})`;
-            e.style.gridTemplateColumns = `repeat(auto-fit, minmax(${cssValue(min)}, 1fr))`;
-        });
+        grid.style.gridGap = `var(--${space}, ${space})`;
+        grid.style.gridTemplateColumns = `repeat(auto-fit, minmax(${cssValue(min)}, 1fr))`;
 	});
 </script>
 
 <style>
-    [class^="grid"] {
+    .grid {
         display: grid;
     }
 </style>
 
-<div class={id}>
+<div bind:this={grid} class="grid">
     <slot></slot>
 </div>

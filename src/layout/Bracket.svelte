@@ -1,57 +1,59 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue, buildId } from '../lib/helpers';
+    import { cssValue } from '../lib/helpers';
 
     export let maxWidth = 'measure';
     export let andText = true;
     export let space = 'zero';
-    export let padding = 's0';
+    export let padding = 'zero';
     export let intrinsic = false;
 
-    const id = buildId('bracket', maxWidth, andText, space, padding, intrinsic);
+    let bracket;
+    let left;
+    let center;
+    let right;
 
 	onMount(() => {
-        document.querySelectorAll(`.${id}`).forEach(e => e.style.padding = cssValue(padding));
-        document.querySelectorAll(`.${id} > .left`).forEach(e => e.style.marginRight = cssValue(space));
-        document.querySelectorAll(`.${id} > .right`).forEach(e => e.style.marginLeft = cssValue(space));
+        bracket.style.padding = cssValue(padding);
 
-        document.querySelectorAll(`.${id} > .center`).forEach(e => {
-            e.style.maxWidth = cssValue(maxWidth);
-            intrinsic ? e.style.alignItems = 'center' : null;
-            andText ? e.style.textAlign = 'center' : null;
-        });
+        left.style.marginRight = cssValue(space);
+        right.style.marginLeft = cssValue(space);
+
+        center.style.maxWidth = cssValue(maxWidth);
+        intrinsic ? center.style.alignItems = 'center' : null;
+        andText ? center.style.textAlign = 'center' : null;
 	});
 </script>
 
 <style>
-    [class^="bracket"] {
+    .bracket {
         display: flex;
     }
 
-    [class^="bracket"] > .center {
+    .bracket > .center {
         margin-left: auto;
         margin-right: auto;
-        display: flex;
-        flex-direction: column;
+        /* display: flex;
+        flex-direction: column; */
     }
 
-    [class^="bracket"] > .left {
+    .bracket > .left {
         margin-left: 0;
     }
 
-    [class^="bracket"] > .right {
+    .bracket > .right {
         margin-right: 0;
     }
 </style>
 
-<div class={id}>
-    <div class="left">
+<div bind:this={bracket} class="bracket">
+    <div bind:this={left} class="left">
         <slot name="left"></slot>
     </div>
-    <div class="center">
+    <div bind:this={center} class="center">
         <slot></slot>
     </div>
-    <div class="right" style="">
+    <div bind:this={right} class="right" style="">
         <slot name="right"></slot>
     </div>
 </div>

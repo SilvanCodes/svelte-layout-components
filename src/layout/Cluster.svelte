@@ -1,36 +1,35 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue, buildId } from '../lib/helpers';
+    import { cssValue } from '../lib/helpers';
 
     export let justify = 'center';
     export let align = 'center';
     export let space = 's0';
 
-    const id = buildId('cluster', justify, align, space);
+    let cluster;
 
     onMount(() => {
-        document.querySelectorAll(`.${id} > *`).forEach(e => {
+        cluster.querySelectorAll(`.cluster > *`).forEach(e => {
             e.style.justifyContent = cssValue(justify);
             e.style.alignItems = cssValue(align);
             e.style.margin = `calc(${cssValue(space)} / 2 * -1)`
         });
-        document.querySelectorAll(`.${id} > * > *`).forEach(e => e.style.margin = `calc(${cssValue(space)} / 2)`);
+        cluster.querySelectorAll(`.cluster > * > *`).forEach(e => e.style.margin = `calc(${cssValue(space)} / 2)`);
 	});
 </script>
 
 <style>
-    [class^="cluster"] {
+    .cluster {
         overflow: hidden;
     }
-    
-    :global([class^="cluster"] > *) {
+
+    .cluster > :global(*) {
         display: flex;
         flex-wrap: wrap;
     }
 </style>
 
-<div class={id}>
+<div bind:this={cluster} class="cluster">
     <slot>
     </slot>
 </div>
-

@@ -1,51 +1,62 @@
 <script>
     import { onMount } from 'svelte';
-    import { cssValue, buildId } from '../lib/helpers';
+    import { cssValue } from '../lib/helpers';
 
     export let space = 's0';
     export let minHeight = '100vh';
     export let pad = true;
 
-    const id = buildId('cover', space, minHeight, pad);
+    /**     space         > if pad === true
+     * | above element  |
+     *      space
+     * | center element | > minHeight
+     *      space
+     * | below element  |
+     *      space         > if pad === true
+     */
+
+    let cover;
+    let above;
+    let below;
 
 	onMount(() => {
-        document.querySelectorAll(`.${id}`).forEach(e => {
-            e.style.minHeight = cssValue(minHeight);
-            pad ? e.style.padding = cssValue(space) : null;
-        });
-        document.querySelectorAll(`.${id} > .above`).forEach(e => e.style.marginBottom = cssValue(space));
-        document.querySelectorAll(`.${id} > .below`).forEach(e => e.style.marginTop = cssValue(space));
+        cover.style.minHeight = cssValue(minHeight);
+        pad ? cover.style.padding = cssValue(space) : null;
+
+        // set minimal gap between center and above/below
+        above.style.marginBottom = cssValue(space);
+        below.style.marginTop = cssValue(space);
 	});
 </script>
 
 <style>
-    [class^="cover"] {
+    .cover {
         display: flex;
         flex-direction: column;
     }
 
-    [class^="cover"] > .center {
+    .cover > .center {
         margin-top: auto;
         margin-bottom: auto;
     }
 
-    [class^="cover"] > .above {
+    .cover > .above {
         margin-top: 0;
     }
 
-    [class^="cover"] > .below {
+    .cover > .below {
         margin-bottom: 0;
     }
 </style>
 
-<div class={id}>
-    <div class="above">
+<div bind:this={cover} class="cover">
+    <div bind:this={above} class="above">
         <slot name="above"></slot>
     </div>
     <div class="center">
         <slot></slot>
     </div>
-    <div class="below">
+    <div bind:this={below} class="below">
         <slot name="below"></slot>
     </div>
 </div>
