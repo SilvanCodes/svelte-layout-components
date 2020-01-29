@@ -16,7 +16,7 @@
 <Cover>
 	<div slot="above">
 		<Bracket>
-			<a id="top" href="https://every-layout.dev/" target="blank"><h1>EveryLayout in Svelte</h1></a>
+			<a id="top" href="https://github.com/SilvanCodes/svelte-layout-components" target="blank"><h1>EveryLayout in Svelte</h1></a>
 		</Bracket>
 	</div>
 	<Grid min="18rem">
