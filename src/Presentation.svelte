@@ -1,12 +1,10 @@
 <script>
-    import Cover from './layout/Cover.svelte';
-	import Box from './layout/Box.svelte';
-	import Bracket from './layout/Bracket.svelte';
+    import { Box, Bracket, Cover } from './layout';
 </script>
 
 <Box backgroundColor="white">
-    <Bracket>
-        <Cover minHeight="1rem">
+    <Bracket centerText padding="zero">
+        <Cover minHeight="s0">
             <div slot="above">
                 <slot name="title"></slot>
             </div>

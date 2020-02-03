@@ -1,17 +1,13 @@
 <script>
-	import Cover from './layout/Cover.svelte';
-	import Grid from './layout/Grid.svelte';
-	import Box from './layout/Box.svelte';
-	import Stack from './layout/Stack.svelte';
-	import Bracket from './layout/Bracket.svelte';
-	import Cluster from './layout/Cluster.svelte';
-	import Sidebar from './layout/Sidebar.svelte';
-	import Switcher from './layout/Switcher.svelte';
-	import Frame from './layout/Frame.svelte';
-	import Reel from './layout/Reel.svelte';
-	import Imposter from './layout/Imposter.svelte';
+	import { Cover, Grid, Box, Stack, Bracket, Cluster, Sidebar, Switcher, Frame, Reel, Imposter } from './layout';
 	import Presentation from './Presentation.svelte';
 </script>
+
+<style>
+	:global([slot]) {
+		display: contents;
+	}
+</style>
 
 <Cover>
 	<div slot="above">
@@ -19,27 +15,28 @@
 			<a id="top" href="https://github.com/SilvanCodes/svelte-layout-components" target="blank"><h1>EveryLayout in Svelte</h1></a>
 		</Bracket>
 	</div>
-	<Grid min="18rem">
+	<Grid minWidth="18rem">
 
 		<Presentation>
 			<a slot="title" href="https://every-layout.dev/layouts/stack/" target="blank"><h5>Stack</h5></a>
-			<Stack recursive="true">
+			<Stack recursive>
 				<ul>
-					<li><hr></li>
-					<li><hr></li>
-					<li><hr></li>
+					<li><p>some</p></li>
+					<li><p>equally</p></li>
+					<li><p>spaced</p></li>
+					<li><p>content</p></li>
 				</ul>
 			</Stack>
 		</Presentation>
 
 		<Presentation>
 			<a slot="title" href="https://every-layout.dev/layouts/box/" target="blank"><h5>Box</h5></a>
-			<Box></Box>
+			<Box padding="s1"></Box>
 		</Presentation>
 
 		<Presentation>
 			<a slot="title" href="https://every-layout.dev/layouts/center/" target="blank"><h5>Bracket</h5></a>
-			<Bracket space="s0">
+			<Bracket>
 				<div slot="left">
 					<Box padding="zero">
 						<div style="height:calc(var(--s1) * 2);"></div>
@@ -58,23 +55,24 @@
 			<a slot="title" href="https://every-layout.dev/layouts/cluster/" target="blank"><h5>Cluster</h5></a>
 			<Cluster>
 				<ul style="list-style: none">
-					<li>Content</li>
-					<li>Content</li>
-					<li>Content</li>
-					<li>Content</li>
-					<li>Content</li>
+					<li><p>Content</p></li>
+					<li><p>Content</p></li>
+					<li><p>Content</p></li>
+					<li><p>Content</p></li>
+					<li><p>Content</p></li>
 				</ul>
 			</Cluster>
 		</Presentation>
 
 		<Presentation>
 			<a slot="title" href="https://every-layout.dev/layouts/sidebar/" target="blank"><h5>Sidebar</h5></a>
-			<Sidebar contentMin="70%">
+			<Sidebar>
 				<div slot="sidebar">
 					<Box padding="s-2" color="white">
-						<p>A</p>
-						<p>B</p>
-						<p>C</p>
+						<Stack splitAfter="1">
+							<p>A</p>
+							<p>B</p>
+						</Stack>
 					</Box>
 				</div>
 				<div slot="not-sidebar">
@@ -87,10 +85,10 @@
 
 		<Presentation>
 			<a slot="title" href="https://every-layout.dev/layouts/switcher/" target="blank"><h5>Switcher</h5></a>
-			<Switcher threshold="13rem">
-				<Box padding="s0"></Box>
-				<Box padding="s0"></Box>
-				<Box padding="s0"></Box>
+			<Switcher minWidth="13rem">
+				<Box></Box>
+				<Box></Box>
+				<Box></Box>
 			</Switcher>
 		</Presentation>
 
@@ -98,11 +96,11 @@
 			<a slot="title" href="https://every-layout.dev/layouts/cover/" target="blank"><h5>Cover</h5></a>
 			<Cover minHeight="10vh">
 				<div slot="above">
-					<hr>
+					<Box padding="zero"></Box>
 				</div>
-				<Box></Box>
+				<Box padding="s1"></Box>
 				<div slot="below">
-					<hr>
+					<Box padding="zero"></Box>
 				</div>
 			</Cover>
 		</Presentation>
@@ -110,7 +108,7 @@
 		<Presentation>
 			<a slot="title" href="https://every-layout.dev/layouts/grid/" target="blank"><h5>Grid</h5></a>
 			<div style="min-width: 8rem;">
-				<Grid min="s1" space="s0">
+				<Grid minWidth="s1">
 					<Box padding="s-3" color="white">X</Box>
 					<Box padding="s-3" color="white">o</Box>
 					<Box padding="s-3" color="white">o</Box>
@@ -137,7 +135,7 @@
 			<a slot="title" href="https://every-layout.dev/layouts/reel/" target="blank"><h5>Reel</h5></a>
 			<Box padding="zero" backgroundColor="white">
 				<div style="max-width: 12rem;">
-					<Reel itemWidth="s2">
+					<Reel itemWidth="s4">
 						<img src="favicon.png" alt="favicon">
 						<img src="favicon.png" alt="favicon">
 						<img src="favicon.png" alt="favicon">
@@ -158,9 +156,9 @@
 			<Box padding="zero" backgroundColor="white">
 				<div style="max-width: 12rem; position: relative;">
 					<p>Some obscured text. Some obscured text. Some obscured text. Some obscured text. Some obscured text.</p>
-					<Imposter margin="s1">
+					<Imposter>
 						<Box color="white" padding="s-2">
-							<p>I'm important!</p>
+							<p>I'm infront!</p>
 							<br>
 							<br>
 							<br>
