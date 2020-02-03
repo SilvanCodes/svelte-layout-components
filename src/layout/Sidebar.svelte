@@ -2,26 +2,26 @@
     import { onMount } from 'svelte';
     import { cssValue } from '../lib/helpers';
 
-    export let side = 'left';
+    export let gap = 's0';
+    export let sidebarIs = 'left';
     export let sideWidth = '';
-    export let contentMin = '50%';
-    export let space = 's0';
+    export let contentMinWidth = '50%';
 
     let withSidebar;
     let notSidebar;
     let sidebar;
 
 	onMount(() => {
-        notSidebar.style.minWidth = cssValue(contentMin);
+        notSidebar.style.minWidth = cssValue(contentMinWidth);
 
         if (sideWidth) {
             sidebar.style.flexBasis = cssValue(sideWidth);
         }
 
-        if (space) {
-            withSidebar.querySelectorAll(`.with-sidebar > *`).forEach(e => e.style.margin = `calc(${cssValue(space)} / 2 * -1)`);
-            withSidebar.querySelectorAll(`.with-sidebar > * > *`).forEach(e => e.style.margin = `calc(${cssValue(space)} / 2)`);
-            notSidebar.style.minWidth = `calc(${cssValue(contentMin)} - ${cssValue(space)})`;
+        if (gap) {
+            withSidebar.querySelectorAll(`.with-sidebar > *`).forEach(e => e.style.margin = `calc(${cssValue(gap)} / 2 * -1)`);
+            withSidebar.querySelectorAll(`.with-sidebar > * > *`).forEach(e => e.style.margin = `calc(${cssValue(gap)} / 2)`);
+            notSidebar.style.minWidth = `calc(${cssValue(contentMinWidth)} - ${cssValue(gap)})`;
         }
 	});
 </script>
@@ -49,7 +49,7 @@
 
 <div bind:this={withSidebar} class="with-sidebar">
     <div>
-        {#if side === 'left'}
+        {#if sidebarIs === 'left'}
             <div bind:this={sidebar} class="sidebar">
                 <slot name="sidebar"></slot>
             </div>

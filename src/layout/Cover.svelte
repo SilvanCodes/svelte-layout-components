@@ -2,18 +2,9 @@
     import { onMount } from 'svelte';
     import { cssValue } from '../lib/helpers';
 
-    export let space = 's0';
+    export let gap = 's0';
+    export let padding = 's0';
     export let minHeight = '100vh';
-    export let pad = true;
-
-    /**     space         > if pad === true
-     * | above element  |
-     *      space
-     * | center element | > minHeight
-     *      space
-     * | below element  |
-     *      space         > if pad === true
-     */
 
     let cover;
     let above;
@@ -21,11 +12,11 @@
 
 	onMount(() => {
         cover.style.minHeight = cssValue(minHeight);
-        pad ? cover.style.padding = cssValue(space) : null;
+        cover.style.padding = cssValue(padding);
 
         // set minimal gap between center and above/below
-        above.style.marginBottom = cssValue(space);
-        below.style.marginTop = cssValue(space);
+        above.style.marginBottom = cssValue(gap);
+        below.style.marginTop = cssValue(gap);
 	});
 </script>
 

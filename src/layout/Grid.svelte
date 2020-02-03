@@ -2,14 +2,14 @@
     import { onMount } from 'svelte';
     import { cssValue } from '../lib/helpers';
 
-    export let min = '12rem';
-    export let space = 's0';
+    export let gap = 's0';
+    export let minWidth = 'measure';
 
     let grid;
 
 	onMount(() => {
-        grid.style.gridGap = `var(--${space}, ${space})`;
-        grid.style.gridTemplateColumns = `repeat(auto-fit, minmax(${cssValue(min)}, 1fr))`;
+        grid.style.gridGap = cssValue(gap);
+        grid.style.gridTemplateColumns = `repeat(auto-fit, minmax(${cssValue(minWidth)}, 1fr))`;
 	});
 </script>
 

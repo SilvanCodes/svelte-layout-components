@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import { cssValue } from '../lib/helpers';
 
-    export let padding = 's1';
+    export let padding = 's0';
     export let color = 'color-primary';
     export let backgroundColor = 'color-secondary';
     export let borderWidth = 'border-medium';

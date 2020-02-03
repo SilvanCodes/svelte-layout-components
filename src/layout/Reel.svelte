@@ -2,15 +2,15 @@
     import { onMount } from 'svelte';
     import { cssValue } from '../lib/helpers';
 
-    export let itemWidth = 'auto';
-    export let space = 's1';
+    export let gap = 's0';
     export let height = 'auto';
+    export let itemWidth = 'auto';
 
     let reel;
 
 	onMount(() => {
         reel.style.height = cssValue(height);
-        reel.querySelectorAll(`.reel > * + *`).forEach(e => e.style.marginLeft = cssValue(space));
+        reel.querySelectorAll(`.reel > * + *`).forEach(e => e.style.marginLeft = cssValue(gap));
         reel.querySelectorAll(`.reel > *`).forEach(e => e.style.flex = `0 0 ${cssValue(itemWidth)}`);
 	});
 </script>

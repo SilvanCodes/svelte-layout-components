@@ -2,11 +2,11 @@
     import { onMount } from 'svelte';
     import { cssValue } from '../lib/helpers';
 
+    export let gap = 's0';
+    export let padding = 's0';
     export let maxWidth = 'measure';
-    export let andText = true;
-    export let space = 'zero';
-    export let padding = 'zero';
-    export let intrinsic = false;
+    export let centerText = false;
+    export let centerItems = false;
 
     let bracket;
     let left;
@@ -16,12 +16,12 @@
 	onMount(() => {
         bracket.style.padding = cssValue(padding);
 
-        left.style.marginRight = cssValue(space);
-        right.style.marginLeft = cssValue(space);
+        left.style.marginRight = cssValue(gap);
+        right.style.marginLeft = cssValue(gap);
 
         center.style.maxWidth = cssValue(maxWidth);
-        intrinsic ? center.style.alignItems = 'center' : null;
-        andText ? center.style.textAlign = 'center' : null;
+        centerText ? center.style.textAlign = 'center' : null;
+        centerItems ? center.style.alignItems = 'center' : null;
 	});
 </script>
 
@@ -33,8 +33,6 @@
     .bracket > .center {
         margin-left: auto;
         margin-right: auto;
-        /* display: flex;
-        flex-direction: column; */
     }
 
     .bracket > .left {
@@ -53,7 +51,7 @@
     <div bind:this={center} class="center">
         <slot></slot>
     </div>
-    <div bind:this={right} class="right" style="">
+    <div bind:this={right} class="right">
         <slot name="right"></slot>
     </div>
 </div>

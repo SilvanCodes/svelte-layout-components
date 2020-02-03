@@ -2,8 +2,8 @@
     import { onMount } from 'svelte';
     import { cssValue } from '../lib/helpers';
 
-    export let n = '6';
-    export let d = '9';
+    export let ratio = '16:9';
+    $: [d,n] = ratio.split(':');
 
     let frame;
 

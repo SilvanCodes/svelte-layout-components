@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { cssValue } from '../lib/helpers';
 
-	export let space = 's0';
+	export let gap = 's0';
 	export let recursive = false;
 	/** splitAfter can only be a number (handed as a string), but not a CSS-variable */
 	export let splitAfter = '';
@@ -10,11 +10,10 @@
 	let stack;
 
 	onMount(() => {
-
 		if (recursive) {
-			stack.querySelectorAll(`* + *`).forEach(e => e.style.marginTop = cssValue(space));
+			stack.querySelectorAll(`* + *`).forEach(e => e.style.marginTop = cssValue(gap));
 		} else {
-			stack.querySelectorAll(`.stack > * + *`).forEach(e => e.style.marginTop = cssValue(space));
+			stack.querySelectorAll(`.stack > * + *`).forEach(e => e.style.marginTop = cssValue(gap));
 		}
 
 		if (splitAfter) {
