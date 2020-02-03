@@ -19,9 +19,6 @@
 	/* measure width */
 	--measure: 60ch;
 
-	/* spacing between sidebar and not-sidebar */
-	--sidebar-spacing: var(--s1);
-
 	/* color scheme from colorsuplyyy */
 	--color-primary: #8EE3C8;
 	--color-secondary: #6DCAE2;
